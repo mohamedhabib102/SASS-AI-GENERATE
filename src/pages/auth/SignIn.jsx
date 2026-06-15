@@ -6,10 +6,13 @@ import LayoutFroms from "@/components/layouts/LayoutFroms";
 const SignIn = () => {
     return (
         <section className="min-h-screen">
-            <LayoutFroms children={{
-                title: "Sgin",
-                description:"test"
-            }}/>
+            <LayoutFroms 
+               
+            title={"Sign In"}
+            description={"Tester"}
+            >
+                <form action="">dgserg</form>
+            </LayoutFroms>
         </section>
     )
 };export default SignIn;

@@ -1,19 +1,22 @@
-const LayoutFroms = ({ children }) => {
+const LayoutFroms = ({ children, title, description }) => {
 
     // The children object includes a component name like "SignIn"
+    // nameComponent
   return (
 <div className="flex w-full min-h-screen">
   <div className="w-1/2 px-6 py-8">
+  
+      <div className="">
+        <h1>{title}</h1>
+        <h1>{description}</h1>
+      </div>
     {/* here component forms */}
+    {children}
   </div>
 
   <div className="w-1/2 bg-primary ">
     <div className="">
 
-      <div className="">
-        <h1>{children.title}</h1>
-        <h1>{children.description}</h1>
-      </div>
 
       
       {/* here component image */}
