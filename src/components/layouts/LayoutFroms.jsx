@@ -1,6 +1,5 @@
 const LayoutFroms = ({ children, title, description, srcImg }) => {
-  // The children object includes a component name like "SignIn"
-  // nameComponent
+
   return (
     <div className="flex w-full min-h-screen">
       <div className="w-1/2 bg-primary ">
@@ -11,7 +10,7 @@ const LayoutFroms = ({ children, title, description, srcImg }) => {
       <div className="w-1/2 px-6 py-8 flex flex-col justify-center gap-6">
         <div className=" flex flex-col items-center">
           <div className="mb-6">
-            <img src={srcImg} alt="logo" />
+            {srcImg ? <img src={srcImg} alt="logo"  /> : null}
           </div>
           <h1 className="font-semibold text-main text-[29px] leading-11">
             {title}

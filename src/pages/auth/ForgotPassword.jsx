@@ -1,36 +1,31 @@
 import LayoutFroms from "@/components/layouts/LayoutFroms";
-import { Input } from "@/components/ui/input";
+import CustomInput from "@/components/shared/CustomInput";
 import { Mail } from "lucide-react";
+import logoMain from "@/assets/logo/logoMain.svg";
 
 const ForgotPassword = () => {
   return (
     <section className="min-h-screen">
       <LayoutFroms
-        srcImg={"../../assets/logo/logoMain.png"}
+        srcImg={logoMain}
         title={"نسيت كلمة المرور؟"}
         description={
           "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة."
         }
       >
         <div className="">
-          <label
-            htmlFor="email"
-            className=" text-sm font-semibold text-main mb-3"
-          >
-            أدخل بريدك الألكتروني{" "}
-          </label>
-
-          <div className="relative">
-            <Mail className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none z-10" />
-
-            <Input
-              id="email"
-              type="email"
-              placeholder="rania@gmail.com"
-              className="pr-10 placeholder:text-gray-400 border-gray-200 focus-visible:ring-[#6B5CE7] focus-visible:border-[#6B5CE7]"
-              dir="ltr"
-            />
-          </div>
+          <CustomInput
+            name={"email"}
+            type={"email"}
+            classLabel="block mb-1 text-[#121212]"
+            id={"email"}
+            labelContent={"البريد الألكتروني"}
+            palceholder={"أدخل بريدك الألكتروني"}
+            icon={Mail}
+            className={
+              "pr-8 w-full tetx-sm text-[#9E9E9E] block outline-none border-[#E5E5E5] border rounded-lg px-4 py-2"
+            }
+          />
         </div>
       </LayoutFroms>
     </section>
