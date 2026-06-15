@@ -1,7 +1,16 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
+import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
+import { Eye, EyeClosed, EyeOff, Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object({
+    email: Yup.string().email('البريد الإلكتروني غير صالح').required('البريد الإلكتروني مطلوب'),
+    password: Yup.string().min(6, 'كلمة المرور مطلوبه').required('كلمة المرور مطلوبة'),
+    'terms-conditions': Yup.boolean().oneOf([true], 'يجب الموافقة على الشروط والأحكام')
+})
 
 const SignIn = () => {
 
@@ -11,9 +20,9 @@ const SignIn = () => {
             password:'',
             'terms-conditions': false,
         },
-        // validationSchema,
+        validationSchema,
         onSubmit:(values)=> {
-            console.log('submit')
+            console.log(values)
         }
     })
 
@@ -26,17 +35,44 @@ const SignIn = () => {
             >
                 <form onSubmit={formik.handleSubmit} className="w-full lg:w-[80%] mx-auto">
                     <div className="form-fields p-4 flex flex-col gap-4 my-4" >
-                        
-                        <div className="terms flex items-center gap-2">
-                            <input type="checkbox" id="terms-conditions"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            />
-                            <label htmlFor="terms-conditions"
-                            name="terms-conditions"
-                            className="text-gray-600 text-sm">
-                            أوافق على <span className="font-bold text-primary text-sm lg:text-lg"> الشروط والاحكام وسياسة الخصوصية</span>
-                            </label>
+                        <CustomInput
+                            name="email"
+                            type="email"
+                            id="email"
+                            labelContent="البريد الإلكتروني"
+                            palceholder="ahmed@mail.com"
+                            icon={Mail}
+                            formik={formik}
+                        />
+                        <CustomInput
+                            name="password"
+                            type="password"
+                            id="password"
+                            labelContent="كلمة المرور"
+                            palceholder="أدخل كلمة المرور"
+                            icon={Lock}
+                            iconEyeClosed={EyeOff}
+                            iconsEyeDashed={Eye}
+                            formik={formik}
+                        />
+                        {/* terms and conditions */}
+                        <div className="terms flex items-star flex-col  justify-start ">
+                            <div className="flex items-center">
+                                <input type="checkbox" id="terms-conditions"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                />
+                                <label htmlFor="terms-conditions"
+                                name="terms-conditions"
+                                className="text-gray-600 text-sm">
+                                أوافق على <span className="font-bold text-primary text-sm lg:text-lg"> الشروط والاحكام وسياسة الخصوصية</span>
+                                </label>
+                            </div>
+                            {
+                                formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
+                                    <div className="text-red-500 text-sm mt-1">{formik.errors['terms-conditions']}</div>
+                                ) : null
+                            }
                         </div>
                     </div>
                     {/* submit btn */}
