@@ -48,7 +48,7 @@ const OtpCode = () => {
                   <InputOTPSlot
                     key={i}
                     index={i}
-                    className="border border-[#CACACA] rounded-md w-12 h-12 text-center focus:outline-primary!"
+                    className="border border-[#CACACA] rounded-md w-12 h-12 text-center focus:border-primary! out"
                   />
                 ))}
               </InputOTPGroup>
