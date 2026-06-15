@@ -1,3 +1,4 @@
+
 const LayoutForms = ({ children, title, description }) => {
 
     // The children object includes a component name like "SignIn"
@@ -6,7 +7,6 @@ const LayoutForms = ({ children, title, description }) => {
 <div className="flex w-full min-h-screen ">
   {/* right side  */}
   <div className="w-1/2 bg-primary hidden md:block">
-    {/* your fixed component here */}
   </div>
 
   {/* left side */}
