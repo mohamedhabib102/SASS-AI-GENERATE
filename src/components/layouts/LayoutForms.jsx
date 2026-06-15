@@ -11,7 +11,7 @@ const LayoutForms = ({ children, title, description }) => {
 
   {/* left side */}
   <div className="md:w-1/2 w-full px-6 py-8 h-full">
-      <div className="h-full">
+      <div className="py-10 gap-4">
         <div className="flex items-center justify-center flex-col gap-2 h-full">
           <h1 className="font-bold text-2xl lg:text-2x">{title}</h1>
           <p className="text-gray-600 text-md">{description}</p>
