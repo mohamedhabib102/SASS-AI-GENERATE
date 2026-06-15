@@ -1,28 +1,27 @@
-const LayoutFroms = ({ children, title, description }) => {
-
-    // The children object includes a component name like "SignIn"
-    // nameComponent
+const LayoutFroms = ({ children, title, description, srcImg }) => {
+  // The children object includes a component name like "SignIn"
+  // nameComponent
   return (
-<div className="flex w-full min-h-screen">
-  <div className="w-1/2 px-6 py-8">
-  
-      <div className="">
-        <h1>{title}</h1>
-        <h1>{description}</h1>
+    <div className="flex w-full min-h-screen">
+      <div className="w-1/2 bg-primary ">
+        <div className="">{/* here component image */}</div>
       </div>
-    {/* here component forms */}
-    {children}
-  </div>
 
-  <div className="w-1/2 bg-primary ">
-    <div className="">
-
-
-      
-      {/* here component image */}
+      {/* Forgot Password */}
+      <div className="w-1/2 px-6 py-8 flex flex-col justify-center gap-6">
+        <div className=" flex flex-col items-center">
+          <div className="mb-6">
+            <img src={srcImg} alt="logo" />
+          </div>
+          <h1 className="font-semibold text-main text-[29px] leading-11">
+            {title}
+          </h1>
+          <p className="text-gray text-[18px] leading-6.75">{description}</p>
+        </div>
+        {/* here component forms */}
+        {children}
+      </div>
     </div>
-  </div>
-</div>
   );
 };
 export default LayoutFroms;
