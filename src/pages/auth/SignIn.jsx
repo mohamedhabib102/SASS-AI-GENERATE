@@ -1,6 +1,5 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
 import { Button } from "@/components/ui/button";
-import SubmitBtn from "@/components/ui/customUI/SubmitBtn";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 
@@ -27,6 +26,7 @@ const SignIn = () => {
             >
                 <form onSubmit={formik.handleSubmit} className="w-full lg:w-[80%] mx-auto">
                     <div className="form-fields p-4 flex flex-col gap-4 my-4" >
+                        
                         <div className="terms flex items-center gap-2">
                             <input type="checkbox" id="terms-conditions"
                             onChange={formik.handleChange}
