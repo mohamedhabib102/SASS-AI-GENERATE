@@ -1,24 +1,24 @@
-
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "@/pages/home/Home";
 // Auth
-import SignIn from '@/pages/auth/SignIn'
-import SignUp from '@/pages/auth/SignUp'
-import ForgotPassword from '@/pages/auth/ForgotPassword'
-import Home from '@/pages/home/Home'
+import SignIn from "@/pages/auth/SignIn";
+import SignUp from "@/pages/auth/SignUp";
+import ForgotPassword from "@/pages/auth/ForgotPassword";
+import OtpCode from "@/pages/auth/OtpCode";
 
 function App() {
-
   return (
-    <main dir='rtl'>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='auth/sign-up' element={<SignUp/>}/>
-      <Route path='auth/sign-in' element={<SignIn/>}/>
-      <Route path='auth/forgot-password' element={<ForgotPassword/>}/>
-    </Routes>
+    <main dir="rtl">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="auth/sign-up" element={<SignUp />} />
+        <Route path="auth/sign-in" element={<SignIn />} />
+        <Route path="auth/forgot-password" element={<ForgotPassword />} />
+        <Route path="/auth/forgot-password/otp-code" element={<OtpCode />} />
+      </Routes>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

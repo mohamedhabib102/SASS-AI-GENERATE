@@ -1,4 +1,4 @@
-const LayoutFroms = ({ children, title, description, srcImg }) => {
+const LayoutForms = ({ children, title, description, srcImg }) => {
 
   return (
     <div className="flex w-full min-h-screen">
@@ -7,15 +7,15 @@ const LayoutFroms = ({ children, title, description, srcImg }) => {
       </div>
 
       {/* Forgot Password */}
-      <div className="w-1/2 px-6 py-8 flex flex-col justify-center gap-6">
+      <div className="w-1/2 px-6 py-8 flex flex-col justify-center">
         <div className=" flex flex-col items-center">
           <div className="mb-6">
             {srcImg ? <img src={srcImg} alt="logo"  /> : null}
           </div>
-          <h1 className="font-semibold text-main text-[29px] leading-11">
+          <h1 className="font-semibold text-main text-[32px] leading-11">
             {title}
           </h1>
-          <p className="text-gray text-[18px] leading-6.75">{description}</p>
+          <p className="text-gray text-[18px] leading-6.75 mb-2">{description}</p>
         </div>
         {/* here component forms */}
         {children}
@@ -23,4 +23,4 @@ const LayoutFroms = ({ children, title, description, srcImg }) => {
     </div>
   );
 };
-export default LayoutFroms;
+export default LayoutForms;
