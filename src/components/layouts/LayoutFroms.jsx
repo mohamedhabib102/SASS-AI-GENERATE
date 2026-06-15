@@ -12,7 +12,7 @@ const LayoutFroms = ({ children, title, description }) => {
         <h1>{title}</h1>
         <h1>{description}</h1>
       </div>
-    {/* here component forms */}
+    {/* here component forms */}gi
     {children}
   </div>
 
