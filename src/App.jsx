@@ -8,7 +8,7 @@ import Home from '@/pages/home/Home'
 function App() {
 
   return (
-    <main>
+    <main dir='rtl'>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='auth/sign-up' element={<SignUp/>}/>

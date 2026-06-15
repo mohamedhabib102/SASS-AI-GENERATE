@@ -1,3 +1,5 @@
+import CustomInput from "../shared/CustomInput";
+
 const LayoutFroms = ({ children, title, description }) => {
 
     // The children object includes a component name like "SignIn"
