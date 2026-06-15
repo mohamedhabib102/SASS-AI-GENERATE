@@ -1,13 +1,11 @@
 import LayoutFroms from "@/components/layouts/LayoutFroms";
 
 
-
-
 const SignIn = () => {
     return (
         <section className="min-h-screen">
             <LayoutFroms children={{
-                title: "Sgin",
+                title: "Sign In",
                 description:"test"
             }}/>
         </section>
