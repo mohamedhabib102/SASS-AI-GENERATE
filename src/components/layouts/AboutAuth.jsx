@@ -4,33 +4,39 @@
 
 import React from "react";
 import { CircleCheckBig } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const AboutAuth = () => {
+    const {t, i18n} = useTranslation();
+    const lang = i18n.language;
+
     return (
-        <div className=" bg-[#1e25b6] text-white flex flex-col justify-between px-6 lg:px-8 py-12 lg:py-16 select-none" dir="rtl">
+        <div 
+        className={`bg-primary text-white flex flex-col justify-between px-6 lg:px-8 lg:py-8 py-6 select-none
+        min-h-screen`}>
             {/* Top Header / Logo */}
             <div className="w-full flex justify-start">
                 <img
                     src="/logo.svg"
                     title="logo"
                     alt="logo site"
-                    className="h-10 lg:h-14 w-auto"
+                    className="h-10 lg:h-12 w-auto"
                 />
             </div>
 
             {/* Middle Content */}
-            <div className="flex-grow flex flex-col justify-center items-center my-8 w-full">
+            <div className="grow flex flex-col justify-center items-center w-full">
                 {/* Illustration */}
-                <div className="w-full flex justify-center mb-8 lg:mb-12">
+                <div className="w-full flex justify-center mb-6">
                     <img
                         src="/image-auth.png"
                         alt="Marketing Illustration"
-                        className="w-full max-w-[340px] lg:max-w-[420px] h-auto object-contain"
+                        className="w-full max-w-56 object-contain"
                     />
                 </div>
 
                 {/* Text and Features block */}
-                <div className="w-full   space-y-6">
+                <div className="w-full ">
                     {/* Heading */}
                     <div className="space-y-2">
                         <h1 className="text-2xl lg:text-[2.2rem] font-bold text-white leading-tight">
@@ -40,7 +46,7 @@ const AboutAuth = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-white/80 text-sm lg:text-base leading-relaxed font-normal">
+                    <p className="text-white/80 text-lg leading-relaxed font-normal mb-8">
                         منصة ذكية لأتمتة التسويق وجذب العملاء المحتملين.
                         <span className="block mt-1">نجمع البيانات، نحللها بالذكاء الاصطناعي، ونوصل رسالتك للعميل في الوقت المناسب.</span>
                     </p>

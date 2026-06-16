@@ -6,6 +6,7 @@ const  ButtonSwitchLang = () => {
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
+    localStorage.setItem('lang', lang);
     //provide ar, en
     document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.body.lang = lang;
@@ -15,7 +16,7 @@ const  ButtonSwitchLang = () => {
   <Button
     className={`cursor-pointer`}
    onClick={() => changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}>
-    {i18n.language === 'ar' ? 'English' : 'العربية'}
+     {i18n.language === 'ar' ? 'English' : 'العربية'}
   </Button>
   );
 }; export default ButtonSwitchLang;
