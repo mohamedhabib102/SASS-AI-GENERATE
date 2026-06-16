@@ -1,24 +1,31 @@
-const LayoutForms = ({ children, title, description, srcImg }) => {
+import AboutAuth from "./AboutAuth";
 
+const LayoutForms = ({ children, title, description, srcImg, classLabel }) => {
   return (
     <div className="flex w-full min-h-screen">
+      {/* here component image */}
       <div className="w-1/2 bg-primary ">
-        <div className="">{/* here component image */}</div>
+        <div className=""><AboutAuth /></div>
       </div>
 
-      {/* Forgot Password */}
-      <div className="w-1/2 px-6 py-8 flex flex-col justify-center">
-        <div className=" flex flex-col items-center">
-          <div className="mb-6">
-            {srcImg ? <img src={srcImg} alt="logo"  /> : null}
+      {/* left side */}
+      <div className="md:w-1/2 w-full px-6 py-8 ">
+        <div
+          className={`flex flex-col items-center justify-center h-full ${classLabel}`}
+        >
+          <div className="text-center ">
+            {srcImg && (
+              <div className="mb-6">
+                <img src={srcImg} alt="logo" className="w-125 object-cover" />
+              </div>
+            )}
+
+            <h1 className="font-bold text-2xl lg:text-3xl">{title}</h1>
+            <p className="text-gray text-md">{description}</p>
           </div>
-          <h1 className="font-semibold text-main text-[32px] leading-11">
-            {title}
-          </h1>
-          <p className="text-gray text-[18px] leading-6.75 mb-2">{description}</p>
+
+          {children}
         </div>
-        {/* here component forms */}
-        {children}
       </div>
     </div>
   );

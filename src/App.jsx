@@ -4,7 +4,7 @@ import Home from "@/pages/home/Home";
 // Auth
 import SignIn from "@/pages/auth/SignIn";
 import SignUp from "@/pages/auth/SignUp";
-import ForgotPassword from "@/pages/auth/ForgotPassword";
+import ForgotPassword from "@/pages/auth/ForgatPassword";
 import OtpCode from "@/pages/auth/OtpCode";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="auth/sign-up" element={<SignUp />} />
         <Route path="auth/sign-in" element={<SignIn />} />
         <Route path="auth/forgot-password" element={<ForgotPassword />} />
-        <Route path="/auth/forgot-password/otp-code" element={<OtpCode />} />
+        <Route path="/auth/otp-code" element={<OtpCode />} />
       </Routes>
     </main>
   );

@@ -5,8 +5,28 @@ import logoMain from "@/assets/logo/logoMain.svg";
 // import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+// Validation
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email("البريد الإلكتروني غير صالح")
+    .required("البريد الإلكتروني مطلوب"),
+});
+
+// ========== Jsx ========== //
 const ForgotPassword = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
+
   return (
     <section className="min-h-screen">
       <LayoutForms
@@ -15,12 +35,13 @@ const ForgotPassword = () => {
         description={
           "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة."
         }
+        classLabel={'gap-12'}
       >
         <div className="w-full lg:w-[80%] mx-auto">
           <CustomInput
             name={"email"}
             type={"email"}
-            classLabel="block mb-1 text-[#121212] font-semibold mt-5 text-[18px]"
+            classLabel=""
             id={"email"}
             labelContent={"البريد الألكتروني"}
             palceholder={"أدخل بريدك الألكتروني"}
@@ -28,10 +49,11 @@ const ForgotPassword = () => {
             className={
               "pr-8 w-full tetx-sm text-[#9E9E9E] block outline-none border-[#E5E5E5] border rounded-lg px-4 py-2"
             }
+            formik={formik}
           />
 
           {/* btn send otp */}
-          <Link to={"/auth/forgot-password/otp-code"}>
+          <Link to={"/auth/otp-code"}>
             <Button
               type="submit"
               className={
