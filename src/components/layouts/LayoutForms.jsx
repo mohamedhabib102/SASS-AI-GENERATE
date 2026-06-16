@@ -1,3 +1,5 @@
+import AboutAuth from "./AboutAuth";
+
 const LayoutForms = ({ children, title, description }) => {
 
     // The children object includes a component name like "SignIn"
@@ -7,6 +9,7 @@ const LayoutForms = ({ children, title, description }) => {
   {/* right side  */}
   <div className="w-1/2 bg-primary hidden md:block">
     {/* your fixed component here */}
+    <AboutAuth/>
   </div>
 
   {/* left side */}

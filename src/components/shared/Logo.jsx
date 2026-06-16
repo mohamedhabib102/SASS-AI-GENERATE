@@ -2,8 +2,12 @@
 
 
 
-const Logo = () => {
+const Logo = ({color}) => {
     return (
-         <div></div>
+         <div>
+            <img
+            
+            />
+         </div>
     )
 }
