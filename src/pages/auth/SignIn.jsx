@@ -31,7 +31,7 @@ const SignIn = () => {
     });
     
     return (
-        <section className="min-h-screen">
+        <section className="min-h-screen darl">
             <LayoutForms
             title={lang === 'en' ? "Sign In" : "تسجيل الدخول"}
             description={lang === 'en' ? "Sign in to manage book fairs and cultural events" : "سجل الدخول لاداره معارض الكتب والفاعليات الثقافيه"}
