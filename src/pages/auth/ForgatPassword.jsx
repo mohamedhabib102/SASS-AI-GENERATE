@@ -1,7 +1,6 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Mail } from "lucide-react";
-import logoMain from "@/assets/logo/logoMain.svg";
 // import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -30,7 +29,7 @@ const ForgotPassword = () => {
   return (
     <section className="min-h-screen">
       <LayoutForms
-        srcImg={logoMain}
+        srcImg={"/logo/logoSecondary.svg"}
         title={"نسيت كلمة المرور؟"}
         description={
           "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة."

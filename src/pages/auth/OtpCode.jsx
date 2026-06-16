@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import LayoutForms from "@/components/layouts/LayoutForms";
 
-import logoMain from "@/assets/logo/logoMain.svg";
 // import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -21,7 +20,7 @@ const OtpCode = () => {
   return (
     <section className="min-h-screen">
       <LayoutForms
-        srcImg={logoMain}
+        srcImg={"/logo/logoSecondary.svg"}
         title={"أدخل رمز التحقق"}
         description={"أرسلنا رمز مكون من 6أرقام إلى البريد الإلكترونى"}
       >

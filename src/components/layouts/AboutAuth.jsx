@@ -9,7 +9,7 @@ const AboutAuth = () => {
       {/* Top Header / Logo */}
       <div className="w-full flex justify-start">
         <img
-          src="/logo.svg"
+          src="/logo/logoMain.svg"
           title="logo"
           alt="logo site"
           className="h-10 lg:h-14 w-auto"

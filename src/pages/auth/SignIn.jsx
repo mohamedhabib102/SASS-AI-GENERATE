@@ -1,8 +1,9 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useFormik } from "formik";
-import { Eye, EyeClosed, EyeOff, Lock, Mail } from "lucide-react";
+import { Eye, EyeClosed, Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup'
 
@@ -51,20 +52,22 @@ const SignIn = () => {
                             labelContent="كلمة المرور"
                             palceholder="أدخل كلمة المرور"
                             icon={Lock}
-                            iconEyeClosed={EyeOff}
+                            iconEyeClosed={EyeClosed}
                             iconsEyeDashed={Eye}
                             formik={formik}
                         />
                         {/* terms and conditions */}
                         <div className="terms flex items-star flex-col  justify-start ">
-                            <div className="flex items-center">
-                                <input type="checkbox" id="terms-conditions"
+                                 <div className="flex items-center">
+                                <Checkbox
+                                 id={"terms-conditions"}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
+                                className="text-white bg-main w-4 h-4 border-gray-400"
                                 />
                                 <label htmlFor="terms-conditions"
                                 name="terms-conditions"
-                                className="text-gray-600 text-sm">
+                                className="text-gray-600 text-sm mr-2">
                                 أوافق على <span className="font-bold text-primary text-sm lg:text-lg"> الشروط والاحكام وسياسة الخصوصية</span>
                                 </label>
                             </div>

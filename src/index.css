@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 @theme inline {
   --font-heading: var(--font-sans);
@@ -11,3 +12,8 @@
   --color-main: #121212;
   --color-gray: #636262;
 }
+
+body{
+    font-family: "Rubik", sans-serif;
+}
+

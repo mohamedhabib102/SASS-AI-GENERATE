@@ -3,9 +3,10 @@ import AboutAuth from "./AboutAuth";
 const LayoutForms = ({ children, title, description, srcImg, classLabel }) => {
   return (
     <div className="flex w-full min-h-screen">
-      {/* here component image */}
-      <div className="w-1/2 bg-primary ">
-        <div className=""><AboutAuth /></div>
+      {/* right side  */}
+      <div className="w-1/2 bg-primary hidden md:block">
+        {/* your fixed component here */}
+        <AboutAuth />
       </div>
 
       {/* left side */}
