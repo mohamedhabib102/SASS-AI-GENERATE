@@ -21,7 +21,7 @@ const LayoutForms = ({ children, title, description, srcImg, classLabel }) => {
               </div>
             )}
 
-            <h1 className="font-bold text-2xl lg:text-3xl">{title}</h1>
+            <h1 className="font-bold text-2xl lg:text-3xl mb-2">{title}</h1>
             <p className="text-gray text-md">{description}</p>
           </div>
 
@@ -31,4 +31,5 @@ const LayoutForms = ({ children, title, description, srcImg, classLabel }) => {
     </div>
   );
 };
+
 export default LayoutForms;

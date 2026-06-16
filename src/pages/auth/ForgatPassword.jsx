@@ -1,10 +1,8 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Mail } from "lucide-react";
-// import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-// Validation
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -14,8 +12,9 @@ const validationSchema = Yup.object({
     .required("البريد الإلكتروني مطلوب"),
 });
 
-// ========== Jsx ========== //
 const ForgotPassword = () => {
+  // const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,6 +22,7 @@ const ForgotPassword = () => {
     validationSchema,
     onSubmit: (values) => {
       console.log(values);
+      // navigate("/auth/otp-code");
     },
   });
 
@@ -34,9 +34,12 @@ const ForgotPassword = () => {
         description={
           "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة."
         }
-        classLabel={'gap-12'}
+        classLabel={"gap-12"}
       >
-        <div className="w-full lg:w-[80%] mx-auto">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="w-full lg:w-[80%] mx-auto"
+        >
           <CustomInput
             name={"email"}
             type={"email"}
@@ -51,7 +54,6 @@ const ForgotPassword = () => {
             formik={formik}
           />
 
-          {/* btn send otp */}
           <Link to={"/auth/otp-code"}>
             <Button
               type="submit"
@@ -62,7 +64,7 @@ const ForgotPassword = () => {
               ارسال رمز التحقق{" "}
             </Button>
           </Link>
-        </div>
+        </form>
       </LayoutForms>
     </section>
   );

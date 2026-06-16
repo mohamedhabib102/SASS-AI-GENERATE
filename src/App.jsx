@@ -9,7 +9,7 @@ import OtpCode from "@/pages/auth/OtpCode";
 
 function App() {
   return (
-    <main dir="rtl">
+    <main>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="auth/sign-up" element={<SignUp />} />

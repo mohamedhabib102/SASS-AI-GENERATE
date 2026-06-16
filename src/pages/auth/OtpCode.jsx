@@ -66,12 +66,9 @@ const OtpCode = () => {
               </Button>
             </Link>
             {/* == resend otp == */}
-            <Link
-              to={"/auth/forgot-password/otp-code"}
-              className="text-center text-primary"
-            >
-              <p className="text-[16px]">إعادة إرسال الرمز</p>
-            </Link>
+            <button className="text-[16px] text-center text-primary cursor-pointer ">
+              إعادة إرسال الرمز
+            </button>
           </div>
         </div>
       </LayoutForms>
