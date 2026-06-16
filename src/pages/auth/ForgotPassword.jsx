@@ -1,11 +1,11 @@
-
-
-
-
+import LayoutForms from "@/components/layouts/LayoutForms";
 const ForgotPassword = () => {
     return (
         <section>
-            Forgot Password
+            <LayoutForms>
+                            Forgot Password
+
+            </LayoutForms>
         </section>
     )
 };export default ForgotPassword;
