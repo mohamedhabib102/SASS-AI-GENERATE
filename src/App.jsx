@@ -8,11 +8,11 @@ import Home from '@/pages/home/Home'
 function App() {
 
   return (
-    <main dir='rtl'>
+    <main>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='auth/sign-up' element={<SignUp/>}/>
-      <Route path='auth/sign-in' element={<SignIn/>}/>
+      <Route path='/auth/sign-up' element={<SignUp/>}/>
+      <Route path='/auth/sign-in' element={<SignIn/>}/>
     </Routes>
     </main>
   )
