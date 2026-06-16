@@ -12,7 +12,7 @@ export default function ResetPassword() {
         const lang = i18n.language || 'ar';
 
     const validationSchema = Yup.object({
-        password: Yup.string().min(6, lang === 'en' ? 'Password must be at least 6 characters' : 'كلمة المرور مطلوبه').required(lang === 'en' ? 'Password is required' : 'كلمة المرور مطلوبة'),
+        password: Yup.string().min(6, lang === 'en' ? 'Password must be at least 6 characters' : 'يجب ادخال 6 احرف ع الاقل').required(lang === 'en' ? 'Password is required' : 'كلمة المرور مطلوبة'),
         'terms-conditions': Yup.boolean().oneOf([true], lang === 'en' ? 'You must agree to the terms and conditions' : 'يجب الموافقة على الشروط والأحكام')
     });
 
