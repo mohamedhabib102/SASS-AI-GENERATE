@@ -29,7 +29,7 @@ const SignIn = () => {
             title={t('signIn.title')}
             description={t('signIn.description')}
             >
-                <form onSubmit={formik.handleSubmit} className="w-full  ">
+                <form onSubmit={formik.handleSubmit} className="w-full  py-4">
                     <div className="form-fields flex flex-col gap-4 my-4" >
                         <CustomInput
                             name="email"
@@ -98,7 +98,7 @@ const SignIn = () => {
                             className="w-full h-12 flex items-center justify-center rounded-xl cursor-pointer gap-2 border-gray-200 border text-gray-700 font-semibold text-sm lg:text-base hover:bg-gray-50 transition-colors"
                         >
                             <span>{t('signIn.googleBtn')}</span>
-                            <img src="/google.png" alt="google image" loading="lazy"/>
+                            <img src="/images/google.png" alt="google image" loading="lazy"/>
                         </button>
                     </div>
                     {/* has no email */}
