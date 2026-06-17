@@ -69,7 +69,7 @@ export default function ResetPassword() {
                             checked={formik.values['terms-conditions']}
                             onCheckedChange={(checked) => formik.setFieldValue('terms-conditions', !!checked)}
                             onBlur={formik.handleBlur}
-                            className="cursor-pointer text-white bg-main w-4 h-4 border-gray-400"
+                            className="cursor-pointer text-white bg-white w-4 h-4 border-gray-400"
                         />
                         <label
                             htmlFor="terms-conditions"
