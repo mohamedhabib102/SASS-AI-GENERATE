@@ -1,3 +1,5 @@
+import ButtonChangeLang from "../shared/ButtonChangeLang";
+
 import { CircleCheckBig } from "lucide-react";
 
 const AboutAuth = () => {
@@ -7,13 +9,14 @@ const AboutAuth = () => {
         min-h-screen`}
     >
       {/* Top Header / Logo */}
-      <div className="w-full flex justify-start">
+      <div className="w-full flex justify-between items-center">
         <img
           src="/logo/logoMain.svg"
           title="logo"
           alt="logo site"
           className="h-10 lg:h-12 w-auto"
         />
+        <ButtonChangeLang />
       </div>
 
       {/* Middle Content */}
