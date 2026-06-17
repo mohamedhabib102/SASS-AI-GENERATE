@@ -24,13 +24,13 @@ const SignIn = () => {
     });
     
     return (
-        <section className="min-h-screen darl">
+        <section className="min-h-screen ">
             <LayoutForms
             title={t('signIn.title')}
             description={t('signIn.description')}
             >
-                <form onSubmit={formik.handleSubmit} className="w-full lg:w-[80%] mx-auto">
-                    <div className="form-fields p-4 flex flex-col gap-4 my-4" >
+                <form onSubmit={formik.handleSubmit} className="w-full  ">
+                    <div className="form-fields flex flex-col gap-4 my-4" >
                         <CustomInput
                             name="email"
                             type="email"
@@ -62,7 +62,7 @@ const SignIn = () => {
                                     checked={formik.values['terms-conditions']}
                                     onCheckedChange={(checked) => formik.setFieldValue('terms-conditions', !!checked)}
                                     onBlur={formik.handleBlur}
-                                    className=" cursor-pointer text-white bg-main w-4 h-4 border-gray-400"
+                                    className="cursor-pointer text-white w-4.5 h-4.5 rounded-md border-gray-300 data-checked:bg-primary data-checked:border-primary"
                                 />
                                 <label
                                     htmlFor="terms-conditions"
@@ -75,7 +75,7 @@ const SignIn = () => {
                                 </label>
                             </div>
                             {formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
-                                <div className="text-red-500 text-sm mt-1">{formik.errors['terms-conditions']}</div>
+                                <div className="text-red-500 text-xs mt-1">{formik.errors['terms-conditions']}</div>
                             ) : null}
                         </div>
                     </div>
@@ -91,16 +91,16 @@ const SignIn = () => {
                         <span className="text-sm text-gray-400 font-medium select-none">{t('signIn.or')}</span>
                         <div className="flex-1 h-px bg-gray-200"></div>
                     </div>
-                    {/* sign in with google email */}
-                    <div className="google-auth flex items-center justify-center mt-4">
+                    {/* sign in with google */}
+                    <div className="google-auth flex items-center justify-center mt-3">
                         <button
                             type="button"
-                            className="w-full flex items-center justify-center rounded-lg cursor-pointer gap-2 border-gray-200 border py-3 text-gray-600"
+                            className="w-full h-12 flex items-center justify-center rounded-xl cursor-pointer gap-2 border-gray-200 border text-gray-700 font-semibold text-sm lg:text-base hover:bg-gray-50 transition-colors"
                         >
                             <span>{t('signIn.googleBtn')}</span>
                             <img src="/google.png" alt="google image" loading="lazy"/>
                         </button>
-                        </div>
+                    </div>
                     {/* has no email */}
                     <div className="text-gray-600 text-sm mt-4 flex items-center justify-center">
                         <p>{t('signIn.noAccount')} <Link to="/auth/sign-up" className="text-primary font-bold">{t('signIn.signUpLink')}</Link></p>

@@ -34,7 +34,7 @@ export default function ResetPassword() {
             title={t('resetPassword.title')}
             description={t('resetPassword.description')}
         >
-            <form onSubmit={formik.handleSubmit} className="w-full lg:w-[80%] mx-auto">
+            <form onSubmit={formik.handleSubmit} className="w-full ">
                 <div className="form-fields p-4 flex flex-col gap-4 my-4">
                     <CustomInput
                         name="password"
@@ -95,3 +95,5 @@ export default function ResetPassword() {
         </LayoutForms>
     );
 }
+
+
