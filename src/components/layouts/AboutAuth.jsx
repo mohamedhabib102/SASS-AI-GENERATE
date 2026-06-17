@@ -1,6 +1,7 @@
 import React from "react";
 import { CircleCheckBig } from "lucide-react";
 import { useLang } from "@/hooks/lang/useLang";
+import ButtonChangeLang from "../shared/ButtonChangeLang";
 
 const AboutAuth = () => {
 
