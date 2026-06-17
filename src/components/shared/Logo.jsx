@@ -2,12 +2,12 @@
 
 
 
-const Logo = ({color}) => {
-    return (
-         <div>
-            <img
+// const Logo = ({color}) => {
+//     return (
+//          <div>
+//             <img
             
-            />
-         </div>
-    )
-}
+//             />
+//          </div>
+//     )
+// }

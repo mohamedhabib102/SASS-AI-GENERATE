@@ -4,17 +4,22 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
-
-
-
-
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
-    --color-primary: #4F46E5;
+  --font-heading: var(--font-sans);
+  --font-sans: "Geist Variable", sans-serif;
+  --color-primary: #4f46e5;
+  --color-secondary: #f56e14;
+  --color-main: #121212;
+  --color-gray: #636262;
 }
 
 body{
     font-family: "Rubik", sans-serif;
 }
+
+
+.container {
+    @apply mx-auto w-full px-[10px] md:w-[590px] md:w-[700px] lg:w-[980px] xl:w-[1200px];
+}
+
 

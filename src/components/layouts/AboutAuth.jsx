@@ -1,10 +1,9 @@
 import React from "react";
 import { CircleCheckBig } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/lang/useLang";
 
 const AboutAuth = () => {
-  const { i18n } = useTranslation();
-  const lang = i18n.language;
+
 
   return (
     <div
@@ -21,7 +20,7 @@ const AboutAuth = () => {
       {/* Top Header / Logo */}
       <div className="w-full flex justify-start">
         <img
-          src="/logo.svg"
+          src="/logo/logoMain.svg"
           title="logo"
           alt="logo site"
           className="h-10 lg:h-15 w-auto"
@@ -33,7 +32,7 @@ const AboutAuth = () => {
         {/* Illustration */}
         <div className="w-full flex justify-center mb-4">
           <img
-            src="/image-auth.png"
+            src="/images/image-auth.png"
             alt="Marketing Illustration"
             className="w-full max-w-40 lg:max-w-70 object-contain"
           />
