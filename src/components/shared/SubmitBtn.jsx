@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button } from '../button'
+// import { Button } from '../button'
 
 const SubmitBtn = ({text}) => {
     return (
-        <Button>
+        <button>
             <span>{text}</span>
-        </Button>
+        </button>
     )
 }
 

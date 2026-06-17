@@ -1,26 +1,54 @@
+<<<<<<< HEAD
 
 const LayoutForms = ({ children, title, description }) => {
+=======
+import AboutAuth from "./AboutAuth";
+>>>>>>> develop
 
-    // The children object includes a component name like "SignIn"
-    // nameComponent
+const LayoutForms = ({ children, title, description, srcImg }) => {
+ 
   return (
+<<<<<<< HEAD
 <div className="flex w-full min-h-screen ">
   {/* right side  */}
   <div className="w-1/2 bg-primary hidden md:block">
   </div>
+=======
+<div className="flex w-full h-screen ">
+        {/* right side */}
+      <div className="w-1/2 bg-primary hidden md:block">
+        <AboutAuth />
+      </div>
+>>>>>>> develop
 
-  {/* left side */}
-  <div className="md:w-1/2 w-full px-6 py-8 h-full">
-      <div className="py-10 gap-4">
-        <div className="flex items-center justify-center flex-col gap-2 h-full">
-          <h1 className="font-bold text-2xl lg:text-2x">{title}</h1>
-          <p className="text-gray-600 text-md">{description}</p>
+      {/* left side */}
+      <div className="md:w-1/2 w-full flex items-center justify-center px-6 lg:py-0 py-4">
+        <div className="w-full max-w-xl">
+         <div className="flex flex-col items-center justify-center gap-5 mb-5 mt-6">
+              {srcImg && (
+              <div>
+                <img
+                  src={srcImg}
+                  alt="logo"
+                  className="w-auto h-10 lg:h-15 object-contain"
+                />
+              </div>
+            )}
+
+            <h1 className="font-bold text-xl lg:text-2xl text-center ">
+              {title}
+            </h1>
+
+            <p className="text-gray-500 text-xs lg:text-sm text-center">
+              {description}
+            </p>
+          </div>
+
+          {children}
         </div>
-      {/* here component forms */}
-      {children}
-        </div>
-  </div>
-</div>
+      </div>
+    </div>
   );
 };
+
 export default LayoutForms;
