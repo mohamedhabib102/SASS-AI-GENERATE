@@ -3,7 +3,7 @@ import { CircleCheckBig } from "lucide-react";
 import { useLang } from "@/hooks/lang/useLang";
 
 const AboutAuth = () => {
-
+    const {t} =  useLang()
 
   return (
     <div
@@ -41,27 +41,24 @@ const AboutAuth = () => {
         <div className="w-full">
           <div className="space-y-1">
             <h1 className="text-xl lg:text-2xl font-bold leading-tight">
-              مرحباً بك في
-              <span className="block text-[#F56E14] mt-1">
-                منصة ماركيفا لإدارة الخدمات التسويقية
+ {t("aboutAuth.welcome")}              <span className="block text-[#F56E14] mt-1">
+                {t("aboutAuth.logoTitle")}
               </span>
             </h1>
           </div>
 
           <p className="text-white/80 text-sm lg:text-base leading-relaxed mb-5">
-            منصة ذكية لأتمتة التسويق وجذب العملاء المحتملين.
-            <span className="block mt-1">
-              نجمع البيانات، نحللها بالذكاء الاصطناعي، ونوصل رسالتك للعميل في
-              الوقت المناسب.
+ {t("aboutAuth.descriptionLine1")}             <span className="block mt-1">
+ {t("aboutAuth.descriptionLine2")}
             </span>
           </p>
 
           <ul className="space-y-2.5">
             {[
-              "جمع ذكي للعملاء المحتملين.",
-              "لوحة تحكم ترصد الحملات التسويقية لحظة بلحظة.",
-              "تحليل وتصنيف بالذكاء الاصطناعي.",
-              "رسائل تسويقية مخصصة تلقائياً.",
+              t("aboutAuth.feature1"),
+              t("aboutAuth.feature2"),
+              t("aboutAuth.feature3"),
+              t("aboutAuth.feature4"),
             ].map((item, index) => (
               <li key={index} className="flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
@@ -78,11 +75,11 @@ const AboutAuth = () => {
 
       {/* Footer */}
       <div className="w-full flex justify-between items-center text-white/50 text-[10px] lg:text-xs mt-4">
-        <span>© 2026 أسفار. جميع الحقوق محفوظة.</span>
+        <span>{t("aboutAuth.copyright")}</span>
 
         <div className="flex gap-4">
-          <a href="#">سياسة الخصوصية</a>
-          <a href="#">شروط الخدمة</a>
+          <a href="#">{t("aboutAuth.privacy")}</a>
+          <a href="#">{t("aboutAuth.terms")}</a>
         </div>
       </div>
     </div>
