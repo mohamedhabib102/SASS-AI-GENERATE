@@ -28,78 +28,74 @@ export default function ResetPassword() {
 
   return (
     <LayoutForms
-      logo={
-        <img
-          src="/LogoSecondary.png"
-          alt="Logo"
-          className="w-100 h-16 mb-10"
-        />
-      }
+      srcImg={"/LogoSecondary.png"}
+      
       title="إعادة تعيين كلمة المرور"
       description="أدخل كلمة مرور قوية لحماية حسابك"
     >
 
-                <form onSubmit={formik.handleSubmit} className="w-full lg:w-[80%] mx-auto">
-                            <div className="form-fields p-4 flex flex-col gap-4 my-4" >
-<CustomInput
-                            name="password"
-                            type="password"
-                            id="password"
-                            labelContent={lang === 'en' ? "Password" : "أدخل كلمة مرور جديدة"}
-                            palceholder={lang === 'en' ? "Enter your password" : "********"}
-                            icon={Lock}
-                            iconEyeClosed={EyeClosed}
-                            iconsEyeDashed={Eye}
-                            formik={formik}
-                            lang={lang}
-                        />
+                <form onSubmit={formik.handleSubmit} className="w-full ">
+                    <div className="form-fields flex flex-col gap-4 my-4" >
                         <CustomInput
-                            name="password"
-                            type="password"
-                            id="password"
-                            labelContent={lang === 'en' ? "Password" : "تأكيد كلمة المرور"}
-                            palceholder={lang === 'en' ? "Enter your password" : "********"}
-                            icon={Lock}
-                            iconEyeClosed={EyeClosed}
-                            iconsEyeDashed={Eye}
-                            formik={formik}
-                            lang={lang}
-                        />
-       </div>
-       <div className={`terms flex flex-col  w-full `}>
-                            <div className={`flex items-center gap-2 `}>
-                                <Checkbox
-                                    id="terms-conditions"
-                                    name="terms-conditions"
-                                    checked={formik.values['terms-conditions']}
-                                    onCheckedChange={(checked) => formik.setFieldValue('terms-conditions', !!checked)}
-                                    onBlur={formik.handleBlur}
-                                    className=" cursor-pointer text-white bg-main w-4 h-4 border-gray-400"
-                                />
-                                <label
-                                    htmlFor="terms-conditions"
-                                    className="text-gray-600 text-sm ms-2 select-none cursor-pointer"
-                                >
-                                    {lang === 'en' ? (
-                                        <>
-                                            I agree to the <span className="font-bold text-primary text-sm lg:text-lg">Terms and Conditions and Privacy Policy</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            أوافق على <span className="font-bold text-primary text-sm lg:text-lg"> الشروط والاحكام وسياسة الخصوصية</span>
-                                        </>
-                                    )}
-                                </label>
-                            </div>
-                            {formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
-                                <div className="text-red-500 text-sm mt-1">{formik.errors['terms-conditions']}</div>
-                            ) : null}
-                        </div>
-        <Button
-          type="submit"
-          className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
-        >
-تعيين كلمة المرور        </Button>
+                             name="password"
+                             type="password"
+                             id="password"
+                             labelContent={lang === 'en' ? "Password" : "أدخل كلمة مرور جديدة"}
+                             palceholder="********"
+                             icon={Lock}
+                             iconEyeClosed={EyeClosed}
+                             iconsEyeDashed={Eye}
+                             formik={formik}
+                             lang={lang}
+                         />
+                         <CustomInput
+                             name="password"
+                             type="password"
+                             id="password"
+                             labelContent={lang === 'en' ? "Password" : "تأكيد كلمة المرور"}
+                             palceholder="********"
+                             icon={Lock}
+                             iconEyeClosed={EyeClosed}
+                             iconsEyeDashed={Eye}
+                             formik={formik}
+                             lang={lang}
+                         />
+                    </div>
+                    <div className={`terms flex flex-col  w-full mb-4 `}>
+                             <div className={`flex items-center gap-2 `}>
+                                 <Checkbox
+                                     id="terms-conditions"
+                                     name="terms-conditions"
+                                     checked={formik.values['terms-conditions']}
+                                     onCheckedChange={(checked) => formik.setFieldValue('terms-conditions', !!checked)}
+                                     onBlur={formik.handleBlur}
+                                     className="cursor-pointer text-white w-4.5 h-4.5 rounded-md border-gray-300 data-checked:bg-primary data-checked:border-primary"
+                                 />
+                                 <label
+                                     htmlFor="terms-conditions"
+                                     className="text-gray-600 text-sm ms-2 select-none cursor-pointer"
+                                 >
+                                     {lang === 'en' ? (
+                                         <>
+                                             I agree to the <span className="font-semibold text-primary text-sm lg:text-base">Terms and Conditions and Privacy Policy</span>
+                                         </>
+                                     ) : (
+                                         <>
+                                             أوافق على <span className="font-semibold text-primary text-sm lg:text-base">الشروط والاحكام وسياسة الخصوصية</span>
+                                         </>
+                                     )}
+                                 </label>
+                             </div>
+                             {formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
+                                 <div className="text-red-500 text-xs mt-1">{formik.errors['terms-conditions']}</div>
+                             ) : null}
+                         </div>
+                 <Button
+                   type="submit"
+                   className="w-full h-12 text-white font-semibold text-sm lg:text-base cursor-pointer rounded-xl bg-primary hover:bg-primary/95 transition-colors"
+                 >
+                     تعيين كلمة المرور
+                 </Button>
       </form>
 
     </LayoutForms>
