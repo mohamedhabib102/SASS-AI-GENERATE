@@ -52,3 +52,12 @@ export const useResetPasswordValidationSchema = () => {
     ),
   });
 };
+
+export const useForgotPasswordValidationSchema = () => {
+  const { t } = useTranslation();
+  return Yup.object({
+    email: Yup.string()
+      .email(t("validations.emailInvalid"))
+      .required(t("validations.emailRequired")),
+  });
+};

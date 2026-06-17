@@ -126,7 +126,7 @@ const SignUp = () => {
                             className="w-full flex items-center justify-center rounded-lg cursor-pointer gap-2 border-gray-200 border py-3 text-gray-600"
                         >
                             <span>{t('signUp.googleBtn')}</span>
-                            <img src="/google.png" alt="google image" loading="lazy"/>
+                            <img src="/images/google.png" alt="google image" loading="lazy"/>
                         </button>
                         </div>
                     {/* has no email */}

@@ -71,5 +71,18 @@
     "termsText": "I agree to the ",
     "termsLink": "Terms and Conditions and Privacy Policy",
     "submit": "Reset Password"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "description": "Enter your email address to select a new password.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "submit": "Send verification code"
+  },
+  "otp": {
+    "title": "Enter Verification Code",
+    "description": "We sent a 6-digit code to the email address",
+    "submit": "Confirm Verification Code",
+    "resend": "Resend Code"
   }
 }
