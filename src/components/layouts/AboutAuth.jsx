@@ -1,12 +1,21 @@
-import ButtonChangeLang from "../shared/ButtonChangeLang";
-
+import React from "react";
 import { CircleCheckBig } from "lucide-react";
+import { useLang } from "@/hooks/lang/useLang";
 
 const AboutAuth = () => {
+
+
   return (
     <div
-      className={`bg-primary text-white flex flex-col justify-between px-6 lg:px-8 lg:py-8 py-6 select-none
-        min-h-screen`}
+      className="
+      bg-primary text-white
+      flex flex-col
+      justify-between
+      px-6 lg:px-8 py-5 lg:py-6
+      min-h-screen
+      overflow-y-auto
+      select-none
+      "
     >
       {/* Top Header / Logo */}
       <div className="w-full flex justify-between items-center">
@@ -14,36 +23,33 @@ const AboutAuth = () => {
           src="/logo/logoMain.svg"
           title="logo"
           alt="logo site"
-          className="h-10 lg:h-12 w-auto"
+          className="h-10 lg:h-15 w-auto"
         />
         <ButtonChangeLang />
       </div>
 
       {/* Middle Content */}
-      <div className="grow flex flex-col justify-center items-center w-full">
+      <div className="flex-1 flex flex-col justify-center items-center w-full">
         {/* Illustration */}
-        <div className="w-full flex justify-center mb-6">
+        <div className="w-full flex justify-center mb-4">
           <img
-            src="/image-auth.png"
+            src="/images/image-auth.png"
             alt="Marketing Illustration"
-            className="w-full max-w-56 object-contain"
+            className="w-full max-w-40 lg:max-w-70 object-contain"
           />
         </div>
 
-        {/* Text and Features block */}
-        <div className="w-full ">
-          {/* Heading */}
-          <div className="space-y-2">
-            <h1 className="text-2xl lg:text-[2.2rem] font-bold text-white leading-tight">
+        <div className="w-full">
+          <div className="space-y-1">
+            <h1 className="text-xl lg:text-2xl font-bold leading-tight">
               مرحباً بك في
-              <span className="block text-[#F56E14] mt-2 font-bold">
+              <span className="block text-[#F56E14] mt-1">
                 منصة ماركيفا لإدارة الخدمات التسويقية
               </span>
             </h1>
           </div>
 
-          {/* Description */}
-          <p className="text-white/80 text-lg leading-relaxed font-normal mb-8">
+          <p className="text-white/80 text-sm lg:text-base leading-relaxed mb-5">
             منصة ذكية لأتمتة التسويق وجذب العملاء المحتملين.
             <span className="block mt-1">
               نجمع البيانات، نحللها بالذكاء الاصطناعي، ونوصل رسالتك للعميل في
@@ -51,66 +57,33 @@ const AboutAuth = () => {
             </span>
           </p>
 
-          {/* Bullet Points */}
-          <ul className="space-y-4">
-            {/* Bullet 1 */}
-            <li className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
-                <CircleCheckBig className="w-5 h-5 text-[#948163]" />
-              </div>
-              <span className="text-white/90 text-sm lg:text-base font-medium">
-                جمع ذكي للعملاء المحتملين.
-              </span>
-            </li>
-            {/* Bullet 2 */}
-            <li className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
-                <CircleCheckBig className="w-5 h-5 text-[#948163]" />
-              </div>
-              <span className="text-white/90 text-sm lg:text-base font-medium">
-                لوحة تحكم ترصد الحملات التسويقية لحظة بلحظة.
-              </span>
-            </li>
-            {/* Bullet 3 */}
-            <li className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
-                <CircleCheckBig className="w-5 h-5 text-[#948163]" />
-              </div>
-              <span className="text-white/90 text-sm lg:text-base font-medium">
-                تحليل وتصنيف بالذكاء الاصطناعي.
-              </span>
-            </li>
-            {/* Bullet 4 */}
-            <li className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
-                <CircleCheckBig className="w-5 h-5 text-[#948163]" />
-              </div>
-              <span className="text-white/90 text-sm lg:text-base font-medium">
-                رسائل تسويقية مخصصة تلقائياً.
-              </span>
-            </li>
+          <ul className="space-y-2.5">
+            {[
+              "جمع ذكي للعملاء المحتملين.",
+              "لوحة تحكم ترصد الحملات التسويقية لحظة بلحظة.",
+              "تحليل وتصنيف بالذكاء الاصطناعي.",
+              "رسائل تسويقية مخصصة تلقائياً.",
+            ].map((item, index) => (
+              <li key={index} className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-[#F0E8DB] flex items-center justify-center shrink-0">
+                  <CircleCheckBig className="w-4 h-4 text-[#948163]" />
+                </div>
+                <span className="text-white/90 text-xs lg:text-sm font-medium">
+                  {item}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
+      </div>
 
-        {/* Footer */}
-        <div className="w-full flex justify-between items-center text-white/50 text-xs lg:text-sm mt-8">
-          <div>
-            <span>© 2026 أسفار. جميع الحقوق محفوظة.</span>
-          </div>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              className="hover:text-white transition-colors duration-200"
-            >
-              سياسة الخصوصية
-            </a>
-            <a
-              href="#"
-              className="hover:text-white transition-colors duration-200"
-            >
-              شروط الخدمة
-            </a>
-          </div>
+      {/* Footer */}
+      <div className="w-full flex justify-between items-center text-white/50 text-[10px] lg:text-xs mt-4">
+        <span>© 2026 أسفار. جميع الحقوق محفوظة.</span>
+
+        <div className="flex gap-4">
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">شروط الخدمة</a>
         </div>
       </div>
     </div>

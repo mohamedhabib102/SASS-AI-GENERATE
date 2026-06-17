@@ -12,21 +12,23 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import { useLang } from "@/hooks/lang/useLang";
 
 // ============ JSX ============ //
 const OtpCode = () => {
   const [value, setValue] = useState("");
+  const {t} = useLang()
 
   return (
     <section className="min-h-screen">
       <LayoutForms
         srcImg={"/logo/logoSecondary.svg"}
-        title={"أدخل رمز التحقق"}
+        title={t("otp.title")}
         description={"أرسلنا رمز مكون من 6أرقام إلى البريد الإلكترونى"}
       >
         {/* The email entered by the user will be displayed here */}
         <p className="text-gray text-[18px] text-center mt-3">
-          organizer@bookfair.gov.sa
+         {t("otp.description")}
         </p>
 
         {/* ============ Otp and btn send otp  ============*/}
@@ -62,12 +64,12 @@ const OtpCode = () => {
                   "w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
                 }
               >
-                تأكيد رمز التحقق
+               {t("otp.submit")}
               </Button>
             </Link>
             {/* == resend otp == */}
             <button className="text-[16px] text-center text-primary cursor-pointer ">
-              إعادة إرسال الرمز
+             {t("otp.resend")}
             </button>
           </div>
         </div>

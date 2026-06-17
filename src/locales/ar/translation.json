@@ -1,9 +1,88 @@
 {
   "home": {
     "nav": {
-      "home":    "الرئيسية",
-      "about":   "من نحن",
+      "home": "الرئيسية",
+      "about": "من نحن",
       "contact": "تواصل معنا"
     }
+  },
+  "aboutAuth": {
+    "welcome": "مرحباً بك في",
+    "logoTitle": "منصة ماركيفا لإدارة الخدمات التسويقية",
+    "descriptionLine1": "منصة ذكية لأتمتة التسويق وجذب العملاء المحتملين.",
+    "descriptionLine2": "نجمع البيانات، نحللها بالذكاء الاصطناعي، ونوصل رسالتك للعميل في الوقت المناسب.",
+    "feature1": "جمع ذكي للعملاء المحتملين.",
+    "feature2": "لوحة تحكم ترصد الحملات التسويقية لحظة بلحظة.",
+    "feature3": "تحليل وتصنيف بالذكاء الاصطناعي.",
+    "feature4": "رسائل تسويقية مخصصة تلقائياً.",
+    "copyright": "© 2026 أسفار. جميع الحقوق محفوظة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة"
+  },
+  "signIn": {
+    "title": "تسجيل الدخول",
+    "description": "سجل الدخول لاداره معارض الكتب والفاعليات الثقافيه",
+    "emailLabel": "البريد الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "termsText": "أوافق على ",
+    "termsLink": "الشروط والاحكام وسياسة الخصوصية",
+    "submit": "تسجيل الدخول",
+    "or": "أو",
+    "googleBtn": "تسجيل الدخول باستخدام Google",
+    "noAccount": "ليس لديك حساب بعد؟ ",
+    "signUpLink": "انشاء حساب جديد"
+  },
+  "signUp": {
+    "title": " إنشاء حساب جديد ",
+    "description": "أنشئ حسابك لادارة حملاتك التسويقية بذكاء خلال دقائق.",
+    "fullNameLabel": "الأسم كامل",
+    "fullNamePlaceholder": "محمد موافي",
+    "emailLabel": "البريد الألكتروني",
+    "passwordLabel": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "confPasswordLabel": "إعادة كلمة المرور",
+    "confPasswordPlaceholder": "إعادة كلمة المرور",
+    "termsText": "أوافق على ",
+    "termsLink": "الشروط والاحكام وسياسة الخصوصية",
+    "submit": "انشاء حساب",
+    "or": "أو",
+    "googleBtn": "تسجيل الدخول باستخدام Google",
+    "hasAccount": "لديك حساب بالفعل؟ ",
+    "signInLink": "تسجيل الدخول"
+  },
+    "validations": {
+    "fullNameRequired": "الأسم كامل مطلوب",
+    "emailInvalid": "البريد الإلكتروني غير صالح",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "passwordMin": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "confPasswordMatch": "كلمة المرور غير متطابقة",
+    "confPasswordRequired": "تأكيد كلمة المرور مطلوب",
+    "termsRequired": "يجب الموافقة على الشروط والأحكام"
+  },
+  "resetPassword": {
+    "title": "إعادة تعيين كلمة المرور",
+    "description": "أدخل كلمة مرور قوية لحماية حسابك",
+    "newPasswordLabel": "أدخل كلمة مرور جديدة",
+    "newPasswordPlaceholder": "********",
+    "confPasswordLabel": "تأكيد كلمة المرور",
+    "confPasswordPlaceholder": "********",
+    "termsText": "أوافق على ",
+    "termsLink": "الشروط والاحكام وسياسة الخصوصية",
+    "submit": "تعيين كلمة المرور"
+  },
+  "forgotPassword": {
+    "title": "نسيت كلمة المرور؟",
+    "description": "أدخل بريدك الالكتروني الذي تستخدمه لاختيار كلمة مرور جديدة.",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "submit": "ارسال رمز التحقق"
+  },
+  "otp": {
+    "title": "أدخل رمز التحقق",
+    "description": "أرسلنا رمز مكون من 6 أرقام إلى البريد الإلكتروني",
+    "submit": "تأكيد رمز التحقق",
+    "resend": "إعادة إرسال الرمز"
   }
 }
