@@ -28,7 +28,7 @@ export default function ButtonChangeLang() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="w-12.5 h-6 cursor-pointer">
-        <Button size="icon" className="gap-2">
+        <Button size="icon" className="gap-2 bg-transparent border-none hover:bg-transparent">
           <Globe className="h-5! w-5!" />
           <ChevronDown className=" opacity-80" />
         </Button>
