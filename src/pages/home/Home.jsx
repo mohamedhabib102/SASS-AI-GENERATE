@@ -1,18 +1,17 @@
-// import ButtonSwitchLang from "@/components/shared/ButtonSwitchLang";
+import Header from "@/components/layouts/Header";
 import CustomContainer from "@/components/shared/CustomContainer";
-import ButtonSwitchLang from "@/components/shared/ButtonSwitchLang";
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const { t } = useTranslation();
-  return (
-    <section>
-      <CustomContainer>
-        Home Page
-        <ButtonSwitchLang />
-        <p>{t("home.nav.home")}</p>
-      </CustomContainer>
-    </section>
-  );
-};
-export default Home;
+    const {t} = useTranslation()
+    return (
+        <section>
+            <CustomContainer>
+                <Header/>
+
+            <p>{t('home.nav.home')}</p>
+            </CustomContainer>
+
+        </section>
+    )
+}; export default Home;
