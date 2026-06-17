@@ -3,8 +3,10 @@ import { Button } from "../ui/button"
 
 
 
-const CustomButton = () => {
+const CustomButton = ({title}) => {
     return (
-        <Button/>
+        <Button>
+            {title}
+        </Button>
     )
-}
+}; export default CustomButton;

@@ -1,9 +1,75 @@
 {
   "home": {
     "nav": {
-      "home":    "Home",
-      "about":   "About",
+      "home": "Home",
+      "about": "About",
       "contact": "Contact"
     }
+  },
+  "aboutAuth": {
+    "welcome": "Welcome to",
+    "logoTitle": "Markeva Platform for Marketing Services Management",
+    "descriptionLine1": "A smart platform for marketing automation and lead generation.",
+    "descriptionLine2": "We collect data, analyze it with AI, and deliver your message to the client at the right time.",
+    "feature1": "Smart lead generation.",
+    "feature2": "Dashboard monitoring marketing campaigns moment by moment.",
+    "feature3": "AI analysis and classification.",
+    "feature4": "Automated custom marketing messages.",
+    "copyright": "© 2026 Asfar. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "signIn": {
+    "title": "Sign In",
+    "description": "Sign in to manage book fairs and cultural events",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "termsText": "I agree to the ",
+    "termsLink": "Terms and Conditions and Privacy Policy",
+    "submit": "Sign In",
+    "or": "Or",
+    "googleBtn": "Sign in with Google",
+    "noAccount": "Don't have an account yet? ",
+    "signUpLink": "Create new account"
+  },
+  "signUp": {
+    "title": "Create a New Account",
+    "description": "Create your account to manage your marketing campaigns smartly in minutes.",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Mohamed Mowafy",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confPasswordLabel": "Confirm Password",
+    "confPasswordPlaceholder": "Confirm your password",
+    "termsText": "I agree to the ",
+    "termsLink": "Terms and Conditions and Privacy Policy",
+    "submit": "Create Account",
+    "or": "Or",
+    "googleBtn": "Sign up with Google",
+    "hasAccount": "Already have an account? ",
+    "signInLink": "Sign In"
+  },
+    "validations": {
+    "fullNameRequired": "Full name is required",
+    "emailInvalid": "Invalid email address",
+    "emailRequired": "Email is required",
+    "passwordMin": "Password must be at least 6 characters",
+    "passwordRequired": "Password is required",
+    "confPasswordMatch": "Passwords must match",
+    "confPasswordRequired": "Confirm password is required",
+    "termsRequired": "You must agree to the terms and conditions"
+  },
+  "resetPassword": {
+    "title": "Reset Password",
+    "description": "Enter a strong password to protect your account",
+    "newPasswordLabel": "New Password",
+    "newPasswordPlaceholder": "********",
+    "confPasswordLabel": "Confirm Password",
+    "confPasswordPlaceholder": "********",
+    "termsText": "I agree to the ",
+    "termsLink": "Terms and Conditions and Privacy Policy",
+    "submit": "Reset Password"
   }
 }

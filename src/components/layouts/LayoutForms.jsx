@@ -23,7 +23,7 @@ const LayoutForms = ({ children, title, description, logo }) => {
       <div className=" mb-2">
         {logo}
       </div>
-    )}          <h1 className="font-bold text-2xl lg:text-2x">{title}</h1>
+    )}     <h1 className="font-bold text-2xl lg:text-2x">{title}</h1>
           <p className="text-gray-600 text-md">{description}</p>
         </div>
       {/* here component forms */}
