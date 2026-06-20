@@ -1,12 +1,15 @@
 import Header from "@/components/layouts/Header";
-import CustomContainer from "@/components/shared/CustomContainer";
+import HeroSection from "@/components/layouts/HeroSection";
+import AboutUsSection from "@/components/layouts/AboutUsSection";
+import ServicesSection from "@/components/layouts/ServicesSection";
 
 const Home = () => {
   return (
     <section>
-      <CustomContainer>
         <Header />
-      </CustomContainer>
+        <HeroSection/>
+        <AboutUsSection />
+        <ServicesSection />
     </section>
   );
 };

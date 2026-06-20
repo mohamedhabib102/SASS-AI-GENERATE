@@ -2,8 +2,55 @@
   "home": {
     "nav": {
       "home": "Home",
-      "about": "About",
-      "contact": "Contact"
+      "services": "Services",
+      "prices": "Prices",
+      "pricesMonthly": "Monthly Plans",
+      "pricesYearly": "Annual Plans",
+      "about": "About Us",
+      "contact": "Social Media",
+      "buttoSign": "sign in"
+    },
+    "hero": {
+      "title": "An integrated solution to manage and execute marketing services from one place.",
+      "description": "Markeva is a digital platform that helps individuals and companies manage their marketing services easily and clearly.\nFrom requesting the service, to follow-up, and up to receiving results — all done through a single dashboard, without complexity or unnecessary steps.",
+      "button": "Book your service"
+    },
+    "stats": {
+      "projectsCount": "+500",
+      "projectsLabel": "Projects Completed",
+      "expertsCount": "+50",
+      "expertsLabel": "Marketing Specialists",
+      "satisfactionCount": "98%",
+      "satisfactionLabel": "Client Satisfaction Rate"
+    },
+    "services": {
+      "sectionTitle": "Services available on Markeva platform",
+      "sectionDescription": "A set of marketing services that you can manage and track easily through a single, methodical and clear dashboard.",
+      "viewMore": "View More",
+      "card1Title": "Advertising Campaign Management",
+      "card1Description": "Organize and manage advertising campaigns through a clear workflow, including goal setting, execution tracking, and results review from one place.",
+      "card2Title": "Visual Identity Design",
+      "card2Description": "Manage all visual identity elements of your business, including core designs and visual outputs within a unified and organized framework.",
+      "card3Title": "Content Management",
+      "card3Description": "Organize content requests and track execution and review phases, ensuring message consistency and easy content management across different channels.",
+      "card4Title": "Digital Marketing",
+      "card4Description": "Manage digital marketing activities within a clear plan, covering execution and follow-up without needing separate coordination between multiple parties.",
+      "card5Title": "Analytics and Reports",
+      "card5Description": "View performance reports and results of marketing services, helping make decisions based on clear data and continuous follow-up.",
+      "card6Title": "Order and Communication Management",
+      "card6Description": "Organize all service orders and related communication through a single clear path, facilitating follow-up on notes, inquiries, and updates without relying on external channels."
+    },
+    "aboutUs": {
+      "motiveTitle": "The motive behind establishing the Markeva platform",
+      "motiveDescription": "Markeva was established to address the complexity of managing marketing services resulting from multiple entities and platforms, by providing a centralized system that facilitates follow-up, organization, and decision-making in a single integrated experience.",
+      "sectionTitle": "Integrated management of marketing services from one place",
+      "paragraph1": "Many companies and project owners have faced difficulties in managing their marketing services due to the multiplicity of entities and platforms.",
+      "paragraph2": "From here, Markeva came to be a central point that gathers all marketing services in one place, which facilitates management, reduces distraction, and saves time and effort.",
+      "learnMore": "Learn More",
+      "methodologyTitle": "Clear execution methodology and continuous follow-up",
+      "methodologyDescription": "Markeva relies on an organized workflow that ensures clarity at each stage of executing marketing services, starting from order receipt and requirement definition, through the execution and review stage, up to final delivery, with continuous tracking of work status and progress achieved at every step.",
+      "controlTitle": "Full control and transparency in every detail",
+      "controlDescription": "Markeva is designed to give the client full control over their marketing services through a centralized dashboard, where they can track status, communicate with the specialist team, and view reports and results, ensuring complete transparency and a clear experience without the need for multiple follow-ups or disorganized communication."
     }
   },
   "aboutAuth": {
@@ -31,7 +78,8 @@
     "or": "Or",
     "googleBtn": "Sign in with Google",
     "noAccount": "Don't have an account yet? ",
-    "signUpLink": "Create new account"
+    "signUpLink": "Create new account",
+    "forgotPassword": "Forgot your password?"
   },
   "signUp": {
     "title": "Create a New Account",
@@ -59,7 +107,9 @@
     "passwordRequired": "Password is required",
     "confPasswordMatch": "Passwords must match",
     "confPasswordRequired": "Confirm password is required",
-    "termsRequired": "You must agree to the terms and conditions"
+    "termsRequired": "You must agree to the terms and conditions",
+    "phoneRequired": "Phone number is required",
+    "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits"
   },
   "resetPassword": {
     "title": "Reset Password",
@@ -74,15 +124,19 @@
   },
   "forgotPassword": {
     "title": "Forgot Password?",
-    "description": "Enter your email address to select a new password.",
-    "emailLabel": "Email Address",
+    "description": "Enter your registered mobile number to choose a new password.",
     "emailPlaceholder": "Enter your email address",
-    "submit": "Send verification code"
+    "submit": "Send verification code",
+    "phoneNumber": "Phone Number"
   },
   "otp": {
     "title": "Enter Verification Code",
-    "description": "We sent a 6-digit code to the email address",
+    "description": "We sent a 6-digit code to the phone number",
     "submit": "Confirm Verification Code",
     "resend": "Resend Code"
+  },
+  "languages": {
+    "ar": "Arabic",
+    "en": "English"
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { CircleCheckBig } from "lucide-react";
 import { useLang } from "@/hooks/lang/useLang";
 import ButtonChangeLang from "../shared/ButtonChangeLang";
+import Logo from "../shared/Logo";
 
 const AboutAuth = () => {
     const {t} =  useLang()
@@ -20,12 +21,7 @@ const AboutAuth = () => {
     >
       {/* Top Header / Logo */}
       <div className="w-full flex justify-between items-center">
-        <img
-          src="/logo/logoMain.svg"
-          title="logo"
-          alt="logo site"
-          className="h-10 lg:h-15 w-auto"
-        />
+        <Logo srcImg={"/logo/logoMain.svg"}/>
         <ButtonChangeLang />
       </div>
 
