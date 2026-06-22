@@ -10,7 +10,7 @@ import ResetPassword from "./pages/auth/ResetPassword";
 
 function App() {
   return (
-    <main>
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="auth/sign-up" element={<SignUp />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="auth/reset-password" element={<ResetPassword />} />
         <Route path="/auth/otp-code" element={<OtpCode />} />
       </Routes>
-    </main>
+    </>
   );
 }
 

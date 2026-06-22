@@ -2,15 +2,18 @@ import Header from "@/components/layouts/Header";
 import HeroSection from "@/components/layouts/HeroSection";
 import AboutUsSection from "@/components/layouts/AboutUsSection";
 import ServicesSection from "@/components/layouts/ServicesSection";
+import ServiceManagementSection from "@/components/layouts/ServiceManagementSection ";
+import TestimonialsSection from "@/components/layouts/TestimonialsSection";
 
 const Home = () => {
   return (
-    <section>
-        <Header />
+    <main>
         <HeroSection/>
         <AboutUsSection />
         <ServicesSection />
-    </section>
+        <ServiceManagementSection />
+        <TestimonialsSection/>
+    </main>
   );
 };
 export default Home;

@@ -76,7 +76,7 @@ const ServicesSection = () => {
 
           <Link
             to="/services"
-            className="flex items-center gap-2 text-primary font-medium text-sm md:text-base shrink-0 mt-1 hover:gap-3 transition-all duration-200"
+            className="flex items-center flex-row-reverse gap-2 text-primary font-medium text-sm md:text-base shrink-0 mt-1 hover:gap-3 transition-all duration-200"
           >
             {isRtl ? (
               <ArrowLeft className="h-4 w-4" />
@@ -92,11 +92,11 @@ const ServicesSection = () => {
           {services.map(({ id, title, description, Icon }) => (
             <div
               key={id}
-              className="group bg-white border border-primary/20 rounded-2xl p-6 md:p-7 flex flex-col gap-4 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1"
+              className="group bg-transparent border border-primary rounded-2xl p-6 md:p-7 flex flex-col gap-4 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1"
             >
               {/* Icon */}
               <div
-                className={`flex ${isRtl ? "justify-end" : "justify-start"}`}
+                className={`flex`}
               >
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200">
                   <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
@@ -112,7 +112,7 @@ const ServicesSection = () => {
 
               {/* Description */}
               <p
-                className={`text-gray text-sm leading-relaxed ${isRtl ? "text-right" : "text-left"}`}
+                className={`text-main text-sm leading-relaxed ${isRtl ? "text-right" : "text-left"}`}
               >
                 {description}
               </p>

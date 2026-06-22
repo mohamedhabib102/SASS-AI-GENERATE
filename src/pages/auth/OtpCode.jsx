@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import LayoutForms from "@/components/layouts/LayoutForms";
 
-// import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 

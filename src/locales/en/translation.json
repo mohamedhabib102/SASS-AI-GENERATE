@@ -51,6 +51,26 @@
       "methodologyDescription": "Markeva relies on an organized workflow that ensures clarity at each stage of executing marketing services, starting from order receipt and requirement definition, through the execution and review stage, up to final delivery, with continuous tracking of work status and progress achieved at every step.",
       "controlTitle": "Full control and transparency in every detail",
       "controlDescription": "Markeva is designed to give the client full control over their marketing services through a centralized dashboard, where they can track status, communicate with the specialist team, and view reports and results, ensuring complete transparency and a clear experience without the need for multiple follow-ups or disorganized communication."
+    },
+    "serviceManagement": {
+      "sectionTitle": "How are services managed inside Markeefa?",
+      "sectionDescription": "Markeefa operates according to a clear methodology that ensures order organization, clarity of execution stages, and the availability of continuous follow-up on the status of each service from the moment of order to final delivery, without the need to deal with multiple platforms or entities.",
+      "card1Title": "Centralized Organization of Service Requests",
+      "card1Description": "Markeefa provides a single point to manage all marketing service requests, facilitating order tracking, data unification, and reducing distractions from multiple channels and parties.",
+      "card2Title": "Organized Execution and Continuous Follow-up",
+      "card2Description": "The platform relies on a clear execution mechanism that allows tracking the status of each service, and knowing what is done and what is in progress, without the need for separate communication or disorganized follow-up.",
+      "card3Title": "Clear Vision and Transparency in Details",
+      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information."
+    },
+    "testimonials": {
+      "sectionTitle": "User Reviews and Their Experiences with the Platform",
+      "sectionDescription": "Real ratings from users who have used the platform in their daily work, showing the level of efficiency, ease of use, and its actual impact on organizing work and improving productivity.",
+      "review1Text": "A very practical tool, we used it with the team and it saved a lot of time.",
+      "review2Text": "The experience is comfortable and fast, I feel the work is organized and there is no confusion.",
+      "review3Text": "The platform made a huge difference for us in organizing work and follow-up, everything became clear and fast.",
+      "review4Text": "Easy to learn and fast to use, and that made a difference in our daily work.",
+      "review5Text": "A smart and simple platform, needs some small additions but the experience is excellent.",
+      "review6Text": "The thing I liked most is that all notes arrive clearly and without repetition."
     }
   },
   "aboutAuth": {
