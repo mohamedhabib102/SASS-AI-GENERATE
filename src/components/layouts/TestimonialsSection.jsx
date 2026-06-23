@@ -195,14 +195,14 @@ const TestimonialsSection = () => {
           <button
             ref={setPrevEl}
             aria-label={t("home.testimonials.prevSlide")}
-            className="flex absolute top-1/2 -right-18 -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+            className="absolute top-1/2 -right-18 lg:flex hidden -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
           <button
             ref={setNextEl}
             aria-label={t("home.testimonials.nextSlide")}
-            className="flex absolute top-1/2 -left-18 -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+            className="lg:flex hidden absolute top-1/2 -left-18 -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
