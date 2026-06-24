@@ -1,21 +1,14 @@
 import React, { useMemo } from "react";
 import { Button } from "../ui/button";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  BarChart,
-  BarChart2,
-  BarChart2Icon,
-  BarChart3Icon,
-  Brush,
   Menu,
 } from "lucide-react";
 import ButtonChangeLang from "../shared/ButtonChangeLang";
@@ -37,6 +30,13 @@ const Header = () => {
     [],
   );
 
+  const navLinkClass = ({ isActive }) =>
+    `text-nav py-2 font-normal relative ${
+      isActive
+        ? "text-primary font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+        : ""
+    }`;
+
   return (
     <header className="py-4">
       <CustomContainer>
@@ -50,7 +50,7 @@ const Header = () => {
             <NavLink
               key={index}
               to={link.route}
-              className={"text-nav py-2 font-normal"}
+              className={navLinkClass}
             >
               {t(`home.nav.${link.label}`)}
             </NavLink>
@@ -74,7 +74,7 @@ const Header = () => {
                   <DropdownMenuItem key={index} className="w-fit mx-auto">
                     <NavLink
                       to={link.route}
-                      className="text-nav py-2 font-normal w-full text-center"
+                      className={navLinkClass}
                     >
                       {t(`home.nav.${link.label}`)}
                     </NavLink>
@@ -90,8 +90,6 @@ const Header = () => {
               link={"/auth/sign-in"}
               location={"header"}
             />
-              
-  
           </div>
         </div>
       </div>

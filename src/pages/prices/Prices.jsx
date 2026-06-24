@@ -1,12 +1,16 @@
+import ComparisonSection from "@/components/layouts/ComparisonSection";
+import Plans from "@/components/layouts/Plans";
 
 
 
 
 
-const Prices = () => {
+
+const Prices = () => {  
     return (
-        <section className="py-16 md:py-24">
-            
+        <section>
+            <Plans/>
+            <ComparisonSection/>
         </section>
     )
 }; export default Prices;

@@ -62,7 +62,7 @@ const ServicesSection = () => {
 
   return (
     <section
-      className="py-16 md:py-24 bg-[#F5F5F5] overflow-hidden"
+      className="lg:py-16 py-8 bg-[#F5F5F5] overflow-hidden"
       id="services"
     >
       <CustomContainer>
@@ -71,6 +71,7 @@ const ServicesSection = () => {
             <CustomTitle
               title={t("home.services.sectionTitle")}
               description={t("home.services.sectionDescription")}
+              showLine={true}
             />
           </div>
 

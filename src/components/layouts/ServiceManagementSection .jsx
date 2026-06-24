@@ -42,12 +42,13 @@ const ServiceManagementSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden" id="service-management">
+    <section className="lg:py-16 py-8 bg-white overflow-hidden" id="service-management">
       <CustomContainer>
         {/* Header Section */}
         <CustomTitle
           title={t("home.serviceManagement.sectionTitle")}
           description={t("home.serviceManagement.sectionDescription")}
+          showLine={true}
         />
 
         {/* Staggered Cards List */}

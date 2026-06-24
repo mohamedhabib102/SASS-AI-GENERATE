@@ -17,8 +17,6 @@ const TestimonialsSection = () => {
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
 
-  // Array واحد فلات فيه كل التستيمونيالز (مش object فيه arrays منفصلة).
-  // كل تستيمونيال = SwiperSlide مستقل، فالتنقل بيحصل على كل الـ 12 كارد فعلياً.
   const testimonials = useMemo(
     () => [
       {
@@ -115,13 +113,14 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="relative py-16 md:py-24 bg-[#F5F5F5] overflow-hidden"
+      className="relative lg:py-16 py-8 bg-[#F5F5F5] overflow-hidden"
       id="testimonials"
     >
       <CustomContainer>
         <CustomTitle
           title={t("home.testimonials.sectionTitle")}
           description={t("home.testimonials.sectionDescription")}
+          showLine={true}
         />
 
         {/* Testimonials Slider */}

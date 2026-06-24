@@ -3,7 +3,11 @@ import { useLang } from "@/hooks/lang/useLang";
 import CustomContainer from "@/components/shared/CustomContainer";
 import Logo from "@/components/shared/Logo";
 import { Link } from "react-router-dom";
-import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
+import { FiFacebook } from "react-icons/fi";
+import { RiTwitterXFill } from "react-icons/ri";
+
+
 
 const Footer = () => {
   const { t, lang } = useLang();
@@ -38,7 +42,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { id: 1, Icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
+    { 
+      id: 1, Icon: RiTwitterXFill, 
+      href: "https://twitter.com", 
+      label: "Twitter" 
+    },
     {
       id: 2,
       Icon: FaInstagram,
@@ -47,7 +55,7 @@ const Footer = () => {
     },
     {
       id: 3,
-      Icon: FaFacebookF,
+      Icon: FiFacebook,
       href: "https://facebook.com",
       label: "Facebook",
     },
@@ -61,7 +69,7 @@ const Footer = () => {
         <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Newsletter + App Download */}
           <div
-            className={`flex flex-col gap-8 ${isRtl ? "text-right" : "text-left"} lg:order-4`}
+            className={`flex flex-col gap-8  ${isRtl ? "text-right" : "text-left"} order-4 lg:order-4`}
           >
             <div>
               <h3 className="text-base md:text-lg text-[#EDD7A8] font-bold mb-4">
@@ -127,7 +135,7 @@ const Footer = () => {
           </div>
 
           {/* Our Services */}
-          <div className={`lg:order-3`}>
+          <div className="order-3 lg:order-3">
             <h3 className="text-base md:text-lg font-bold text-[#EDD7A8] mb-4">
               {t("footer.services.title")}
             </h3>
@@ -146,7 +154,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className={`lg:order-2`}>
+          <div className="order-2 lg:order-2">
             <h3 className="text-base md:text-lg text-[#EDD7A8] font-bold mb-4">
               {t("footer.quickLinks.title")}
             </h3>
@@ -165,9 +173,7 @@ const Footer = () => {
           </div>
 
           {/* Logo + Description + Social */}
-          <div
-            className={`flex flex-col gap-5 lg:order-1`}
-          >
+          <div className="flex flex-col gap-5 order-1">
             <Logo srcImg={"/logo/logoMain.svg"} />
             <p className="text-sm text-white/80 leading-relaxed">
               {t("footer.about.description")}

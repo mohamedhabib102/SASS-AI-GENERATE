@@ -9,12 +9,13 @@ const AboutUsSection = () => {
   const isRtl = lang === "ar";
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden" id="about">
+    <section className="lg:py-16 py-8 bg-white overflow-hidden" id="about">
       <CustomContainer>
         {/* Custom Title section at the top */}
         <CustomTitle
           title={t("home.aboutUs.motiveTitle")}
           description={t("home.aboutUs.motiveDescription")}
+          showLine={true}
         />
 
         {/* Two-column layout */}
