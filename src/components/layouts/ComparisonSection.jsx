@@ -1,5 +1,6 @@
 import CustomContainer from "../shared/CustomContainer";
 import CustomTitle from "../shared/CustomTitle";
+import CtaSection from "./CtaSection";
 import TablePlans from "./TablePlans";
 
 
@@ -17,6 +18,7 @@ const ComparisonSection = () => {
                  centered={true}
                 />
                 <TablePlans/>
+                <CtaSection/>
             </CustomContainer>
         </section>
     )

@@ -13,6 +13,7 @@ import {
   ArrowLeft,
   ArrowRight,
 } from "lucide-react";
+import Animate from "@/animations/Animate";
 
 const ServicesSection = () => {
   const { t, lang } = useLang();
@@ -68,11 +69,14 @@ const ServicesSection = () => {
       <CustomContainer>
         <div className={`flex items-start justify-between gap-4 flex-wrap lg:flex-row flex-col`}>
           <div className="flex-1">
+            <Animate direction="up">
+
             <CustomTitle
               title={t("home.services.sectionTitle")}
               description={t("home.services.sectionDescription")}
               showLine={true}
-            />
+              />
+            </Animate>
           </div>
 
           <Link
@@ -90,15 +94,16 @@ const ServicesSection = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mt-4">
-          {services.map(({ id, title, description, Icon }) => (
+          {services.map(({ id, title, description, Icon, idx}) => (
+            <Animate key={id} direction="up" delay={idx * 0.15}>
             <div
-              key={id}
               className="group bg-transparent border border-primary rounded-2xl p-6 md:p-7 flex flex-col gap-4 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1"
             >
+
               {/* Icon */}
               <div
                 className={`flex`}
-              >
+                >
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-200">
                   <Icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
                 </div>
@@ -107,17 +112,18 @@ const ServicesSection = () => {
               {/* Title */}
               <h3
                 className={`text-base md:text-lg font-bold text-main leading-snug ${isRtl ? "text-right" : "text-left"}`}
-              >
+                >
                 {title}
               </h3>
 
               {/* Description */}
               <p
                 className={`text-main text-sm leading-relaxed ${isRtl ? "text-right" : "text-left"}`}
-              >
+                >
                 {description}
               </p>
             </div>
+            </Animate>
           ))}
         </div>
       </CustomContainer>

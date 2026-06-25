@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 const PlanItem = ({plan}) => {
     return (
         plan.map((p) => (
-            <div key={p.key} className={`${p.popular ? "bg-primary py-10 px-5" : "bg-white p-5"} border border-[#E9E9E9] rounded-2xl shadow-md`}>
+            <div key={p.key} className={`${p.popular ? "bg-primary py-10 px-5" : "bg-white p-5"} border border-border rounded-2xl shadow-md`}>
                 {p.popularBadge && <span>{}</span>}
                 <h3 className={`${p.popular ? "text-white" : "text-main"} font-bold text-lg`}>{p.name}</h3>
                 <p className={`${p.popular ? "text-white" : "text-desc"} font-normal text-sm mb-4`}>{p.tagline}</p>

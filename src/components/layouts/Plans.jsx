@@ -15,7 +15,7 @@ const Plans = () => {
   return (
     <section className="lg:py-16 py-8">
       <CustomContainer>
-        <div className="relative text-sm bg-[#EDEDFC] text-primary py-2 px-4 min-w-40 mx-auto mb-5 text-center w-fit rounded-full font-semibold">
+        <div className="relative text-sm bg-table text-primary py-2 px-4 min-w-40 mx-auto mb-5 text-center w-fit rounded-full font-semibold">
           <ArrowUpRight
             size={15}
             className="absolute left-4 top-1/2 -translate-y-1/2"
