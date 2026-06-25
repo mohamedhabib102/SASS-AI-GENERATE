@@ -9,6 +9,7 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
+import Animate from "@/animations/Animate";
 
 const TestimonialsSection = () => {
   const { t, lang } = useLang();
@@ -17,8 +18,6 @@ const TestimonialsSection = () => {
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
 
-  // Array واحد فلات فيه كل التستيمونيالز (مش object فيه arrays منفصلة).
-  // كل تستيمونيال = SwiperSlide مستقل، فالتنقل بيحصل على كل الـ 12 كارد فعلياً.
   const testimonials = useMemo(
     () => [
       {
@@ -115,17 +114,21 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="relative py-16 md:py-24 bg-[#F5F5F5] overflow-hidden"
+      className="relative lg:py-16 py-8 bg-[#F5F5F5] overflow-hidden"
       id="testimonials"
     >
       <CustomContainer>
+        <Animate direction="up">
+
         <CustomTitle
           title={t("home.testimonials.sectionTitle")}
           description={t("home.testimonials.sectionDescription")}
-        />
+          showLine={true}
+          />
+          </Animate>
 
         {/* Testimonials Slider */}
-        <div className="relative mt-8 md:mt-10" dir={isRtl ? "rtl" : "ltr"}>
+        <div className="relative mt-8 md:mt-10  max-w-5xl mx-auto" dir={isRtl ? "rtl" : "ltr"}>
           <Swiper
             modules={[Navigation, Grid]}
             key={isRtl ? "rtl" : "ltr"}
@@ -136,21 +139,21 @@ const TestimonialsSection = () => {
               prevEl,
               nextEl,
             }}
-            spaceBetween={24}
+            spaceBetween={13}
             breakpoints={{
-              // من md لفوق: 3 كاردس في الصف × صفين = 6 كاردس ظاهرين مرة واحدة
               768: {
                 slidesPerView: 3,
                 slidesPerGroup: 6,
                 grid: { rows: 2, fill: "row" },
-                spaceBetween: 24,
+                spaceBetween: 18,
               },
             }}
           >
-            {testimonials.map(({ id, name, comment, rating, avatar }) => (
+            {testimonials.map(({ id, name, comment, rating, avatar, idx }) => (
               <SwiperSlide key={id} className="h-auto">
-                <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 flex flex-col gap-4 h-full">
-                  {/* Rating */}
+                <Animate direction="up" delay={idx * 0.15} 
+                className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 flex flex-col gap-4 h-full">
+                    {/* Rating */}
                   <div
                     className={`flex items-center justify-start gap-1 ${isRtl ? "justify-end" : "justify-start"}`}
                   >
@@ -187,7 +190,8 @@ const TestimonialsSection = () => {
                     />
                     <h4 className="text-sm font-bold text-[#111827]">{name}</h4>
                   </div>
-                </div>
+                </Animate>
+
               </SwiperSlide>
             ))}
           </Swiper>
@@ -195,14 +199,14 @@ const TestimonialsSection = () => {
           <button
             ref={setPrevEl}
             aria-label={t("home.testimonials.prevSlide")}
-            className="absolute top-1/2 -right-18 lg:flex hidden -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+            className="absolute top-1/2 -right-16 lg:flex hidden -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
           <button
             ref={setNextEl}
             aria-label={t("home.testimonials.nextSlide")}
-            className="lg:flex hidden absolute top-1/2 -left-18 -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+            className="lg:flex hidden absolute top-1/2 -left-16 -translate-y-1/2 z-10 w-13 h-13 rounded-full border border-gray-300 bg-white items-center justify-center text-primary transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>

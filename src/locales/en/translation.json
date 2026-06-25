@@ -183,7 +183,7 @@
     "hasAccount": "Already have an account? ",
     "signInLink": "Sign In"
   },
-    "validations": {
+  "validations": {
     "fullNameRequired": "Full name is required",
     "emailInvalid": "Invalid email address",
     "emailRequired": "Email is required",
@@ -222,5 +222,59 @@
   "languages": {
     "ar": "Arabic",
     "en": "English"
+  },
+    "prices": {
+    "badge": "Competitive Pricing",
+    "title": "Plan Pricing & Features",
+    "description": "Flexible plans that fit businesses and organizations of all sizes.",
+    "popularBadge": "Most Popular",
+    "perMonth": "/month",
+    "plans": [
+      {
+        "key": "basic",
+        "name": "Basic",
+        "tagline": "Get started and manage small business operations",
+        "price": "499$",
+        "type": "monthly",
+        "popular": false,
+        "features": [
+          "Manage up to 50 campaigns",
+          "Single user or small team management",
+          "Ready-made marketing templates",
+          "Basic performance reports"
+        ],
+        "button": "Get Started"
+      },
+      {
+        "key": "pro",
+        "name": "Professional",
+        "tagline": "Built for growth and scaling",
+        "price": "1299$",
+        "type": "monthly",
+        "popular": true,
+        "features": [
+          "Manage up to 200 campaigns or projects",
+          "Medium-sized team management",
+          "Partial brand identity customization",
+          "Advanced performance reports"
+        ],
+        "button": "Subscribe Now"
+      },
+      {
+        "key": "enterprise",
+        "name": "Enterprise",
+        "tagline": "Designed for large organizations",
+        "price": "Custom",
+        "type": "",
+        "popular": false,
+        "features": [
+          "Unlimited campaigns",
+          "Advanced team management & analytics",
+          "Advanced reports and analytics",
+          "Custom solutions on request"
+        ],
+        "button": "Request a Quote"
+      }
+    ]
   }
 }

@@ -11,7 +11,10 @@
   --color-secondary: #f56e14;
   --color-main: #121212;
   --color-gray: #636262;
-  --color-nav: #7A7A7A
+  --color-desc: #7A7A7A;
+  --color-nav: #7A7A7A;
+  --color-border: #E9E9E9;
+  --color-table: #EDEDFC
 }
 
 body{

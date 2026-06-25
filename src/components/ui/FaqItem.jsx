@@ -1,16 +1,19 @@
+import Animate from "@/animations/Animate";
 import { useLang } from "@/hooks/lang/useLang";
 import { ChevronDown } from "lucide-react";
 
 export default function FaqItem({ item, index, isOpen, onToggle }) {
-    const {t, lang} = useLang();
-    const isAr = lang === "ar"
+  const { lang } = useLang();
+  const isAr = lang === "ar";
   return (
-    <div
+    <Animate
+      direction="up"
       className={`border rounded-xl transition-all ${
         isOpen
           ? "border-indigo-200 bg-white shadow-md"
           : "border-gray-200 bg-white"
       }`}
+      delay={index * 0.15}
     >
       <button
         onClick={onToggle}
@@ -22,7 +25,9 @@ export default function FaqItem({ item, index, isOpen, onToggle }) {
           }`}
           size={18}
         />
-        <span className={`flex-1 ${isAr ? "text-right" : "text-left"} font-medium text-main`}>
+        <span
+          className={`flex-1 ${isAr ? "text-right" : "text-left"} font-medium text-main`}
+        >
           {item.title}
         </span>
         <span
@@ -36,17 +41,18 @@ export default function FaqItem({ item, index, isOpen, onToggle }) {
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-40" : "max-h-0"
+          isOpen ? "max-h-70" : "max-h-0"
         }`}
       >
         <div className="relative px-7 pb-4 pt-0 text-sm leading-relaxed text-gray-500">
           <p className="relative">
-
-          {item.description}
-          <span className={`absolute w-1 h-full bg-secondary ${isAr ? "-right-2.5" : "-left-2.5"} rounded-full`}></span>
+            {item.description}
+            <span
+              className={`absolute w-1 h-full top-0 bg-secondary ${isAr ? "-right-2.5" : "-left-2.5"} rounded-full`}
+            ></span>
           </p>
         </div>
       </div>
-    </div>
+    </Animate>
   );
 }

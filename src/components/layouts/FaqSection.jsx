@@ -19,7 +19,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="w-full bg-gray-50 py-12">
+    <section className="w-full bg-gray-50 lg:py-16 py-8">
       <CustomContainer>
         <h2
           className={`mb-6 lg:text-2xl text-xl font-bold text-main`}

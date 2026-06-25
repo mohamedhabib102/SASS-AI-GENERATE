@@ -5,11 +5,15 @@ import SignIn from "../pages/auth/SignIn";
 import ForgotPassword from "../pages/auth/ForgatPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
 import OtpCode from "../pages/auth/OtpCode";
+import Prices from "@/pages/prices/Prices";
+import Services from "@/pages/services/Services";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/prices" element={<Prices />}/>
+      <Route path="/services" element={<Services/>}/>
       <Route path="auth/sign-up" element={<SignUp />} />
       <Route path="auth/sign-in" element={<SignIn />} />
       <Route path="auth/forgot-password" element={<ForgotPassword />} />
