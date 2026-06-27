@@ -1,9 +1,9 @@
-import HeroSection from "@/components/layouts/HeroSection";
-import AboutUsSection from "@/components/layouts/AboutUsSection";
-import ServicesSection from "@/components/layouts/ServicesSection";
-import FaqSection from "@/components/layouts/FaqSection";
-import ServiceManagementSection from "@/components/layouts/ServiceManagementSection ";
-import TestimonialsSection from "@/components/layouts/TestimonialsSection";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutUsSection from "@/components/sections/AboutUsSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import FaqSection from "@/components/sections/FaqSection";
+import ServiceManagementSection from "@/components/sections/ServiceManagementSection ";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 const Home = () => {
   return (

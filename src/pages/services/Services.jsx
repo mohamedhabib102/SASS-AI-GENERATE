@@ -1,4 +1,4 @@
-import ServicesPage from "@/components/layouts/ServicesPage"
+import ServicesPage from "@/components/sections/ServicesPage"
 
 
 const Services = () => {
