@@ -21,7 +21,7 @@ const Animate = ({
   delay = 0,
   distance = 40,
   once = true,
-  className=""
+  className = "",
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-50px" });
@@ -44,20 +44,23 @@ const Animate = ({
   const finalPosition = { x: 0, y: 0, opacity: 1 };
 
   const animateValue =
-    triggerOn === "mount" ? finalPosition : isInView ? finalPosition : getInitialPosition();
+    triggerOn === "mount"
+      ? finalPosition
+      : isInView
+        ? finalPosition
+        : getInitialPosition();
 
   return (
     <motion.div
-     ref={ref}
-  className={className}
-  initial={getInitialPosition()}
-  animate={animateValue}
-  transition={{
-    duration,
-    delay,
-    ease: "linear",
-  }}
-
+      ref={ref}
+      className={className}
+      initial={getInitialPosition()}
+      animate={animateValue}
+      transition={{
+        duration,
+        delay,
+        ease: "linear",
+      }}
     >
       {children}
     </motion.div>
