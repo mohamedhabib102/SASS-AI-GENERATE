@@ -1,5 +1,5 @@
 import Logo from "@/components/shared/Logo";
-import AboutAuth from "./AboutAuth";
+import AboutAuth from "../sections/AboutAuth";
 
 const LayoutForms = ({ children, title, description, srcImg }) => {
  
