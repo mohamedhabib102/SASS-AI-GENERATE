@@ -24,7 +24,7 @@ export default function ResetPassword() {
 
     return (
         <LayoutForms
-           srcImg={"/logo/logoSecondary.svg"}
+            srcImg={"/logo/logoSecondary.svg"}
             title={t('resetPassword.title')}
             description={t('resetPassword.description')}
         >

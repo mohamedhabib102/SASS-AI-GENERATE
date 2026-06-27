@@ -6,7 +6,10 @@ import en from "@/locales/en/translation.json";
 
 const savedLang = localStorage.getItem('lang') || 'ar';
 if (typeof document !== 'undefined') {
-  document.body.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+  const dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = dir;
+  document.documentElement.lang = savedLang;
+  document.body.dir = dir;
   document.body.lang = savedLang;
 }
 

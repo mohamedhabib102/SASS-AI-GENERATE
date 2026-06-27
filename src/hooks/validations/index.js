@@ -56,8 +56,8 @@ export const useResetPasswordValidationSchema = () => {
 export const useForgotPasswordValidationSchema = () => {
   const { t } = useTranslation();
   return Yup.object({
-    email: Yup.string()
-      .email(t("validations.emailInvalid"))
-      .required(t("validations.emailRequired")),
+    phonNumber: Yup.string()
+      .matches(/^01[0125][0-9]{8}$/, t("validations.phoneInvalid"))
+      .required(t("validations.phoneRequired")),
   });
 };

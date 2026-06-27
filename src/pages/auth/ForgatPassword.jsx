@@ -1,6 +1,6 @@
 import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -13,7 +13,7 @@ const ForgotPassword = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      phonNumber: "",
     },
     validationSchema: useForgotPasswordValidationSchema(),
     onSubmit: (values) => {
@@ -35,14 +35,21 @@ const ForgotPassword = () => {
           className="w-full lg:w-[80%] mx-auto"
         >
           <CustomInput
-            name="email"
-            type="email"
-            id="email"
-            labelContent={t("forgotPassword.emailLabel")}
-            palceholder={t("forgotPassword.emailPlaceholder")}
-            icon={Mail}
+            name="phonNumber"
+            type="tel"
+            id="phonNumber"
+            labelContent={t("forgotPassword.phoneNumber")}
+            palceholder={"01XXXXXXXXX"}
+            icon={Phone}
             formik={formik}
             lang={lang}
+            inputMode="numeric"
+            maxLength={11}
+            onKeyDown={(e) => {
+              if (!/[0-9]/.test(e.key) && !["Backspace","Delete","ArrowLeft","ArrowRight","Tab"].includes(e.key)) {
+                e.preventDefault();
+              }
+            }}
           />
 
           <Button

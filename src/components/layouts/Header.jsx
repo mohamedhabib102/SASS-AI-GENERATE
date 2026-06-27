@@ -1,42 +1,48 @@
 import React, { useMemo } from "react";
 import { Button } from "../ui/button";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  BarChart,
-  BarChart2,
-  BarChart2Icon,
-  BarChart3Icon,
-  Brush,
   Menu,
 } from "lucide-react";
 import ButtonChangeLang from "../shared/ButtonChangeLang";
+import { useLang } from "@/hooks/lang/useLang";
+import CustomContainer from "../shared/CustomContainer";
+import CustomButton from "../shared/CustomButton";
+import Logo from "../shared/Logo";
 
 const Header = () => {
+  const { t } = useLang()
   const links = useMemo(
     () => [
-      { label: "Home", route: "/" },
-      { label: "Services", route: "/services" },
-      { label: "Prices", route: "/prices" },
-      { label: "About", route: "/about" },
+      { label: "home", route: "/" },
+      { label: "services", route: "/services" },
+      { label: "prices", route: "/prices" },
+      { label: "about", route: "/about" },
       { label: "contact", route: "/contact" },
     ],
     [],
   );
 
+  const navLinkClass = ({ isActive }) =>
+    `text-nav py-2 font-normal relative ${
+      isActive
+        ? "text-primary font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+        : ""
+    }`;
+
   return (
     <header className="py-4">
-      <div className="container flex justify-between items-center ">
+      <CustomContainer>
+              <div className="container flex justify-between items-center ">
         <div className="logo w-30">
-          <img src="/logo-black.svg" alt="Logo" loading="lazy" />
+         <Logo srcImg={"/logo-black.svg"} smal={true}/>
         </div>
         {/* all media except mobile */}
         <div className="links gap-4 items-center hidden md:flex">
@@ -44,9 +50,9 @@ const Header = () => {
             <NavLink
               key={index}
               to={link.route}
-              className={" text-gray-500 py-2 font-semibold"}
+              className={navLinkClass}
             >
-              {link.label}
+              {t(`home.nav.${link.label}`)}
             </NavLink>
           ))}
         </div>
@@ -68,9 +74,9 @@ const Header = () => {
                   <DropdownMenuItem key={index} className="w-fit mx-auto">
                     <NavLink
                       to={link.route}
-                      className="text-gray-500 py-2 font-semibold w-full text-center"
+                      className={navLinkClass}
                     >
-                      {link.label}
+                      {t(`home.nav.${link.label}`)}
                     </NavLink>
                   </DropdownMenuItem>
                 ))}
@@ -79,14 +85,15 @@ const Header = () => {
           </DropdownMenu>
           <div className="butns flex gap-3! lg:gap-6! items-center">
             <ButtonChangeLang />
-            <Button
-              className={"text-white font-medium bg-primary hover:bg-blue-600"}
-            >
-              <Link to={"/auth/sign-in"}>Sign in</Link>
-            </Button>
+            <CustomButton
+              translationKey={"home.nav.buttoSign"}
+              link={"/auth/sign-in"}
+              location={"header"}
+            />
           </div>
         </div>
       </div>
+      </CustomContainer>
     </header>
   );
 };

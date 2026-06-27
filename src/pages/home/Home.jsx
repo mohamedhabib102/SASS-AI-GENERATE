@@ -1,13 +1,20 @@
-import Header from "@/components/layouts/Header";
-import CustomContainer from "@/components/shared/CustomContainer";
+import HeroSection from "@/components/layouts/HeroSection";
+import AboutUsSection from "@/components/layouts/AboutUsSection";
+import ServicesSection from "@/components/layouts/ServicesSection";
+import FaqSection from "@/components/layouts/FaqSection";
+import ServiceManagementSection from "@/components/layouts/ServiceManagementSection ";
+import TestimonialsSection from "@/components/layouts/TestimonialsSection";
 
 const Home = () => {
   return (
-    <section>
-      <CustomContainer>
-        <Header />
-      </CustomContainer>
-    </section>
+    <>
+        <HeroSection/>
+        <AboutUsSection />
+        <ServicesSection />
+        <ServiceManagementSection/>
+        <TestimonialsSection/>
+        <FaqSection/>
+    </>
   );
 };
 export default Home;

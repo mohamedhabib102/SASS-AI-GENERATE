@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import LayoutForms from "@/components/layouts/LayoutForms";
 
-// import SubmitBtn from "@/components/shared/SubmitBtn";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -24,12 +23,10 @@ const OtpCode = () => {
       <LayoutForms
         srcImg={"/logo/logoSecondary.svg"}
         title={t("otp.title")}
-        description={"أرسلنا رمز مكون من 6أرقام إلى البريد الإلكترونى"}
+        description={t("otp.description")}
       >
         {/* The email entered by the user will be displayed here */}
-        <p className="text-gray text-[18px] text-center mt-3">
-         {t("otp.description")}
-        </p>
+
 
         {/* ============ Otp and btn send otp  ============*/}
         <div className="w-full lg:w-[80%] mx-auto">

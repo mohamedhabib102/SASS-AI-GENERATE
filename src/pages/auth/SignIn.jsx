@@ -53,6 +53,7 @@ const SignIn = () => {
                             formik={formik}
                             lang={lang}
                         />
+                        <p className="text-primary font-semibold text-md cursor-pointer"><Link to="/auth/forgot-password">{t("signIn.forgotPassword")}</Link></p>
                         {/* terms and conditions */}
                         <div className={`terms flex flex-col  w-full `}>
                             <div className={`flex items-center gap-2 `}>
