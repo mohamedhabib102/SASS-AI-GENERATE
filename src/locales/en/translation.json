@@ -223,7 +223,7 @@
     "ar": "Arabic",
     "en": "English"
   },
-    "prices": {
+  "prices": {
     "badge": "Competitive Pricing",
     "title": "Plan Pricing & Features",
     "description": "Flexible plans that fit businesses and organizations of all sizes.",
@@ -276,5 +276,30 @@
         "button": "Request a Quote"
       }
     ]
+  },
+  "contactUs": {
+    "badge": "Your partner every step of the way",
+    "title": "Contact",
+    "title2": "Us",
+    "description": "We're here to help you with all your digital marketing needs.\nWhether you have a question about a service, need support, or want to start your marketing project with us, our team is ready to guide you to the right solution.",
+    "info": {
+      "title": "Contact Information:",
+      "subtitle": "Reach out to us through your preferred communication channels.",
+      "phone": "920001234",
+      "email": "info@marketingagency.com",
+      "address": "Our Office — Digital Marketing & Campaign Management Services",
+      "social_label": "Follow us on"
+    },
+    "form": {
+      "title": "How can we help you today?",
+      "subtitle": "Leave your inquiry and one of our marketing experts will get back to you as soon as possible.",
+      "name_label": "Name",
+      "name_placeholder": "Enter your name as registered in the system",
+      "email_label": "Email Address",
+      "email_placeholder": "example@marketing.com",
+      "message_label": "Message",
+      "message_placeholder": "Please describe your inquiry or marketing needs so we can assist you better.",
+      "submit": "Send"
+    }
   }
 }
