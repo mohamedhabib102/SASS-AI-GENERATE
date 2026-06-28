@@ -2,13 +2,13 @@ import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useSignUpValidationSchema } from "@/hooks/validations";
 import { Eye, EyeClosed, Lock, Mail, User, Phone } from "lucide-react";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import { useLang } from "@/hooks/lang/useLang";
 import Loading from "@/components/shared/Loading";
 import { useRegister } from "@/features/auth/hooks/useRegister";
+import { useSignUpSchema } from "../schemas/signup.schema";
 
 const SignUp = () => {
   const { lang, t } = useLang();
@@ -29,7 +29,7 @@ const SignUp = () => {
       password_confirmation: "",
       "terms-conditions": false,
     },
-    validationSchema: useSignUpValidationSchema(),
+    validationSchema: useSignUpSchema(),
     onSubmit: async (values) => {
       try {
         const data = {
@@ -43,7 +43,8 @@ const SignUp = () => {
       } catch (error) {
         const st = error?.response?.status
         if (st === 422){
-        formik.setFieldError("email", "الايميل موجود بالفعل")
+        formik.setFieldError("email", "الايميل موجود بالفعل");
+        formik.setFieldTouched("email", true, false);
         }
       }
     },

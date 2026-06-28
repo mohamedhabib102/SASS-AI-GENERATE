@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
-import SignUp from "../pages/auth/SignUp";
-import SignIn from "../pages/auth/SignIn";
-import ForgotPassword from "../pages/auth/ForgatPassword";
-import ResetPassword from "../pages/auth/ResetPassword";
-import OtpCode from "../pages/auth/OtpCode";
+import SignUp from "../features/auth/pages/SignUp";
+import SignIn from "../features/auth/pages/SignIn";
+import ForgotPassword from "../features/auth/pages/ForgatPassword";
+import ResetPassword from "../features/auth/pages/ResetPassword";
+import OtpCode from "../features/auth/pages/OtpCode";
 import Prices from "@/pages/prices/Prices";
 import Services from "@/pages/services/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";

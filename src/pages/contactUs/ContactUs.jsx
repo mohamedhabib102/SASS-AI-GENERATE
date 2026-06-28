@@ -5,8 +5,8 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { useFormik } from "formik";
 import CustomInput from "@/components/shared/CustomInput";
 import CustomContainer from "@/components/shared/CustomContainer";
-import { useSignUpValidationSchema } from "@/hooks/validations";
 import { useLang } from "@/hooks/lang/useLang";
+import { useSignUpSchema } from "@/features/auth/schemas/signup.schema";
 
 export default function ContactUs() {
   const { lang, t } = useLang();
@@ -16,7 +16,7 @@ export default function ContactUs() {
       email: "",
       "terms-conditions": false,
     },
-    validationSchema: useSignUpValidationSchema(lang),
+    validationSchema: useSignUpSchema(lang),
     onSubmit: (values) => {
       console.log(values);
     },
