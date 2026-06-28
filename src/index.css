@@ -22,6 +22,12 @@ body{
 }
 
 
+:disabled{
+  cursor: pointer!important;
+  opacity: 0.5!important;
+}
+
+
 /* .container {
     @apply mx-auto w-full px-[10px] md:w-[590px] md:w-[700px] lg:w-[980px] xl:w-[1200px];
 } */
