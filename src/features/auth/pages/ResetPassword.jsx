@@ -2,7 +2,7 @@ import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useResetPasswordValidationSchema } from "@/hooks/validations";
+import { useResetPasswordValidationSchema } from "@/features/auth/schemas";
 import { useLang } from "@/hooks/lang/useLang";
 import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";

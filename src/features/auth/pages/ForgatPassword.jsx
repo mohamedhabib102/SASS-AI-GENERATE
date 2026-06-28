@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useLang } from "@/hooks/lang/useLang";
-import { useForgotPasswordValidationSchema } from "@/hooks/validations";
+import { useForgotPasswordValidationSchema } from "@/features/auth/schemas";
 
 const ForgotPassword = () => {
   const { lang, t } = useLang();
