@@ -2,7 +2,7 @@ import { instanceAxios } from "@/lib/InstanceAxios";
 
 
 const Login = async(data) => {
-    const res = await instanceAxios.post(`api/auth/login`); // send data user like email and password
+    const res = await instanceAxios.post(`api/auth/login`, data);
     return res.data
 }
 

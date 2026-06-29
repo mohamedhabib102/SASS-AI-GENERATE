@@ -37,7 +37,7 @@ const SignIn = () => {
         description={t("signIn.description")}
       >
         <form onSubmit={formik.handleSubmit} className="w-full py-4">
-          <div className="form-fields flex flex-col gap-4 my-4">
+          <div className="form-field flex flex-col gap-4 my-4">
             <CustomInput
               name="email"
               type="email"
@@ -120,9 +120,13 @@ const SignIn = () => {
           <div className="google-auth flex items-center justify-center mt-3">
             <button
               type="button"
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_API_URL}api/auth/google/redirect`;
+              }}
               className="w-full h-12 flex items-center justify-center rounded-xl cursor-pointer gap-2 border border-gray-200 text-gray-700 font-semibold text-sm lg:text-base hover:bg-gray-50 transition-colors"
             >
               <span>{t("signIn.googleBtn")}</span>
+
               <img
                 src="/images/google.png"
                 alt="Google"
