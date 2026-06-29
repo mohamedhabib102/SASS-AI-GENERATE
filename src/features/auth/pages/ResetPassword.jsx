@@ -2,7 +2,7 @@ import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useResetPasswordValidationSchema } from "@/hooks/validations";
+import { useResetPasswordValidationSchema } from "@/features/auth/schemas";
 import { useLang } from "@/hooks/lang/useLang";
 import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";
@@ -24,13 +24,7 @@ export default function ResetPassword() {
 
     return (
         <LayoutForms
-            logo={
-                <img
-                    src="/LogoSecondary.png"
-                    alt="Logo"
-                    className="w-100 h-16 mb-10"
-                />
-            }
+            srcImg={"/logo/logoSecondary.svg"}
             title={t('resetPassword.title')}
             description={t('resetPassword.description')}
         >

@@ -2,11 +2,11 @@ import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useValidationSchema } from "@/hooks/validations";
 import { Eye, EyeClosed, Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { useLang } from "@/hooks/lang/useLang";
+import { useSigninSchema } from "../schemas/signin.schema";
 
 const SignIn = () => {
     const {lang, t} = useLang()
@@ -17,7 +17,7 @@ const SignIn = () => {
             password: '',
             'terms-conditions': false,
         },
-        validationSchema: useValidationSchema(lang),
+        validationSchema: useSigninSchema(lang),
         onSubmit: (values) => {
             console.log(values);
         }
@@ -53,6 +53,7 @@ const SignIn = () => {
                             formik={formik}
                             lang={lang}
                         />
+                        <p className="text-primary font-semibold text-md cursor-pointer"><Link to="/auth/forgot-password">{t("signIn.forgotPassword")}</Link></p>
                         {/* terms and conditions */}
                         <div className={`terms flex flex-col  w-full `}>
                             <div className={`flex items-center gap-2 `}>

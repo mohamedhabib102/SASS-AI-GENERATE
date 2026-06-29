@@ -1,4 +1,5 @@
-import AboutAuth from "./AboutAuth";
+import Logo from "@/components/shared/Logo";
+import AboutAuth from "../sections/AboutAuth";
 
 const LayoutForms = ({ children, title, description, srcImg }) => {
  
@@ -15,11 +16,7 @@ const LayoutForms = ({ children, title, description, srcImg }) => {
           <div className="flex flex-col items-center justify-center gap-5 mb-5 mt-6">
               {srcImg && (
               <div>
-                <img
-                  src={srcImg}
-                  alt="logo"
-                  className="w-auto h-10 lg:h-15 object-contain"
-                />
+                <Logo srcImg={srcImg}/>
               </div>
             )}
 

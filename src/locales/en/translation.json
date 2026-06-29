@@ -2,9 +2,140 @@
   "home": {
     "nav": {
       "home": "Home",
-      "about": "About",
-      "contact": "Contact"
+      "services": "Services",
+      "prices": "Prices",
+      "pricesMonthly": "Monthly Plans",
+      "pricesYearly": "Annual Plans",
+      "about": "About Us",
+      "contact": "Social Media",
+      "buttoSign": "sign in"
+    },
+    "hero": {
+      "title": "An integrated solution to manage and execute marketing services from one place.",
+      "description": "Markeva is a digital platform that helps individuals and companies manage their marketing services easily and clearly.\nFrom requesting the service, to follow-up, and up to receiving results — all done through a single dashboard, without complexity or unnecessary steps.",
+      "button": "Book your service"
+    },
+    "stats": {
+      "projectsCount": "+500",
+      "projectsLabel": "Projects Completed",
+      "expertsCount": "+50",
+      "expertsLabel": "Marketing Specialists",
+      "satisfactionCount": "98%",
+      "satisfactionLabel": "Client Satisfaction Rate"
+    },
+    "services": {
+      "sectionTitle": "Services available on Markeva platform",
+      "sectionDescription": "A set of marketing services that you can manage and track easily through a single, methodical and clear dashboard.",
+      "viewMore": "View More",
+      "card1Title": "Advertising Campaign Management",
+      "card1Description": "Organize and manage advertising campaigns through a clear workflow, including goal setting, execution tracking, and results review from one place.",
+      "card2Title": "Visual Identity Design",
+      "card2Description": "Manage all visual identity elements of your business, including core designs and visual outputs within a unified and organized framework.",
+      "card3Title": "Content Management",
+      "card3Description": "Organize content requests and track execution and review phases, ensuring message consistency and easy content management across different channels.",
+      "card4Title": "Digital Marketing",
+      "card4Description": "Manage digital marketing activities within a clear plan, covering execution and follow-up without needing separate coordination between multiple parties.",
+      "card5Title": "Analytics and Reports",
+      "card5Description": "View performance reports and results of marketing services, helping make decisions based on clear data and continuous follow-up.",
+      "card6Title": "Order and Communication Management",
+      "card6Description": "Organize all service orders and related communication through a single clear path, facilitating follow-up on notes, inquiries, and updates without relying on external channels."
+    },
+    "aboutUs": {
+      "motiveTitle": "The motive behind establishing the Markeva platform",
+      "motiveDescription": "Markeva was established to address the complexity of managing marketing services resulting from multiple entities and platforms, by providing a centralized system that facilitates follow-up, organization, and decision-making in a single integrated experience.",
+      "sectionTitle": "Integrated management of marketing services from one place",
+      "paragraph1": "Many companies and project owners have faced difficulties in managing their marketing services due to the multiplicity of entities and platforms.",
+      "paragraph2": "From here, Markeva came to be a central point that gathers all marketing services in one place, which facilitates management, reduces distraction, and saves time and effort.",
+      "learnMore": "Learn More",
+      "methodologyTitle": "Clear execution methodology and continuous follow-up",
+      "methodologyDescription": "Markeva relies on an organized workflow that ensures clarity at each stage of executing marketing services, starting from order receipt and requirement definition, through the execution and review stage, up to final delivery, with continuous tracking of work status and progress achieved at every step.",
+      "controlTitle": "Full control and transparency in every detail",
+      "controlDescription": "Markeva is designed to give the client full control over their marketing services through a centralized dashboard, where they can track status, communicate with the specialist team, and view reports and results, ensuring complete transparency and a clear experience without the need for multiple follow-ups or disorganized communication."
+    },
+    "serviceManagement": {
+      "sectionTitle": "How are services managed inside Markeefa?",
+      "sectionDescription": "Markeefa operates according to a clear methodology that ensures order organization, clarity of execution stages, and the availability of continuous follow-up on the status of each service from the moment of order to final delivery, without the need to deal with multiple platforms or entities.",
+      "card1Title": "Centralized Organization of Service Requests",
+      "card1Description": "Markeefa provides a single point to manage all marketing service requests, facilitating order tracking, data unification, and reducing distractions from multiple channels and parties.",
+      "card2Title": "Organized Execution and Continuous Follow-up",
+      "card2Description": "The platform relies on a clear execution mechanism that allows tracking the status of each service, and knowing what is done and what is in progress, without the need for separate communication or disorganized follow-up.",
+      "card3Title": "Clear Vision and Transparency in Details",
+      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information."
+    },
+    "testimonials": {
+      "sectionTitle": "User Reviews and Their Experiences with the Platform",
+      "sectionDescription": "Real ratings from users who have used the platform in their daily work, showing the level of efficiency, ease of use, and its actual impact on organizing work and improving productivity.",
+      "review1Text": "A very practical tool, we used it with the team and it saved a lot of time.",
+      "review2Text": "The experience is comfortable and fast, I feel the work is organized and there is no confusion.",
+      "review3Text": "The platform made a huge difference for us in organizing work and follow-up, everything became clear and fast.",
+      "review4Text": "Easy to learn and fast to use, and that made a difference in our daily work.",
+      "review5Text": "A smart and simple platform, needs some small additions but the experience is excellent.",
+      "review6Text": "The thing I liked most is that all notes arrive clearly and without repetition."
     }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to our newsletter to get the latest news, offers and events",
+      "placeholder": "Your email address",
+      "subscribe": "Subscribe"
+    },
+    "app": {
+      "title": "Download Markeefa App"
+    },
+    "services": {
+      "title": "Our Services",
+      "socialMedia": "Social Media Management",
+      "contentCreation": "Content Creation",
+      "adsCampaigns": "Ad Campaigns",
+      "contactUs": "Contact Us",
+      "faq": "FAQ"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "testimonials": "Testimonials",
+      "pricing": "Pricing"
+    },
+    "about": {
+      "description": "We are a dedicated digital marketing team, helping brands grow through well-planned strategies, effective content, and professional campaign management."
+    },
+    "bottom": {
+      "copyright": "Markeefa. All rights reserved.",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "faq": {
+    "sectionTitle": "Frequently Asked Questions",
+    "questions": [
+      {
+        "title": "Is the platform easy to use for beginners?",
+        "description": "Yes, the platform is designed with a simple and clear interface that anyone can use without any prior experience"
+      },
+      {
+        "title": "Is my data safe?",
+        "description": "Yes, your data is protected with industry-standard security and encryption measures"
+      },
+      {
+        "title": "Can I add team members?",
+        "description": "Absolutely, you can invite your team members and manage their permissions easily from the dashboard"
+      },
+      {
+        "title": "Can the platform be used on more than one device?",
+        "description": "Sure, the platform is compatible with all devices and you can log in from anywhere"
+      },
+      {
+        "title": "Can I control user permissions?",
+        "description": "Yes, you can customize each user's permissions based on their role within the team"
+      },
+      {
+        "title": "Is support available if I face an issue?",
+        "description": "Yes, our support team is available around the clock to help you with any question or issue"
+      }
+    ]
   },
   "aboutAuth": {
     "welcome": "Welcome to",
@@ -31,7 +162,8 @@
     "or": "Or",
     "googleBtn": "Sign in with Google",
     "noAccount": "Don't have an account yet? ",
-    "signUpLink": "Create new account"
+    "signUpLink": "Create new account",
+    "forgotPassword": "Forgot your password?"
   },
   "signUp": {
     "title": "Create a New Account",
@@ -51,7 +183,7 @@
     "hasAccount": "Already have an account? ",
     "signInLink": "Sign In"
   },
-    "validations": {
+  "validations": {
     "fullNameRequired": "Full name is required",
     "emailInvalid": "Invalid email address",
     "emailRequired": "Email is required",
@@ -59,7 +191,9 @@
     "passwordRequired": "Password is required",
     "confPasswordMatch": "Passwords must match",
     "confPasswordRequired": "Confirm password is required",
-    "termsRequired": "You must agree to the terms and conditions"
+    "termsRequired": "You must agree to the terms and conditions",
+    "phoneRequired": "Phone number is required",
+    "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits"
   },
   "resetPassword": {
     "title": "Reset Password",
@@ -74,15 +208,98 @@
   },
   "forgotPassword": {
     "title": "Forgot Password?",
-    "description": "Enter your email address to select a new password.",
-    "emailLabel": "Email Address",
+    "description": "Enter your registered mobile number to choose a new password.",
     "emailPlaceholder": "Enter your email address",
-    "submit": "Send verification code"
+    "submit": "Send verification code",
+    "phoneNumber": "Phone Number"
   },
   "otp": {
     "title": "Enter Verification Code",
-    "description": "We sent a 6-digit code to the email address",
+    "description": "We sent a 6-digit code to the phone number",
     "submit": "Confirm Verification Code",
     "resend": "Resend Code"
+  },
+  "languages": {
+    "ar": "Arabic",
+    "en": "English"
+  },
+  "prices": {
+    "badge": "Competitive Pricing",
+    "title": "Plan Pricing & Features",
+    "description": "Flexible plans that fit businesses and organizations of all sizes.",
+    "popularBadge": "Most Popular",
+    "perMonth": "/month",
+    "plans": [
+      {
+        "key": "basic",
+        "name": "Basic",
+        "tagline": "Get started and manage small business operations",
+        "price": "499$",
+        "type": "monthly",
+        "popular": false,
+        "features": [
+          "Manage up to 50 campaigns",
+          "Single user or small team management",
+          "Ready-made marketing templates",
+          "Basic performance reports"
+        ],
+        "button": "Get Started"
+      },
+      {
+        "key": "pro",
+        "name": "Professional",
+        "tagline": "Built for growth and scaling",
+        "price": "1299$",
+        "type": "monthly",
+        "popular": true,
+        "features": [
+          "Manage up to 200 campaigns or projects",
+          "Medium-sized team management",
+          "Partial brand identity customization",
+          "Advanced performance reports"
+        ],
+        "button": "Subscribe Now"
+      },
+      {
+        "key": "enterprise",
+        "name": "Enterprise",
+        "tagline": "Designed for large organizations",
+        "price": "Custom",
+        "type": "",
+        "popular": false,
+        "features": [
+          "Unlimited campaigns",
+          "Advanced team management & analytics",
+          "Advanced reports and analytics",
+          "Custom solutions on request"
+        ],
+        "button": "Request a Quote"
+      }
+    ]
+  },
+  "contactUs": {
+    "badge": "Your partner every step of the way",
+    "title": "Contact",
+    "title2": "Us",
+    "description": "We're here to help you with all your digital marketing needs.\nWhether you have a question about a service, need support, or want to start your marketing project with us, our team is ready to guide you to the right solution.",
+    "info": {
+      "title": "Contact Information:",
+      "subtitle": "Reach out to us through your preferred communication channels.",
+      "phone": "920001234",
+      "email": "info@marketingagency.com",
+      "address": "Our Office — Digital Marketing & Campaign Management Services",
+      "social_label": "Follow us on"
+    },
+    "form": {
+      "title": "How can we help you today?",
+      "subtitle": "Leave your inquiry and one of our marketing experts will get back to you as soon as possible.",
+      "name_label": "Name",
+      "name_placeholder": "Enter your name as registered in the system",
+      "email_label": "Email Address",
+      "email_placeholder": "example@marketing.com",
+      "message_label": "Message",
+      "message_placeholder": "Please describe your inquiry or marketing needs so we can assist you better.",
+      "submit": "Send"
+    }
   }
 }
