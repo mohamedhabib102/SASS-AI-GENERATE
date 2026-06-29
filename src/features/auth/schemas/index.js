@@ -23,8 +23,8 @@ export const useResetPasswordValidationSchema = () => {
 export const useForgotPasswordValidationSchema = () => {
   const { t } = useTranslation();
   return Yup.object({
-    phonNumber: Yup.string()
-      .matches(/^01[0125][0-9]{8}$/, t("validations.phoneInvalid"))
+    phone: Yup.string()
+      .matches(/^01[0-9]{9}$/, t("validations.phoneInvalid"))
       .required(t("validations.phoneRequired")),
   });
 };

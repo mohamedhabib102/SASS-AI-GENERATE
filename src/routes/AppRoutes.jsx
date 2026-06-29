@@ -8,9 +8,12 @@ import OtpCode from "../features/auth/pages/OtpCode";
 import Prices from "@/pages/prices/Prices";
 import Services from "@/pages/services/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
+import { Toaster } from "react-hot-toast";
 
 const AppRoutes = () => {
   return (
+    <>
+    <Toaster />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/prices" element={<Prices />} />
@@ -22,6 +25,7 @@ const AppRoutes = () => {
       <Route path="auth/reset-password" element={<ResetPassword />} />
       <Route path="/auth/otp-code" element={<OtpCode />} />
     </Routes>
+    </>
   );
 };
 

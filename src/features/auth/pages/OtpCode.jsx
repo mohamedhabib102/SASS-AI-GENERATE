@@ -3,7 +3,7 @@ import { useState } from "react";
 import LayoutForms from "@/components/layouts/LayoutForms";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // import oTP
 import {
@@ -12,11 +12,45 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { useLang } from "@/hooks/lang/useLang";
+import { instanceAxios } from "@/lib/InstanceAxios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 // ============ JSX ============ //
 const OtpCode = () => {
   const [value, setValue] = useState("");
-  const {t} = useLang()
+  const {t} = useLang();
+
+  const {state}=useLocation();
+  console.log(state?.phone)
+
+
+
+  const {mutate ,isPending}=useMutation({
+      mutationKey: ['verify-otp'],
+      mutationFn: async ()=> instanceAxios.post('/api/auth/verify-otp', {
+        phone: state.phone,
+        otp: value,
+      }),
+      onSuccess : (data)=> {
+        console.log(data)
+        toast.success("Otp is Verified Successfully");
+        navigate("/auth/reset-password",{state: {
+          token: data?.token
+        }});
+      },
+      onError : (error)=> {
+        console.log(error);
+        toast.error( error?.response?.data?.message || "OTP is incorrect");
+      },
+  
+    });;
+
+    const queryClient = useQueryClient();
+    const resendOtp = ()=> {
+      queryClient.invalidateQueries(['forgotPassword']);
+    }
+
+
 
   return (
     <section className="min-h-screen">
@@ -54,19 +88,19 @@ const OtpCode = () => {
           </div>
 
           <div className="flex gap-12 flex-col justify-center">
-            <Link to={"/auth/forgot-password/otp-code"}>
               <Button
                 type="submit"
                 className={
                   "w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
                 }
               >
-               {t("otp.submit")}
+                {isPending ? 'Submitting...' : 'Submit'}
               </Button>
-            </Link>
             {/* == resend otp == */}
-            <button className="text-[16px] text-center text-primary cursor-pointer ">
-             {t("otp.resend")}
+            <button className="text-[16px] text-center text-primary cursor-pointer "
+            onClick={()=> resendOtp()}
+            >
+              {t("otp.resend")}
             </button>
           </div>
         </div>
