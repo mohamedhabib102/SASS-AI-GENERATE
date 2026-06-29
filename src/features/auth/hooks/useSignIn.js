@@ -12,8 +12,6 @@ export const useSignIn = () => {
     navigate("/")
     },
 
-    onError: (error) => {
-      console.log(error.response?.data);
-    },
+  
   });
 };

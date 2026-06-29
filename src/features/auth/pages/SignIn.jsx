@@ -8,7 +8,7 @@ import { useFormik } from "formik";
 import { useLang } from "@/hooks/lang/useLang";
 import { useSigninSchema } from "../schemas/signin.schema";
 import { useSignIn } from "../hooks/useSignIn";
-
+import ServerError from "@/components/shared/ServerError";
 const SignIn = () => {
   const { lang, t } = useLang();
   const validationSchema = useSigninSchema();
@@ -23,10 +23,21 @@ const SignIn = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      signIn({
-        email: values.email,
-        password: values.password,
-      });
+      formik.setStatus("");
+
+      signIn(
+        {
+          email: values.email,
+          password: values.password,
+        },
+        {
+          onError: (error) => {
+            formik.setStatus(
+              error.response?.data?.message || "Something went wrong"
+            );
+          },
+        }
+      );
     },
   });
 
@@ -100,7 +111,7 @@ const SignIn = () => {
               ) : null}
             </div>
           </div>
-
+          <ServerError message={formik.status} /> 
           <Button
             type="submit"
             disabled={isPending}
