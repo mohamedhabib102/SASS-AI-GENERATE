@@ -7,18 +7,15 @@ import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import { useLang } from "@/hooks/lang/useLang";
 import Loading from "@/components/shared/Loading";
-import { useRegister } from "@/features/auth/hooks/useRegister";
+import { useRegister } from "@/features/auth/hooks/useSignUp";
 import { useSignUpSchema } from "../schemas/signup.schema";
 
 const SignUp = () => {
   const { lang, t } = useLang();
   const {
-    mutate,
-    loading: loadingRegister,
-    error,
-    status,
-    isError,
-  } = useRegister();
+    mutateAsync,
+    isPending: loadingRegister,
+  } = useRegister();  
 
   const formik = useFormik({
     initialValues: {
@@ -39,12 +36,28 @@ const SignUp = () => {
           password: values.password,
           password_confirmation: values.password_confirmation
       }
-       const res = await mutate(data);
+       const res = await mutateAsync(data);
+       console.log(res)
       } catch (error) {
-        const st = error?.response?.status
-        if (st === 422){
-        formik.setFieldError("email", "الايميل موجود بالفعل");
-        formik.setFieldTouched("email", true, false);
+        const st = error?.response?.status;
+        const msg = error?.response?.data?.errors;
+        if (st === 422 && msg) {
+          const newErrors = {};
+          const newTouched = {};
+
+          if (msg.email) {
+            newErrors.email = t("errros.emailErrorSignup");
+            newTouched.email = true;
+          }
+          if (msg.phone) {
+            newErrors.phone = t("errros.phoneErrorSignup");
+            newTouched.phone = true;
+          }
+
+          if (Object.keys(newErrors).length > 0) {
+            formik.setErrors({ ...formik.errors, ...newErrors });
+            formik.setTouched({ ...formik.touched, ...newTouched }, false);
+          }
         }
       }
     },
@@ -62,6 +75,7 @@ const SignUp = () => {
               name="name"
               type="text"
               id="name"
+              disabled={loadingRegister}
               labelContent={t("signUp.fullNameLabel")}
               palceholder={t("signUp.fullNamePlaceholder")}
               icon={User}
@@ -75,6 +89,7 @@ const SignUp = () => {
               labelContent={lang === "en" ? "Phone Number" : "رقم الهاتف"}
               palceholder="201068984478+"
               icon={Phone}
+              disabled={loadingRegister}
               formik={formik}
               lang={lang}
             />
@@ -85,6 +100,7 @@ const SignUp = () => {
               labelContent={t("signUp.emailLabel")}
               palceholder="mowafy.dev@gmail.com"
               icon={Mail}
+              disabled={loadingRegister}
               formik={formik}
               lang={lang}
             />
@@ -95,6 +111,7 @@ const SignUp = () => {
               labelContent={t("signUp.passwordLabel")}
               palceholder={t("signUp.passwordPlaceholder")}
               icon={Lock}
+              disabled={loadingRegister}
               iconEyeClosed={EyeClosed}
               iconsEyeDashed={Eye}
               formik={formik}
@@ -107,6 +124,7 @@ const SignUp = () => {
               labelContent={t("signUp.confPasswordLabel")}
               palceholder={t("signUp.confPasswordPlaceholder")}
               icon={Lock}
+              disabled={loadingRegister}
               iconEyeClosed={EyeClosed}
               iconsEyeDashed={Eye}
               formik={formik}
@@ -119,6 +137,7 @@ const SignUp = () => {
                 <Checkbox
                   id="terms-conditions"
                   name="terms-conditions"
+                  disabled={loadingRegister}
                   checked={formik.values["terms-conditions"]}
                   onCheckedChange={(checked) =>
                     formik.setFieldValue("terms-conditions", !!checked)

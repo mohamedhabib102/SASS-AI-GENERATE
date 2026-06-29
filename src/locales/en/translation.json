@@ -301,5 +301,9 @@
       "message_placeholder": "Please describe your inquiry or marketing needs so we can assist you better.",
       "submit": "Send"
     }
+  },
+   "errros": {
+    "emailErrorSignup": "This email address is already registered",
+    "phoneErrorSignup": "This phone number is already registered"
   }
 }

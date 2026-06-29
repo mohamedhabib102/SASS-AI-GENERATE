@@ -1,8 +1,8 @@
 import * as Yup from "yup";
-import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/lang/useLang";
 
 export const useSignUpSchema = () => {
-  const { t } = useTranslation();
+  const { t } = useLang();
   return Yup.object({
     name: Yup.string().required(t("validations.fullNameRequired")),
     phone: Yup.string().matches(

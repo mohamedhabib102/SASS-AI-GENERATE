@@ -23,8 +23,13 @@ body{
 
 
 :disabled{
-  cursor: pointer!important;
+  cursor: not-allowed!important;
   opacity: 0.5!important;
+}
+
+/* Prevent Radix UI's hidden native input from appearing when disabled */
+[data-slot="checkbox"] input {
+  opacity: 0 !important;
 }
 
 

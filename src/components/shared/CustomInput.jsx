@@ -11,6 +11,7 @@ const CustomInput = ({
   iconsEyeDashed,
   formik,
   lang,
+  disabled
 }) => {
   const IconBase = icon;
   const IconShow = iconEyeClosed;
@@ -37,9 +38,16 @@ const CustomInput = ({
           name={name}
           placeholder={palceholder}
           id={id}
+          disabled={disabled}
           onChange={formik.handleChange}
-          className={`${lang === "ar" ? "text-right" : "text-left"} border border-gray-200 outline-none placeholder:text-gray-400 text-xs lg:text-sm
-            h-10 px-9 py- w-full rounded-lg focus:border-primary`}
+          onBlur={formik.handleBlur}
+          className={`${lang === "ar" ? "text-right" : "text-left"} border outline-none placeholder:text-gray-400 text-xs lg:text-sm
+            h-10 px-9 w-full rounded-lg transition-colors
+            ${
+              formik.touched[name] && formik.errors[name]
+                ? "border-red-500 focus:border-red-500"
+                : "border-gray-200 focus:border-primary"
+            }`}
         />
 
         {icon && (
