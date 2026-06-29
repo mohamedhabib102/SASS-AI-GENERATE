@@ -1,4 +1,16 @@
 # Project Structure
+## Architecture
+
+This project follows a **Feature-Based Architecture**, where each feature is isolated with its own:
+
+- API layer
+- React Query hooks
+- Components
+- Pages
+- Validation schemas
+- Constants
+
+This structure improves scalability, maintainability, and code organization for medium and large React applications.
 
 ```text
 src/
@@ -82,15 +94,3 @@ src/
 | `assets/` | Images, fonts, icons. |
 | `styles/` | Global styles. |
 
-## Architecture
-
-This project follows a **Feature-Based Architecture**, where each feature is isolated with its own:
-
-- API layer
-- React Query hooks
-- Components
-- Pages
-- Validation schemas
-- Constants
-
-This structure improves scalability, maintainability, and code organization for medium and large React applications.
