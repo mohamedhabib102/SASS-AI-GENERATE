@@ -3,17 +3,17 @@
 ```text
 src/
 │
-├── app/                                         // إعدادات التطبيق الأساسية
-│   ├── App.jsx                                  // Root Component
-│   ├── router.jsx                               // جميع Routes
-│   ├── providers.jsx                            // يجمع جميع Providers (Auth, React Query...)
-│   └── queryClient.js                           // إعدادات React Query
+├── app/                                        
+│   ├── App.jsx                                  
+│   ├── router.jsx                              
+│   ├── providers.jsx                           
+│   └── queryClient.js                          
 │
-├── api/                                         // ملفات الـ API المشتركة بين جميع الـ Features
-│   ├── axios.js                                 // Axios Instance
-│   └── interceptors.js                          // Request & Response Interceptors
+├── api/                                        
+│   ├── axios.js                                 
+│   └── interceptors.js                         
 │
-├── auth/                                        // كل ما يخص Authentication & Authorization
+├── auth/                                       
 │   ├── api/
 │   │   └── auth.api.js
 │   ├── hooks/
