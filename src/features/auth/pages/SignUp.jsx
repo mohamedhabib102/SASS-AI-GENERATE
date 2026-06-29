@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeClosed, Lock, Mail, User, Phone } from "lucide-react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLang } from "@/hooks/lang/useLang";
 import Loading from "@/components/shared/Loading";
 import { useRegister } from "@/features/auth/hooks/useSignUp";
@@ -16,6 +16,8 @@ const SignUp = () => {
     mutateAsync,
     isPending: loadingRegister,
   } = useRegister();  
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -197,6 +199,7 @@ const SignUp = () => {
           <div className="google-auth flex items-center justify-center mt-2.5">
             <button
               type="button"
+              onClick={()=> window.location.href = `${import.meta.env.VITE_GOOGLE_REDIRECT_URI}`}
               className="w-full h-10 flex items-center justify-center rounded-lg cursor-pointer gap-2 border-gray-200 border text-gray-700 font-semibold text-xs lg:text-sm hover:bg-gray-50 transition-colors"
             >
               <img
