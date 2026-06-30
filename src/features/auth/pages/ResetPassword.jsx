@@ -18,11 +18,11 @@ export default function ResetPassword() {
     const navigate = useNavigate();
 
     const {mutate ,isPending}=useMutation({
-        mutationKey: ['forgotPassword'],
+        mutationKey: ['reset-password'],
         mutationFn: async (values)=> instanceAxios.post('/api/auth/change-password', { ...values, token }),
         onSuccess : ()=> {
         toast.success("Password reset successfully");
-        navigate("/auth/login");
+        navigate("/auth/sign-in");
         // formik.resetForm();
         },
         onError : (error)=> {

@@ -14,6 +14,7 @@ import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 
 const AppRoutes = () => {
+  
   return (
     <>
     <Toaster />

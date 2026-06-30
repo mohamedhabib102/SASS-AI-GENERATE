@@ -16,7 +16,6 @@ const SignUp = () => {
     mutateAsync,
     isPending: loadingRegister,
   } = useRegister();
-  const navigate =  useNavigate()  
 
   const navigate = useNavigate();
 
