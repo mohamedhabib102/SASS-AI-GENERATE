@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeClosed, Lock, Mail, User, Phone } from "lucide-react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLang } from "@/hooks/lang/useLang";
 import Loading from "@/components/shared/Loading";
 import { useRegister } from "@/features/auth/hooks/useSignUp";
@@ -15,7 +15,8 @@ const SignUp = () => {
   const {
     mutateAsync,
     isPending: loadingRegister,
-  } = useRegister();  
+  } = useRegister();
+  const navigate =  useNavigate()  
 
   const formik = useFormik({
     initialValues: {
@@ -37,6 +38,7 @@ const SignUp = () => {
           password_confirmation: values.password_confirmation
       }
        const res = await mutateAsync(data);
+       navigate("/company/create-profile")
        console.log(res)
       } catch (error) {
         const st = error?.response?.status;
@@ -62,6 +64,8 @@ const SignUp = () => {
       }
     },
   });
+
+
 
   return (
     <section className="min-h-screen">

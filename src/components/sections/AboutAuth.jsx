@@ -3,6 +3,7 @@ import { CircleCheckBig } from "lucide-react";
 import { useLang } from "@/hooks/lang/useLang";
 import ButtonChangeLang from "../shared/ButtonChangeLang";
 import Logo from "../shared/Logo";
+import Animate from "@/animations/Animate";
 
 const AboutAuth = () => {
     const {t} =  useLang()
@@ -10,7 +11,7 @@ const AboutAuth = () => {
   return (
     <div
       className="
-      bg-primary text-white
+    text-white
       flex flex-col
       justify-between
       px-6 lg:px-8 py-5 lg:py-6
@@ -28,15 +29,22 @@ const AboutAuth = () => {
       {/* Middle Content */}
       <div className="flex-1 flex flex-col justify-center items-center w-full">
         {/* Illustration */}
-        <div className="w-full flex justify-center mb-4">
-          <img
+
+        <Animate direction="up" className="w-full flex justify-center mb-4">
+         <img
             src="/images/image-auth.png"
             alt="Marketing Illustration"
             className="w-full max-w-40 lg:max-w-70 object-contain"
           />
-        </div>
+        </Animate>
+  
 
-        <div className="w-full">
+
+        <Animate direction="up" className="w-full">
+
+
+
+       
           <div className="space-y-1">
             <h1 className="text-xl lg:text-2xl font-bold leading-tight">
  {t("aboutAuth.welcome")}              <span className="block text-[#F56E14] mt-1">
@@ -68,7 +76,7 @@ const AboutAuth = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </Animate>
       </div>
 
       {/* Footer */}

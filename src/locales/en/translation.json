@@ -193,7 +193,10 @@
     "confPasswordRequired": "Confirm password is required",
     "termsRequired": "You must agree to the terms and conditions",
     "phoneRequired": "Phone number is required",
-    "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits"
+    "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits",
+    "companyNameRequired": "Company name is required",
+    "fieldRequired": "Field of work is required",
+    "planRequired": "Selected plan is required"
   },
   "resetPassword": {
     "title": "Reset Password",
@@ -305,5 +308,30 @@
    "errros": {
     "emailErrorSignup": "This email address is already registered",
     "phoneErrorSignup": "This phone number is already registered"
+  },
+  "createCompany": {
+    "title": "Create Your Company",
+    "description": "Start building your company's presence on the platform by entering its basic information.",
+    "companyNameLabel": "Company Name",
+    "companyNamePlaceholder": "Enter the official name of your company as it will appear to customers",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "rania@gmail.com",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "+20 101010100",
+    "fieldLabel": "Field of Work",
+    "fieldPlaceholder": "Choose the field in which your company operates (digital marketing - social media - branding...)",
+    "planLabel": "Selected Plan",
+    "planPlaceholder": "The plan you subscribed to to activate platform services",
+    "submit": "Create Company",
+    "fields": {
+      "digitalMarketing": "Digital Marketing",
+      "socialMedia": "Social Media",
+      "branding": "Branding"
+    },
+    "plans": {
+      "basic": "Basic Plan",
+      "pro": "Professional Plan",
+      "advanced": "Advanced Plan"
+    }
   }
 }
