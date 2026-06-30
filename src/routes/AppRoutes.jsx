@@ -10,6 +10,7 @@ import Services from "@/pages/services/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
 import CreateProfileCompany from "../features/company/pages/CreateProfileCompany";
 import MainLayout from "./MainLayout";
+import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 
 const AppRoutes = () => {
@@ -32,6 +33,7 @@ const AppRoutes = () => {
       <Route path="auth/reset-password" element={<ResetPassword />} />
       <Route path="/auth/otp-code" element={<OtpCode />} />
       <Route path="/company/create-profile" element={<CreateProfileCompany />} />
+      <Route path="/auth/google/callback" element={<GoogleCallback />}/>
     </Routes>
     </>
   );

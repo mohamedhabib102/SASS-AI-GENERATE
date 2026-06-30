@@ -4,11 +4,33 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useResetPasswordValidationSchema } from "@/features/auth/schemas";
 import { useLang } from "@/hooks/lang/useLang";
+import { instanceAxios } from "@/lib/InstanceAxios";
+import { useMutation } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function ResetPassword() {
     const { t, lang } = useLang();
+    const {state}=useLocation();
+    const token = state?.token;
+    const navigate = useNavigate();
+
+    const {mutate ,isPending}=useMutation({
+        mutationKey: ['forgotPassword'],
+        mutationFn: async (values)=> instanceAxios.post('/api/auth/change-password', { ...values, token }),
+        onSuccess : ()=> {
+        toast.success("Password reset successfully");
+        navigate("/auth/login");
+        // formik.resetForm();
+        },
+        onError : (error)=> {
+        console.log(error);
+        toast.error( error?.response?.data?.message || "Failed to Reset Password");
+        },
+
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -19,6 +41,7 @@ export default function ResetPassword() {
         validationSchema: useResetPasswordValidationSchema(),
         onSubmit: (values) => {
             console.log(values);
+            mutate(values);
         }
     });
 

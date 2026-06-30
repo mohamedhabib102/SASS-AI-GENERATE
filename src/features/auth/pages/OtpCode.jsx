@@ -89,7 +89,9 @@ const OtpCode = () => {
 
           <div className="flex gap-12 flex-col justify-center">
               <Button
-                type="submit"
+                type="button"
+                onClick={() => mutate()}
+                disabled={isPending}
                 className={
                   "w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
                 }
