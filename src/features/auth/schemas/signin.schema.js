@@ -1,8 +1,8 @@
 import * as Yup from "yup";
-import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/lang/useLang";
 
 export const useSigninSchema = () => {
-  const { t } = useTranslation();
+  const { t } = useLang();
   return Yup.object({
     email: Yup.string()
       .email(t("validations.emailInvalid"))

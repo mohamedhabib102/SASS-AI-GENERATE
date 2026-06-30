@@ -8,6 +8,9 @@ import OtpCode from "../features/auth/pages/OtpCode";
 import Prices from "@/pages/prices/Prices";
 import Services from "@/pages/services/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
+import CreateProfileCompany from "../features/company/pages/CreateProfileCompany";
+import MainLayout from "./MainLayout";
+import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 
 const AppRoutes = () => {
@@ -15,15 +18,22 @@ const AppRoutes = () => {
     <>
     <Toaster />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/prices" element={<Prices />} />
-      <Route path="/services" element={<Services />} />
-      <Route path="/contact" element={<ContactUs />} />
+      {/* Routes that need Header and Footer */}
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/prices" element={<Prices />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<ContactUs />} />
+      </Route>
+
+      {/* Routes that do NOT need Header and Footer */}
       <Route path="auth/sign-up" element={<SignUp />} />
       <Route path="auth/sign-in" element={<SignIn />} />
       <Route path="auth/forgot-password" element={<ForgotPassword />} />
       <Route path="auth/reset-password" element={<ResetPassword />} />
       <Route path="/auth/otp-code" element={<OtpCode />} />
+      <Route path="/company/create-profile" element={<CreateProfileCompany />} />
+      <Route path="/auth/google/callback" element={<GoogleCallback />}/>
     </Routes>
     </>
   );

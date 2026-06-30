@@ -193,7 +193,10 @@
     "confPasswordRequired": "تأكيد كلمة المرور مطلوب",
     "termsRequired": "يجب الموافقة على الشروط والأحكام",
     "phoneRequired": "رقم الهاتف مطلوب",
-    "phoneInvalid": "رقم الهاتف غير صالح، يجب أن يبدأ بـ 01 ويتكون من 11 رقماً"
+    "phoneInvalid": "رقم الهاتف غير صالح، يجب أن يبدأ بـ 01 ويتكون من 11 رقماً",
+    "companyNameRequired": "اسم الشركة مطلوب",
+    "fieldRequired": "مجال العمل مطلوب",
+    "planRequired": "الخطة المختارة مطلوبة"
   },
   "resetPassword": {
     "title": "إعادة تعيين كلمة المرور",
@@ -304,5 +307,30 @@
   "errros": {
     "emailErrorSignup": "هذا البريد الألكتروني مسجل لدينا بالفعل",
     "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل"
+  },
+  "createCompany": {
+    "title": "إنشاء شركتك",
+    "description": "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها الأساسية.",
+    "companyNameLabel": "اسم الشركة",
+    "companyNamePlaceholder": "أدخل الاسم الرسمي لشركتك كما سيظهر للعملاء",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "rania@gmail.com",
+    "phoneLabel": "رقم الهاتف",
+    "phonePlaceholder": "+20 101010100",
+    "fieldLabel": "مجال العمل",
+    "fieldPlaceholder": "اختر المجال الذي تعمل فيه شركتك (تسويق رقمي - سوشيال ميديا - براندنج...)",
+    "planLabel": "الخطة المختارة",
+    "planPlaceholder": "الخطة التي اشتركت بها لتفعيل خدمات المنصة",
+    "submit": "انشاء شركة",
+    "fields": {
+      "digitalMarketing": "تسويق رقمي",
+      "socialMedia": "سوشيال ميديا",
+      "branding": "براندنج"
+    },
+    "plans": {
+      "basic": "الخطة الأساسية",
+      "pro": "الخطة الاحترافية",
+      "advanced": "الخطة المتقدمة"
+    }
   }
 }

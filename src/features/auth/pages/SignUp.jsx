@@ -15,7 +15,8 @@ const SignUp = () => {
   const {
     mutateAsync,
     isPending: loadingRegister,
-  } = useRegister();  
+  } = useRegister();
+  const navigate =  useNavigate()  
 
   const navigate = useNavigate();
 
@@ -39,6 +40,7 @@ const SignUp = () => {
           password_confirmation: values.password_confirmation
       }
        const res = await mutateAsync(data);
+       navigate("/company/create-profile")
        console.log(res)
       } catch (error) {
         const st = error?.response?.status;
@@ -64,6 +66,8 @@ const SignUp = () => {
       }
     },
   });
+
+
 
   return (
     <section className="min-h-screen">
