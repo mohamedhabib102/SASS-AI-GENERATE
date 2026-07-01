@@ -10,27 +10,12 @@ import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import useSendNewPassword from "../hooks/useSendNewPassword";
+
 
 export default function ResetPassword() {
     const { t, lang } = useLang();
-    const {state}=useLocation();
-    const token = state?.token;
-    const navigate = useNavigate();
-
-    const {mutate ,isPending}=useMutation({
-        mutationKey: ['reset-password'],
-        mutationFn: async (values)=> instanceAxios.post('/api/auth/change-password', { ...values, token }),
-        onSuccess : ()=> {
-        toast.success("Password reset successfully");
-        navigate("/auth/sign-in");
-        // formik.resetForm();
-        },
-        onError : (error)=> {
-        console.log(error);
-        toast.error( error?.response?.data?.message || "Failed to Reset Password");
-        },
-
-    })
+    const {sendNewPassword,isPending,error}=useSendNewPassword();
 
     const formik = useFormik({
         initialValues: {
@@ -41,7 +26,10 @@ export default function ResetPassword() {
         validationSchema: useResetPasswordValidationSchema(),
         onSubmit: (values) => {
             console.log(values);
-            mutate(values);
+            sendNewPassword({
+                ...values,
+                token: sessionStorage.getItem("token")
+            });
         }
     });
 
@@ -106,8 +94,15 @@ export default function ResetPassword() {
                     type="submit"
                     className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
                 >
-                    {t('resetPassword.submit')}
+                    {isPending ? 'Submitting...' : 'Submit'}
                 </Button>
+                {
+                    error && (
+                        <div className="text-red-500 text-sm mt-1">
+                            {error?.response?.message || 'Failed to reset password. Please try again.'}
+                        </div>
+                    )
+                }
             </form>
         </LayoutForms>
     );

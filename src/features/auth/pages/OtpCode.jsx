@@ -14,43 +14,40 @@ import {
 import { useLang } from "@/hooks/lang/useLang";
 import { instanceAxios } from "@/lib/InstanceAxios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import useVerifyOtp from "../hooks/useVerifyOtp";
+import useSendOtp from "../hooks/useSendOtp";
 
 // ============ JSX ============ //
 const OtpCode = () => {
   const [value, setValue] = useState("");
   const {t} = useLang();
 
-  const {state}=useLocation();
-  console.log(state?.phone)
 
+  const {verifyOtp, isPending, isError, error} = useVerifyOtp();
+  const {sendOtp ,isPending : isSendingOtp ,error: sendOtpError} = useSendOtp();
 
-
-  const {mutate ,isPending}=useMutation({
-      mutationKey: ['verify-otp'],
-      mutationFn: async ()=> instanceAxios.post('/api/auth/verify-otp', {
-        phone: state.phone,
-        otp: value,
-      }),
-      onSuccess : (data)=> {
-        console.log(data)
-        toast.success("Otp is Verified Successfully");
-        navigate("/auth/reset-password",{state: {
-          token: data?.token
-        }});
-      },
-      onError : (error)=> {
-        console.log(error);
-        toast.error( error?.response?.data?.message || "OTP is incorrect");
-      },
+  //     mutationKey: ['verify-otp'],
+  //     mutationFn: async ()=> instanceAxios.post('/api/auth/verify-otp', {
+  //       phone: state.phone,
+  //       otp: value,
+  //     }),
+  //     onSuccess : (data)=> {
+  //       console.log(data)
+  //       toast.success("Otp is Verified Successfully");
+  //       navigate("/auth/reset-password",{state: {
+  //         token: data?.token
+  //       }});
+  //     },
+  //     onError : (error)=> {
+  //       console.log(error);
+  //       toast.error( error?.response?.data?.message || "OTP is incorrect");
+  //     },
   
-    });;
+  //   });
 
-    const queryClient = useQueryClient();
-    const resendOtp = ()=> {
-      queryClient.invalidateQueries(['forgotPassword']);
-    }
-
-
+  const handleVerifyOtp = async () => {
+      verifyOtp({ phone: sessionStorage.getItem('phone'), otp: value });
+  };
 
   return (
     <section className="min-h-screen">
@@ -90,7 +87,7 @@ const OtpCode = () => {
           <div className="flex gap-12 flex-col justify-center">
               <Button
                 type="button"
-                onClick={() => mutate()}
+                onClick={() => handleVerifyOtp()}
                 disabled={isPending}
                 className={
                   "w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
@@ -98,12 +95,22 @@ const OtpCode = () => {
               >
                 {isPending ? 'Submitting...' : 'Submit'}
               </Button>
+              {
+              error && <p className="text-red-500 text-center">
+                {error?.response?.message || "OTP is incorrect"}
+              </p>
+            }
             {/* == resend otp == */}
             <button className="text-[16px] text-center text-primary cursor-pointer "
-            onClick={()=> resendOtp()}
+            onClick={()=> sendOtp({ phone: sessionStorage.getItem('phone') })}
             >
-              {t("otp.resend")}
+              {isSendingOtp ? 'جار الإرسال...' : t("otp.resend")}
             </button>
+            {
+              sendOtpError && <p className="text-red-500 text-center">
+                {sendOtpError?.message || "Error sending OTP"}
+              </p>
+            }
           </div>
         </div>
       </LayoutForms>
