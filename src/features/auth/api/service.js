@@ -12,25 +12,17 @@ const Register = async(data) => {
 }
 
 
-const SendOtp = async(data) => {
-    const res = await instanceAxios.post(`/api/auth/send-otp`, data);
-    console.log(res.data)
-    return res.data
-}
+const SendOtp = async(data) => await instanceAxios.post(`/api/auth/send-otp`, data)
+.then((res) => res.data);
 
-const VerifyOtp = async(data) => {
-    const res = await instanceAxios.post(`/api/auth/verify-otp`, data);
-    return res.data
-}
+const VerifyOtp = async(data) => await instanceAxios.post(`/api/auth/verify-otp`, data)
+.then((res) => res.data);
 
-const SendNewPassword = async(data) => {
-    const res = await instanceAxios.post(`/api/auth/change-password`, data,{
+const SendNewPassword = async(data) => await instanceAxios.post(`/api/auth/change-password`, data,{
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
-    });
-    return res.data
-}
+    }).then((res) => res.data);
 
 
 
