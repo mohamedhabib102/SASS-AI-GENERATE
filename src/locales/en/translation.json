@@ -305,9 +305,11 @@
       "submit": "Send"
     }
   },
-   "errros": {
+   "erros": {
     "emailErrorSignup": "This email address is already registered",
-    "phoneErrorSignup": "This phone number is already registered"
+    "phoneErrorSignup": "This phone number is already registered",
+    "invalidCredentials": "Email or password is incorrect",
+    "somethingWentWrong": "Something went wrong"
   },
   "createCompany": {
     "title": "Create Your Company",

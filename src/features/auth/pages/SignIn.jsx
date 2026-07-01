@@ -25,21 +25,24 @@ const SignIn = () => {
     onSubmit: (values) => {
       formik.setStatus("");
 
-      signIn(
-        {
-          email: values.email,
-          password: values.password,
-        },
-        {
+        signIn(
+      {
+        email: values.email,
+        password: values.password,
+      },
+      {
           onError: (error) => {
-            formik.setStatus(
-              error.response?.data?.message || "Something went wrong"
-            );
-          },
+          if (error.response?.status === 401) {
+            formik.setStatus(t("erros.invalidCredentials"));
+            return;
+          }
+
+          formik.setStatus(t("erros.somethingWentWrong"));
         }
-      );
-    },
-  });
+      }
+    );
+      },
+    });
 
   return (
     <section className="min-h-screen">

@@ -304,10 +304,12 @@
       "submit": "إرسال"
     }
   },
-  "errros": {
+  "erros": {
     "emailErrorSignup": "هذا البريد الألكتروني مسجل لدينا بالفعل",
-    "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل"
-  },
+    "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "somethingWentWrong": "حدث خطأ ما" 
+   },
   "createCompany": {
     "title": "إنشاء شركتك",
     "description": "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها الأساسية.",
