@@ -24,7 +24,11 @@ const VerifyOtp = async(data) => {
 }
 
 const SendNewPassword = async(data) => {
-    const res = await instanceAxios.post(`/api/auth/change-password`, data);
+    const res = await instanceAxios.post(`/api/auth/change-password`, data,{
+        headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+    });
     return res.data
 }
 

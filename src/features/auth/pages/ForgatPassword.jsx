@@ -2,13 +2,9 @@ import LayoutForms from "@/components/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useLang } from "@/hooks/lang/useLang";
 import { useForgotPasswordValidationSchema } from "@/features/auth/schemas";
-import { useMutation } from "@tanstack/react-query";
-import { instanceAxios } from "@/lib/InstanceAxios";
-import toast from "react-hot-toast";
 import useSendOtp from "../hooks/useSendOtp";
 
 const ForgotPassword = () => {
@@ -67,10 +63,9 @@ const ForgotPassword = () => {
               }
             }}
           />
-
           {
             error &&
-            <p className="text-red-500 text-center">
+            <p className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
               {error?.response?.message || 'Failed To send OTP code, please try again later.'}
             </p>
           }

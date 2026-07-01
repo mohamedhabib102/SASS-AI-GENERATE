@@ -3,7 +3,6 @@ import { useState } from "react";
 import LayoutForms from "@/components/layouts/LayoutForms";
 
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
 
 // import oTP
 import {
@@ -12,8 +11,6 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { useLang } from "@/hooks/lang/useLang";
-import { instanceAxios } from "@/lib/InstanceAxios";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useVerifyOtp from "../hooks/useVerifyOtp";
 import useSendOtp from "../hooks/useSendOtp";
 
@@ -83,6 +80,11 @@ const OtpCode = () => {
               </InputOTPGroup>
             </InputOTP>
           </div>
+          {
+              error && <p className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
+                {error?.response?.message || "OTP is incorrect"}
+              </p>
+            }
 
           <div className="flex gap-12 flex-col justify-center">
               <Button
@@ -95,11 +97,6 @@ const OtpCode = () => {
               >
                 {isPending ? 'Submitting...' : 'Submit'}
               </Button>
-              {
-              error && <p className="text-red-500 text-center">
-                {error?.response?.message || "OTP is incorrect"}
-              </p>
-            }
             {/* == resend otp == */}
             <button className="text-[16px] text-center text-primary cursor-pointer "
             onClick={()=> sendOtp({ phone: sessionStorage.getItem('phone') })}
@@ -107,8 +104,8 @@ const OtpCode = () => {
               {isSendingOtp ? 'جار الإرسال...' : t("otp.resend")}
             </button>
             {
-              sendOtpError && <p className="text-red-500 text-center">
-                {sendOtpError?.message || "Error sending OTP"}
+              sendOtpError && <p className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
+                {sendOtpError?.response?.message || "Error sending OTP"}
               </p>
             }
           </div>

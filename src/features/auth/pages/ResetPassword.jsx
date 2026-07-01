@@ -4,12 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useResetPasswordValidationSchema } from "@/features/auth/schemas";
 import { useLang } from "@/hooks/lang/useLang";
-import { instanceAxios } from "@/lib/InstanceAxios";
-import { useMutation } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";
-import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
 import useSendNewPassword from "../hooks/useSendNewPassword";
 
 
@@ -21,15 +17,11 @@ export default function ResetPassword() {
         initialValues: {
             password: '',
             confPassword: '',
-            'terms-conditions': false,
         },
         validationSchema: useResetPasswordValidationSchema(),
         onSubmit: (values) => {
             console.log(values);
-            sendNewPassword({
-                ...values,
-                token: sessionStorage.getItem("token")
-            });
+            sendNewPassword(values);
         }
     });
 
@@ -66,7 +58,7 @@ export default function ResetPassword() {
                         lang={lang}
                     />
                 </div>
-                <div className="terms flex flex-col w-full">
+                {/* <div className="terms flex flex-col w-full">
                     <div className="flex items-center gap-2">
                         <Checkbox
                             id="terms-conditions"
@@ -89,7 +81,7 @@ export default function ResetPassword() {
                     {formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
                         <div className="text-red-500 text-sm mt-1">{formik.errors['terms-conditions']}</div>
                     ) : null}
-                </div>
+                </div> */}
                 <Button
                     type="submit"
                     className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
@@ -98,7 +90,7 @@ export default function ResetPassword() {
                 </Button>
                 {
                     error && (
-                        <div className="text-red-500 text-sm mt-1">
+                        <div className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
                             {error?.response?.message || 'Failed to reset password. Please try again.'}
                         </div>
                     )
