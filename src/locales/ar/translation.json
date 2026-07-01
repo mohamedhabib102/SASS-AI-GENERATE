@@ -308,8 +308,9 @@
     "emailErrorSignup": "هذا البريد الألكتروني مسجل لدينا بالفعل",
     "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل",
     "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
-    "somethingWentWrong": "حدث خطأ ما" 
-   },
+    "somethingWentWrong": "حدث خطأ ما" ,
+    "companyNameAlreadyRegistered": "اسم هذه الشركة مسجل "
+  },
   "createCompany": {
     "title": "إنشاء شركتك",
     "description": "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها الأساسية.",

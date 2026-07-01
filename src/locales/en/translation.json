@@ -309,7 +309,8 @@
     "emailErrorSignup": "This email address is already registered",
     "phoneErrorSignup": "This phone number is already registered",
     "invalidCredentials": "Email or password is incorrect",
-    "somethingWentWrong": "Something went wrong"
+    "somethingWentWrong": "Something went wrong",
+    "companyNameAlreadyRegistered": "This company name is already registered"
   },
   "createCompany": {
     "title": "Create Your Company",

@@ -26,7 +26,7 @@ const SignUp = () => {
       email: "",
       password: "",
       password_confirmation: "",
-      "terms-conditions": false,
+      // "terms-conditions": false,
     },
     validationSchema: useSignUpSchema(),
     onSubmit: async (values) => {
@@ -37,30 +37,38 @@ const SignUp = () => {
           email: values.email,
           password: values.password,
           password_confirmation: values.password_confirmation
-      }
-       const res = await mutateAsync(data);
-       navigate("/company/create-profile")
-       console.log(res)
+        };
+        const res = await mutateAsync(data);
+        navigate("/company/create-profile");
+        console.log(res);
       } catch (error) {
         const st = error?.response?.status;
         const msg = error?.response?.data?.errors;
-        if (st === 422 && msg) {
-          const newErrors = {};
-          const newTouched = {};
+        
+        switch (st) {
+          case 422:
+            if (msg) {
+              const newErrors = {};
+              const newTouched = {};
 
-          if (msg.email) {
-            newErrors.email = t("errros.emailErrorSignup");
-            newTouched.email = true;
-          }
-          if (msg.phone) {
-            newErrors.phone = t("errros.phoneErrorSignup");
-            newTouched.phone = true;
-          }
+              if (msg.email) {
+                newErrors.email = t("erros.emailErrorSignup");
+                newTouched.email = true;
+              }
+              if (msg.phone) {
+                newErrors.phone = t("erros.phoneErrorSignup");
+                newTouched.phone = true;
+              }
 
-          if (Object.keys(newErrors).length > 0) {
-            formik.setErrors({ ...formik.errors, ...newErrors });
-            formik.setTouched({ ...formik.touched, ...newTouched }, false);
-          }
+              if (Object.keys(newErrors).length > 0) {
+                formik.setErrors({ ...formik.errors, ...newErrors });
+                formik.setTouched({ ...formik.touched, ...newTouched }, false);
+              }
+            }
+            break;
+          default:
+            console.error("Signup error:", error);
+            break;
         }
       }
     },
@@ -137,7 +145,7 @@ const SignUp = () => {
             />
 
             {/* terms and conditions */}
-            <div className="terms flex flex-col w-full">
+            {/* <div className="terms flex flex-col w-full">
               <div className="flex items-center gap-2">
                 <Checkbox
                   id="terms-conditions"
@@ -177,7 +185,7 @@ const SignUp = () => {
                   {formik.errors["terms-conditions"]}
                 </div>
               ) : null}
-            </div>
+            </div> */}
           </div>
 
           {/* submit btn */}
@@ -198,22 +206,7 @@ const SignUp = () => {
             <div className="flex-1 h-px bg-gray-200"></div>
           </div>
 
-          {/* sign up with google */}
-          <div className="google-auth flex items-center justify-center mt-2.5">
-            <button
-              type="button"
-              onClick={()=> window.location.href = `${import.meta.env.VITE_GOOGLE_REDIRECT_URI}`}
-              className="w-full h-10 flex items-center justify-center rounded-lg cursor-pointer gap-2 border-gray-200 border text-gray-700 font-semibold text-xs lg:text-sm hover:bg-gray-50 transition-colors"
-            >
-              <img
-                src="/images/google.png"
-                alt="google image"
-                loading="lazy"
-                className="h-4.5 w-4.5"
-              />
-              <span>{t("signUp.googleBtn")}</span>
-            </button>
-          </div>
+
 
           {/* has account redirect */}
           <div className="text-gray-500 text-xs mt-3 flex items-center justify-center">

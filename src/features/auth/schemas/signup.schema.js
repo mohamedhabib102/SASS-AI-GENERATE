@@ -18,9 +18,9 @@ export const useSignUpSchema = () => {
     password_confirmation: Yup.string()
       .oneOf([Yup.ref("password"), null], t("validations.confPasswordMatch"))
       .required(t("validations.confPasswordRequired")),
-    "terms-conditions": Yup.boolean().oneOf(
-      [true],
-      t("validations.termsRequired")
-    ),
+    // "terms-conditions": Yup.boolean().oneOf(
+    //   [true],
+    //   t("validations.termsRequired")
+    // ),
   });
 };
