@@ -26,9 +26,22 @@ const getTestimonial = async () => {
 }
 
 
+const getQuestion = async () => {
+    const res = await instanceAxios.get(`/api/faqs`)
+    return res.data;
+}
+
+const getHeroSection = async(lang) => {
+    const res = await instanceAxios.get(`/api/hero-section?lang=${lang}`)
+    return res.data;
+}
+
+
 export {
     getNavbar,
     getMarketing,
     getServices,
-    getTestimonial
+    getTestimonial,
+    getQuestion,
+    getHeroSection
 }

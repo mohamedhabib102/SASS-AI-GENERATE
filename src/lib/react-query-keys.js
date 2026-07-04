@@ -3,4 +3,8 @@ export const QueryKeys = {
     navbar: ["navbar"],
     marketing: ["marketing"],
     services: ["services"],
+    question: ["quetion"],
+    testimonial: ["testimonial"],
+    hero: ["hero"],
+    
 }

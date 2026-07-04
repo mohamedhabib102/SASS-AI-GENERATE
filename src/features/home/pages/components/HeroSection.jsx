@@ -4,9 +4,13 @@ import { Button } from "../../../../components/ui/button";
 import { useLang } from "@/hooks/lang/useLang";
 import StatsSection from "./StatsSection";
 import Animate from "@/animations/Animate";
+import { useHero } from "../../hooks/useHero";
 
 const HeroSection = () => {
   const { t } = useLang();
+  const { data } = useHero();
+  
+  const heroData = data?.hero || {};
 
   return (
     <>
@@ -17,16 +21,16 @@ const HeroSection = () => {
             <div className="lg:col-span-6 flex flex-col items-start text-start">
               <Animate direction="left" triggerOn="mount">
                 <h1 className="text-3xl md:text-4xl lg:text-[44px] font-bold leading-tight lg:leading-[1.2] text-white">
-                {t("home.hero.title")}
+                {heroData.title || t("home.hero.title")}
               </h1>
               <p className="text-white/85 text-sm md:text-base lg:text-lg leading-relaxed mt-4 md:mt-6 whitespace-pre-line max-w-xl">
-                {t("home.hero.description")}
+                {heroData.description || t("home.hero.description")}
               </p>
               <Button 
                 variant="secondary" 
                 className="bg-secondary hover:bg-orange-600 text-white font-semibold text-base h-auto py-3 px-8 rounded-xl cursor-pointer transition-colors duration-200 mt-6 md:mt-8 border-none shadow-md"
               >
-                {t("home.hero.button")}
+                {heroData.button || t("home.hero.button")}
               </Button>
               </Animate>
             </div>
@@ -45,7 +49,7 @@ const HeroSection = () => {
           </div>
         </CustomContainer>
       </section>
-      <StatsSection />
+      <StatsSection stats={heroData.stats} />
     </>
   );
 };
