@@ -8,8 +8,8 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import CustomContainer from "../shared/CustomContainer";
-import { Button } from "../ui/button";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import { Button } from "../../../../components/ui/button";
 import Animate from "@/animations/Animate";
 
 const servicesData = [

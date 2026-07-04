@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../shared/CustomContainer";
-import FaqItem from "../ui/FaqItem";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import FaqItem from "../../../../components/ui/FaqItem";
 
 export default function FaqSection() {
   const { t, lang } = useLang();

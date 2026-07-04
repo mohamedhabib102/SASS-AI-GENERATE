@@ -1,5 +1,5 @@
 import { CircleCheckBig } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button } from "../../../../components/ui/button";
 import Animate from "@/animations/Animate";
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import CustomContainer from "../shared/CustomContainer";
+import CustomContainer from "../../../../components/shared/CustomContainer";
 import { useLang } from "@/hooks/lang/useLang";
 
 const StatsSection = () => {

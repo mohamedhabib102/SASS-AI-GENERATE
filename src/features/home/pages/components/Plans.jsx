@@ -1,4 +1,4 @@
-import PlanItem from "@/components/sections/PlanItem";
+import PlanItem from "@/features/home/pages/components/PlanItem";
 import CustomContainer from "@/components/shared/CustomContainer";
 import CustomTitle from "@/components/shared/CustomTitle";
 import { useLang } from "@/hooks/lang/useLang";

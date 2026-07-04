@@ -1,3 +1,6 @@
 export const QueryKeys = {
-    plans: ["plans"]
+    plans: ["plans"],
+    navbar: ["navbar"],
+    marketing: ["marketing"],
+    services: ["services"],
 }

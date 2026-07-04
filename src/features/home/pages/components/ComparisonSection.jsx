@@ -1,5 +1,5 @@
-import CustomContainer from "../shared/CustomContainer";
-import CustomTitle from "../shared/CustomTitle";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import CustomTitle from "../../../../components/shared/CustomTitle";
 import CtaSection from "./CtaSection";
 import TablePlans from "./TablePlans";
 import Animate from "@/animations/Animate";

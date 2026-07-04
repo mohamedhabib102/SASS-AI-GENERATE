@@ -1,6 +1,6 @@
 import React from "react";
-import CustomContainer from "../shared/CustomContainer";
-import { Button } from "../ui/button";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import { Button } from "../../../../components/ui/button";
 import { useLang } from "@/hooks/lang/useLang";
 import StatsSection from "./StatsSection";
 import Animate from "@/animations/Animate";
@@ -34,11 +34,10 @@ const HeroSection = () => {
             {/* Illustration */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <Animate direction="right" triggerOn="mount">
-
               <img
-                src="/images/hero.svg"
+                src="/images/hero-animated.svg"
                 alt="Hero illustration"
-                className="w-full h-auto max-w-125 lg:max-w-full lg:scale-105 xl:scale-110 transition-transform duration-300 object-contain"
+                className="w-full h-auto lg:min-w-142 lg:max-w-full lg:scale-105 xl:scale-110 transition-transform duration-300 object-contain"
                 loading="lazy"
                 />
               </Animate>

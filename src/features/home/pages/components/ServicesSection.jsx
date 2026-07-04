@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../shared/CustomContainer";
-import CustomTitle from "../shared/CustomTitle";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import CustomTitle from "../../../../components/shared/CustomTitle";
 import { Link } from "react-router-dom";
 import {
   Megaphone,
