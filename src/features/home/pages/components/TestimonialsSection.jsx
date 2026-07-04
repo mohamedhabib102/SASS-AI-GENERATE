@@ -26,7 +26,6 @@ const TestimonialsSection = () => {
   const { feedbacks, isLoading ,setPage,page} = useGetFeedbacks({ enabled: inView });
 
 
-
   return (
     <section
     ref={ref}
