@@ -20,10 +20,7 @@ const getServices = async() => {
 }
 
 
-const getTestimonial = async () => {
-    const res = await instanceAxios.get(`api/feedbacks`);
-    return res.data;
-}
+const getTestimonial = async (page) => await instanceAxios.get(`/api/feedbacks?page=${page}`).then((res)=> res.data)
 
 
 export {
