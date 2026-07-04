@@ -12,17 +12,24 @@ import Animate from "@/animations/Animate";
 import useGetFeedbacks from "../../hooks/useGetFeedbacks";
 import Loading from "@/components/shared/Loading";
 import Empty from "@/components/shared/Empty";
+import { useInView } from "react-intersection-observer";
 
 const TestimonialsSection = () => {
   const { t, lang } = useLang();
   const isRtl = lang === "ar";
 
-  const { feedbacks, isLoading ,setPage,page} = useGetFeedbacks();
+  const { ref, inView } = useInView({
+      triggerOnce: true,
+      rootMargin: "300px",
+  });
+  
+  const { feedbacks, isLoading ,setPage,page} = useGetFeedbacks({ enabled: inView });
 
 
 
   return (
     <section
+    ref={ref}
       className="relative lg:py-16 py-8 bg-[#F5F5F5] overflow-hidden"
       id="testimonials"
     >
@@ -39,7 +46,7 @@ const TestimonialsSection = () => {
         {/* Testimonials Slider */}
         {
         isLoading ?
-        <Loading/>
+        <Loading size={45} color="#4f46e5"/>
         :
         <div className="relative mt-8 md:mt-10  max-w-5xl mx-auto" dir={isRtl ? "rtl" : "ltr"}>
           {

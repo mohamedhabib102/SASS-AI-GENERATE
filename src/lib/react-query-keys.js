@@ -6,5 +6,6 @@ export const QueryKeys = {
     question: ["quetion"],
     testimonial: ["testimonial"],
     hero: ["hero"],
+    feedbacks: ["feedbacks"]
     
 }
