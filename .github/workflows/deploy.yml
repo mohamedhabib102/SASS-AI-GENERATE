@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       # 3. تثبيت الحزم
@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}      # اسم مستخدم FTP
           password: ${{ secrets.FTP_PASSWORD }}      # كلمة المرور
           local-dir: ./dist/                         # المجلد المراد رفعه
-          server-dir: /public_html/                  # المسار على السيرفر (غيره لو محتاج)
+          server-dir: /public_html/markeva.iptvdemo.serv5group.com/                # المسار على السيرفر (غيره لو محتاج)
           exclude: |
             **/.git*
             **/.git*/**
