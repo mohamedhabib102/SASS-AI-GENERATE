@@ -1,4 +1,4 @@
-import LayoutForms from "@/components/layouts/LayoutForms";
+import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";

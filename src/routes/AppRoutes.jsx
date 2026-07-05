@@ -9,7 +9,7 @@ import Prices from "@/pages/prices/Prices";
 import Services from "@/pages/services/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
 import CreateProfileCompany from "../features/company/pages/CreateProfileCompany";
-import MainLayout from "./MainLayout";
+import MainLayout from "../layouts/MainLayout";
 import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 

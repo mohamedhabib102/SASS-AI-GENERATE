@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import LayoutForms from "@/components/layouts/LayoutForms";
+import LayoutForms from "@/layouts/LayoutForms";
 
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";

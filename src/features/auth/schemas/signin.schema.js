@@ -10,9 +10,9 @@ export const useSigninSchema = () => {
     password: Yup.string()
       .min(6, t("validations.passwordMin"))
       .required(t("validations.passwordRequired")),
-    "terms-conditions": Yup.boolean().oneOf(
-      [true],
-      t("validations.termsRequired")
-    ),
+    // "terms-conditions": Yup.boolean().oneOf(
+    //   [true],
+    //   t("validations.termsRequired")
+    // ),
   });
 };

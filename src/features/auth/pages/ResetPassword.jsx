@@ -1,4 +1,4 @@
-import LayoutForms from "@/components/layouts/LayoutForms";
+import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";

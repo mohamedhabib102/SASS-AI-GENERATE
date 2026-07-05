@@ -1,4 +1,4 @@
-import LayoutForms from "@/components/layouts/LayoutForms";
+import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -9,6 +9,7 @@ import { useLang } from "@/hooks/lang/useLang";
 import { useSigninSchema } from "../schemas/signin.schema";
 import { useSignIn } from "../hooks/useSignIn";
 import ServerError from "@/components/shared/ServerError";
+import Loading from "@/components/shared/Loading";
 const SignIn = () => {
   const { lang, t } = useLang();
   const validationSchema = useSigninSchema();
@@ -19,7 +20,7 @@ const SignIn = () => {
     initialValues: {
       email: "",
       password: "",
-      "terms-conditions": false,
+      // "terms-conditions": false,
     },
     validationSchema,
     onSubmit: (values) => {
@@ -61,6 +62,7 @@ const SignIn = () => {
               icon={Mail}
               formik={formik}
               lang={lang}
+              disabled={isPending}
             />
 
             <CustomInput
@@ -74,6 +76,7 @@ const SignIn = () => {
               iconsEyeDashed={Eye}
               formik={formik}
               lang={lang}
+              disabled={isPending}
             />
 
             <p className="text-primary font-semibold text-md cursor-pointer">
@@ -81,8 +84,8 @@ const SignIn = () => {
                 {t("signIn.forgotPassword")}
               </Link>
             </p>
-
-            <div className="terms flex flex-col w-full">
+            {/* terms-conditions */}
+            {/* <div className="terms flex flex-col w-full">
               <div className="flex items-center gap-2">
                 <Checkbox
                   id="terms-conditions"
@@ -112,7 +115,7 @@ const SignIn = () => {
                   {formik.errors["terms-conditions"]}
                 </div>
               ) : null}
-            </div>
+            </div> */}
           </div>
           <ServerError message={formik.status} /> 
           <Button
@@ -120,7 +123,8 @@ const SignIn = () => {
             disabled={isPending}
             className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
           >
-            {isPending ? "Loading..." : t("signIn.submit")}
+            {isPending ? <Loading size={20} />  : t("signIn.submit")}
+            
           </Button>
 
           <div className="or flex items-center gap-3 my-4">
