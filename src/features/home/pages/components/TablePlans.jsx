@@ -7,7 +7,7 @@ import {
   TableHead,
   TableCell,
   TableBody,
-} from "../ui/table";
+} from "../../../../components/ui/table";
 import { Check, Minus } from "lucide-react";
 
 const renderValue = (cell) => {

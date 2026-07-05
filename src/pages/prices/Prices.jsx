@@ -1,5 +1,5 @@
-import ComparisonSection from "@/components/sections/ComparisonSection";
-import Plans from "@/components/sections/Plans";
+import ComparisonSection from "@/features/home/pages/components/ComparisonSection";
+import Plans from "@/features/home/pages/components/Plans";
 
 
 

@@ -8,11 +8,12 @@ import { useLang } from "@/hooks/lang/useLang";
 import { useCompanySchema } from "../schema/company.schema";
 import { useCreateProfile } from "../hooks/useCreateProfile";
 import { usePlansName } from "../hooks/usePlansName";
+import Loading from "@/components/shared/Loading";
 
 const CreateProfileCompany = () => {
   const { lang, t } = useLang();
   const schema = useCompanySchema();
-  const {mutateAsync, isPending:Loading} = useCreateProfile();
+  const {mutateAsync, isPending:loadingCreate} = useCreateProfile();
   const {data:plans, isPending:isLoadingPlans} = usePlansName()
 
   const formik = useFormik({
@@ -24,13 +25,58 @@ const CreateProfileCompany = () => {
       plan: "",
     },
     validationSchema: schema,
-    onSubmit: (values) => {
-      console.log("Form values submitted:", values);
+    onSubmit: async (values) => {
+      try {
+      const data = {
+        name: values.company_name,
+        email: values.email,
+        phone: values.phone,
+        industry: values.field,
+        plan_id: Number(values.plan),
+      }
+
+  
+
+      const res = await mutateAsync(data);
+      console.log(res)
+      } catch (error) {
+        const st = error?.response?.status;
+        const msg = error?.response?.data?.errors;
+
+        switch (st) {
+          case 422:
+            if (msg) {
+              const newErrors = {};
+              const newTouched = {};
+
+              if (msg.name || msg.domain) {
+                newErrors.company_name = t("erros.companyNameAlreadyRegistered");
+                newTouched.company_name = true;
+              }
+
+              if (msg.email) {
+                newErrors.email = t("erros.emailErrorSignup");
+                newTouched.email = true;
+              }
+
+              if (msg.phone) {
+                newErrors.phone = t("erros.phoneErrorSignup");
+                newTouched.phone = true;
+              }
+
+              if (Object.keys(newErrors).length > 0) {
+                formik.setErrors({ ...formik.errors, ...newErrors });
+                formik.setTouched({ ...formik.touched, ...newTouched }, false);
+              }
+            }
+            break;
+          default:
+            console.error("Create profile error:", error);
+            break;
+        }
+      }
     },
   });
-
-
-  console.log(plans)
 
 
   const planOptions = plans?.map((plan) => ({
@@ -44,7 +90,7 @@ const CreateProfileCompany = () => {
       description={t("createCompany.description")}
       srcImg="/logo/logoSecondary.svg"
     >
-      <form onSubmit={formik.handleSubmit} className="w-full">
+      <form  onSubmit={formik.handleSubmit} className="w-full">
         <div className="form-fields flex flex-col gap-3 my-2">
           {/* Company Name */}
           <CustomInput
@@ -54,6 +100,7 @@ const CreateProfileCompany = () => {
             labelContent={t("createCompany.companyNameLabel")}
             palceholder={t("createCompany.companyNamePlaceholder")}
             icon={Building2}
+            disabled={loadingCreate}
             formik={formik}
             lang={lang}
           />
@@ -66,6 +113,7 @@ const CreateProfileCompany = () => {
             labelContent={t("createCompany.emailLabel")}
             palceholder={t("createCompany.emailPlaceholder")}
             icon={Mail}
+            disabled={loadingCreate}
             formik={formik}
             lang={lang}
           />
@@ -78,6 +126,7 @@ const CreateProfileCompany = () => {
             labelContent={t("createCompany.phoneLabel")}
             palceholder={t("createCompany.phonePlaceholder")}
             icon={Phone}
+            disabled={loadingCreate}
             formik={formik}
             lang={lang}
           />
@@ -90,6 +139,7 @@ const CreateProfileCompany = () => {
             labelContent={t("createCompany.fieldLabel")}
             palceholder={t("createCompany.fieldPlaceholder")}
             icon={Briefcase}
+            disabled={loadingCreate}
             formik={formik}
             lang={lang}
           />
@@ -104,16 +154,17 @@ const CreateProfileCompany = () => {
             formik={formik}
             lang={lang}
             options={planOptions}
-            disabled={isLoadingPlans}
+            disabled={isLoadingPlans || loadingCreate}
           />
         </div>
 
         {/* Submit Button */}
         <Button
           type="submit"
+          disabled={loadingCreate}
           className="w-full mt-6 py-6 text-white font-semibold text-md cursor-pointer"
         >
-          {t("createCompany.submit")}
+          { loadingCreate ? <Loading/> : t("createCompany.submit")}
         </Button>
       </form>
     </LayoutForms>

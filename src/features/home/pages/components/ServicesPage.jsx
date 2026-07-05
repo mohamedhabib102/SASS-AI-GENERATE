@@ -8,8 +8,9 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import CustomContainer from "../shared/CustomContainer";
-import { Button } from "../ui/button";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import { Button } from "../../../../components/ui/button";
+import Animate from "@/animations/Animate";
 
 const servicesData = [
   {
@@ -201,16 +202,20 @@ const ServicesPage = () => {
           const Icon = section.icon;
           return (
             <div key={section.id} className="mb-12 text-right">
-              <h3 className="text-xl font-semibold text-main">
-                {section.title}
-              </h3>
-              <p className="text-sm text-gray mt-1 mb-6">
-                {section.description}
-              </p>
+              <Animate direction="up" triggerOn="scroll" delay={0}>
+                <h3 className="text-xl font-semibold text-main">
+                  {section.title}
+                </h3>
+                <p className="text-sm text-gray mt-1 mb-6">
+                  {section.description}
+                </p>
+              </Animate>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {section.cards.map((card) => (
-                  <ServiceCard key={card.id} Icon={Icon} card={card} />
+                {section.cards.map((card, idx) => (
+                  <Animate key={card.id} direction="up" triggerOn="scroll" delay={idx * 0.05}>
+                    <ServiceCard Icon={Icon} card={card} />
+                  </Animate>
                 ))}
               </div>
             </div>
@@ -219,42 +224,44 @@ const ServicesPage = () => {
 
         {/* ===== Pagination واحدة بس تحت كل السيكشانز ===== */}
         {totalPages > 1 && (
-          <div
-            className="flex items-center justify-center gap-1 mt-8"
-            dir="ltr"
-          >
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
-              disabled={page === 1}
+          <Animate direction="up" triggerOn="scroll" delay={0.1}>
+            <div
+              className="flex items-center justify-center gap-1 mt-8"
+              dir="ltr"
             >
-              <ChevronLeft size={16} />
-            </button>
+              <button
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
+                disabled={page === 1}
+              >
+                <ChevronLeft size={16} />
+              </button>
 
-            {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
-              (pageNumber) => (
-                <button
-                  key={pageNumber}
-                  onClick={() => setPage(pageNumber)}
-                  className={`w-9 h-9 flex items-center justify-center rounded-md text-sm ${
-                    page === pageNumber
-                      ? "bg-primary text-white"
-                      : "text-gray hover:bg-gray-100"
-                  }`}
-                >
-                  {pageNumber}
-                </button>
-              ),
-            )}
+              {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
+                (pageNumber) => (
+                  <button
+                    key={pageNumber}
+                    onClick={() => setPage(pageNumber)}
+                    className={`w-9 h-9 flex items-center justify-center rounded-md text-sm ${
+                      page === pageNumber
+                        ? "bg-primary text-white"
+                        : "text-gray hover:bg-gray-100"
+                    }`}
+                  >
+                    {pageNumber}
+                  </button>
+                )
+              )}
 
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
-              disabled={page === totalPages}
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
+                disabled={page === totalPages}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </Animate>
         )}
       </CustomContainer>
     </section>

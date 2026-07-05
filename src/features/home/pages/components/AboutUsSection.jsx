@@ -1,8 +1,8 @@
 import React from "react";
 import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../shared/CustomContainer";
-import CustomTitle from "../shared/CustomTitle";
-import { Button } from "../ui/button";
+import CustomContainer from "../../../../components/shared/CustomContainer";
+import CustomTitle from "../../../../components/shared/CustomTitle";
+import { Button } from "../../../../components/ui/button";
 import Animate from "@/animations/Animate";
 
 const AboutUsSection = () => {

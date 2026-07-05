@@ -4,44 +4,24 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useResetPasswordValidationSchema } from "@/features/auth/schemas";
 import { useLang } from "@/hooks/lang/useLang";
-import { instanceAxios } from "@/lib/InstanceAxios";
-import { useMutation } from "@tanstack/react-query";
 import { useFormik } from "formik";
 import { Eye, EyeClosed, Lock } from "lucide-react";
-import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import useSendNewPassword from "../hooks/useSendNewPassword";
+
 
 export default function ResetPassword() {
     const { t, lang } = useLang();
-    const {state}=useLocation();
-    const token = state?.token;
-    const navigate = useNavigate();
-
-    const {mutate ,isPending}=useMutation({
-        mutationKey: ['reset-password'],
-        mutationFn: async (values)=> instanceAxios.post('/api/auth/change-password', { ...values, token }),
-        onSuccess : ()=> {
-        toast.success("Password reset successfully");
-        navigate("/auth/sign-in");
-        // formik.resetForm();
-        },
-        onError : (error)=> {
-        console.log(error);
-        toast.error( error?.response?.data?.message || "Failed to Reset Password");
-        },
-
-    })
+    const {sendNewPassword,isPending,error}=useSendNewPassword();
 
     const formik = useFormik({
         initialValues: {
             password: '',
             confPassword: '',
-            'terms-conditions': false,
         },
         validationSchema: useResetPasswordValidationSchema(),
         onSubmit: (values) => {
             console.log(values);
-            mutate(values);
+            sendNewPassword(values);
         }
     });
 
@@ -78,7 +58,7 @@ export default function ResetPassword() {
                         lang={lang}
                     />
                 </div>
-                <div className="terms flex flex-col w-full">
+                {/* <div className="terms flex flex-col w-full">
                     <div className="flex items-center gap-2">
                         <Checkbox
                             id="terms-conditions"
@@ -101,13 +81,20 @@ export default function ResetPassword() {
                     {formik.touched['terms-conditions'] && formik.errors['terms-conditions'] ? (
                         <div className="text-red-500 text-sm mt-1">{formik.errors['terms-conditions']}</div>
                     ) : null}
-                </div>
+                </div> */}
                 <Button
                     type="submit"
                     className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
                 >
-                    {t('resetPassword.submit')}
+                    {isPending ? 'Submitting...' : 'Submit'}
                 </Button>
+                {
+                    error && (
+                        <div className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
+                            {error?.response?.message || 'Failed to reset password. Please try again.'}
+                        </div>
+                    )
+                }
             </form>
         </LayoutForms>
     );

@@ -196,7 +196,8 @@
     "phoneInvalid": "رقم الهاتف غير صالح، يجب أن يبدأ بـ 01 ويتكون من 11 رقماً",
     "companyNameRequired": "اسم الشركة مطلوب",
     "fieldRequired": "مجال العمل مطلوب",
-    "planRequired": "الخطة المختارة مطلوبة"
+    "planRequired": "الخطة المختارة مطلوبة",
+    "messageRequired": "الرسالة مطلوبة"
   },
   "resetPassword": {
     "title": "إعادة تعيين كلمة المرور",
@@ -308,8 +309,9 @@
     "emailErrorSignup": "هذا البريد الألكتروني مسجل لدينا بالفعل",
     "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل",
     "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
-    "somethingWentWrong": "حدث خطأ ما" 
-   },
+    "somethingWentWrong": "حدث خطأ ما" ,
+    "companyNameAlreadyRegistered": "اسم هذه الشركة مسجل "
+  },
   "createCompany": {
     "title": "إنشاء شركتك",
     "description": "ابدأ ببناء حضور شركتك على المنصة من خلال إدخال بياناتها الأساسية.",

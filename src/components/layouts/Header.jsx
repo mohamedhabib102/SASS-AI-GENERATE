@@ -16,9 +16,11 @@ import { useLang } from "@/hooks/lang/useLang";
 import CustomContainer from "../shared/CustomContainer";
 import CustomButton from "../shared/CustomButton";
 import Logo from "../shared/Logo";
+import { useNavbar } from "@/features/home/hooks/useNavbar";
 
 const Header = () => {
-  const { t } = useLang()
+  const { t } = useLang();
+  // const {data} = useNavbar() 
   const links = useMemo(
     () => [
       { label: "home", route: "/" },

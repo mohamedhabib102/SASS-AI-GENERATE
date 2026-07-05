@@ -2,34 +2,16 @@ import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { useLang } from "@/hooks/lang/useLang";
 import { useForgotPasswordValidationSchema } from "@/features/auth/schemas";
-import { useMutation } from "@tanstack/react-query";
-import { instanceAxios } from "@/lib/InstanceAxios";
-import toast from "react-hot-toast";
+import useSendOtp from "../hooks/useSendOtp";
 
 const ForgotPassword = () => {
   const { lang, t } = useLang();
-  const navigate = useNavigate();
 
-  const {mutate ,isPending}=useMutation({
-    mutationKey: ['forgotPassword'],
-    mutationFn: async (values)=> instanceAxios.post('/api/auth/send-otp', values),
-    onSuccess : ()=> {
-      toast.success("You have revieved an OTP code on your phone number");
-      navigate("/auth/otp-code",{state: {
-          phone: formik.values.phone
-        }});
-      // formik.resetForm();
-    },
-    onError : (error)=> {
-      console.log(error);
-      toast.error( error?.response?.data?.message || "Failed to send OTP code");
-    },
 
-  })
+  const {sendOtp, isPending, error} = useSendOtp();
 
   const formik = useFormik({
     initialValues: {
@@ -37,8 +19,8 @@ const ForgotPassword = () => {
     },
     validationSchema: useForgotPasswordValidationSchema(),
     onSubmit: (values) => {
-      console.log(values);
-      mutate(values);
+      sessionStorage.setItem("phone", values.phone);
+      sendOtp(values);
     },
   });
 
@@ -81,6 +63,12 @@ const ForgotPassword = () => {
               }
             }}
           />
+          {
+            error &&
+            <p className="text-red-500 text-start text-sm p-2 border-red-500 border rounded-md">
+              {error?.response?.message || 'Failed To send OTP code, please try again later.'}
+            </p>
+          }
 
           <Button
             type="submit"
