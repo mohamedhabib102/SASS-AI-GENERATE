@@ -6,20 +6,28 @@ import { useFormik } from "formik";
 import CustomInput from "@/components/shared/CustomInput";
 import CustomContainer from "@/components/shared/CustomContainer";
 import { useLang } from "@/hooks/lang/useLang";
-import { useSignUpSchema } from "@/features/auth/schemas/signup.schema";
 import Animate from "@/animations/Animate";
+import { useContactMessageSchema } from "@/features/contact/schemas/contactMessage.schema";
+import useSendContactMessage from "@/features/contact/hooks/useSendContactMessage";
+import useGetContactInfo from "@/features/contact/hooks/useGetContactInfo";
+import Loading from "@/components/shared/Loading";
 
 export default function ContactUs() {
   const { lang, t } = useLang();
 
+  const { sendContactMessage, isPending, error } = useSendContactMessage();
+  const {contactInfo, isLoading, error: contactError} = useGetContactInfo();
+
   const formik = useFormik({
     initialValues: {
       email: "",
-      "terms-conditions": false,
+      name: "",
+      message: "",
     },
-    validationSchema: useSignUpSchema(lang),
+    validationSchema: useContactMessageSchema(),
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
+      sendContactMessage(values);
     },
   });
 
@@ -86,19 +94,34 @@ export default function ContactUs() {
                   />
 
                   <div className="flex flex-col gap-1">
-                    <label className="text-sm font-semibold text-gray-700">
+                    <label className="text-sm font-semibold text-gray-700" htmlFor="message">
                       {t("contactUs.form.message_label")}
                     </label>
                     <textarea
                       name="message"
+                      onChange={formik.handleChange}
                       rows={4}
                       placeholder={t("contactUs.form.message_placeholder")}
-                      className="w-full border border-border rounded-lg px-4 py-3 text-sm text-gray-700 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-primary transition resize-none mb-4"
+                      className={`w-full border ${formik.touched.message && formik.errors.message ? "border-red-500" : "border-border"} rounded-lg px-4 py-3 text-sm text-gray-700 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-primary transition resize-none mb-4`}
                     />
+                    {
+                      formik.touched.message && formik.errors.message && (
+                        <p className="text-red-500 text-[11px] mt-0.5">{formik.errors.message}</p>
+                      )
+                    }
                   </div>
+                  {
+                    error && (
+                      <p className="text-red-500 p-4 py-2
+                      border border-red-500 focus:border-red-500 rounded-lg">{error?.response?.data.message}</p>
+                    )
+                  }
 
-                  <button className="w-full text-[16px] cursor-pointer bg-primary hover:bg-violet-700 active:scale-95 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-md shadow-violet-200">
-                    {t("contactUs.form.submit")}
+                  <button type="submit"
+                  className="w-full text-[16px] cursor-pointer bg-primary hover:bg-violet-700 active:scale-95 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-md shadow-violet-200">
+                    {
+                      isPending ? 'جار الارسال...': t("contactUs.form.submit")
+                    }
                   </button>
                 </div>
               </form>
@@ -106,7 +129,11 @@ export default function ContactUs() {
 
             {/* ======== Contact Info ======== */}
             <Animate direction="up" triggerOn="scroll" delay={0.2}>
-              <div className="bg-table relative rounded-2xl p-6 sm:p-8 flex flex-col gap-6 sm:gap-8 order-1 lg:order-2">
+              {
+                isLoading ?
+                <Loading/>
+                :
+                <div className="bg-table relative rounded-2xl p-6 sm:p-8 flex flex-col gap-6 sm:gap-8 order-1 lg:order-2">
                 <div className="hidden md:flex absolute top-[86px] -right-7 w-0 h-0 border-t-[30px] border-t-transparent border-b-[30px] border-b-transparent border-l-[30px] border-l-table" />{" "}
                 {/* Header */}
                 <div className="mb-3">
@@ -165,6 +192,7 @@ export default function ContactUs() {
                   </div>
                 </div>
               </div>
+              }
             </Animate>
           </div>
         </div>

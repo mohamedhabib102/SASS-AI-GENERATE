@@ -196,7 +196,8 @@
     "phoneInvalid": "رقم الهاتف غير صالح، يجب أن يبدأ بـ 01 ويتكون من 11 رقماً",
     "companyNameRequired": "اسم الشركة مطلوب",
     "fieldRequired": "مجال العمل مطلوب",
-    "planRequired": "الخطة المختارة مطلوبة"
+    "planRequired": "الخطة المختارة مطلوبة",
+    "messageRequired": "الرسالة مطلوبة"
   },
   "resetPassword": {
     "title": "إعادة تعيين كلمة المرور",

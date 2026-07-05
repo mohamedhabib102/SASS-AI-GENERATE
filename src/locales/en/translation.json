@@ -196,7 +196,8 @@
     "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits",
     "companyNameRequired": "Company name is required",
     "fieldRequired": "Field of work is required",
-    "planRequired": "Selected plan is required"
+    "planRequired": "Selected plan is required",
+    "messageRequired": "Contact message is required"
   },
   "resetPassword": {
     "title": "Reset Password",
