@@ -306,12 +306,17 @@
       "submit": "Send"
     }
   },
-   "erros": {
+   "errors": {
     "emailErrorSignup": "This email address is already registered",
     "phoneErrorSignup": "This phone number is already registered",
     "invalidCredentials": "Email or password is incorrect",
     "somethingWentWrong": "Something went wrong",
-    "companyNameAlreadyRegistered": "This company name is already registered"
+    "companyNameAlreadyRegistered": "This company name is already registered",
+ "noInternet": "No internet connection",
+    "unauthorized": "Unauthorized access",
+    "forbidden": "You don't have permission",
+    "tooManyRequests": "Too many requests, try again later",
+    "serverError": "Server is unavailable"
   },
   "createCompany": {
     "title": "Create Your Company",
