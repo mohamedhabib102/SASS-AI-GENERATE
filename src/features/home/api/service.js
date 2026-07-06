@@ -18,6 +18,24 @@ const getMarketing = async (lang) => {
   return res.data;
 };
 
+// const createMarketing = async (formData) => {
+//   const res = await instanceAxios.post("/api/mywork/marketing-sections", formData, {
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+//   return res.data;
+// };
+
+// const getMarketingById = async (id, lang) => {
+//   const res = await instanceAxios.get(`/api/mywork/marketing-sections/${id}`, {
+//     params: {
+//       lang,
+//     },
+//   });
+//   return res.data;
+// };
+
 
 const getServices = async() => {
     const res =  await instanceAxios.get(`/api/services-details/3/section-two`);
@@ -42,6 +60,8 @@ const getHeroSection = async(lang) => {
 export {
     getNavbar,
     getMarketing,
+    // createMarketing,
+    // getMarketingById,
     getServices,
     getTestimonial,
     getQuestion,

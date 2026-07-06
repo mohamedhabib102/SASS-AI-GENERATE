@@ -1,4 +1,9 @@
-const useMarketing = () => {
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useLang } from "@/hooks/lang/useLang";
+import { QueryKeys } from "@/lib/react-query-keys";
+import { getMarketing } from "@/features/home/api/service";
+
+export const useMarketing = () => {
   const { lang } = useLang();
 
   return useQuery({
@@ -7,4 +12,24 @@ const useMarketing = () => {
   });
 };
 
-export { useMarketing };
+// export const useMarketingById = (id) => {
+//   const { lang } = useLang();
+
+//   return useQuery({
+//     queryKey: [...QueryKeys.marketing, id, lang],
+//     queryFn: () => getMarketingById(id, lang),
+//     enabled: Boolean(id)
+//   });
+// };
+
+// export const useCreateMarketing = () => {
+//   const queryClient = useQueryClient();
+
+//   return useMutation({
+//     mutationFn: (formData) => createMarketing(formData),
+//     onSuccess: () => {
+//       // Invalidate marketing list queries to refresh UI
+//       queryClient.invalidateQueries({ queryKey: QueryKeys.marketing });
+//     },
+//   });
+// };
