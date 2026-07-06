@@ -1,6 +1,6 @@
 import React from "react";
 import { CircleCheckBig } from "lucide-react";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import ButtonChangeLang from "../../../../components/shared/ButtonChangeLang";
 import Logo from "../../../../components/shared/Logo";
 import Animate from "@/animations/Animate";

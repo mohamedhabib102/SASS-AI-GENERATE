@@ -1,5 +1,5 @@
 import Animate from "@/animations/Animate";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { ChevronDown } from "lucide-react";
 
 export default function FaqItem({ item, index, isOpen, onToggle }) {

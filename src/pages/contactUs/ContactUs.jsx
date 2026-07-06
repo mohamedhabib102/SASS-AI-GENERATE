@@ -5,7 +5,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { useFormik } from "formik";
 import CustomInput from "@/components/shared/CustomInput";
 import CustomContainer from "@/components/shared/CustomContainer";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import Animate from "@/animations/Animate";
 import { useContactMessageSchema } from "@/features/contact/schemas/contactMessage.schema";
 import useSendContactMessage from "@/features/contact/hooks/useSendContactMessage";

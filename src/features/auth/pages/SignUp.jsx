@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeClosed, Lock, Mail, User, Phone } from "lucide-react";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import Loading from "@/components/shared/Loading";
 import { useRegister } from "@/features/auth/hooks/useSignUp";
 import { useSignUpSchema } from "../schemas/signup.schema";

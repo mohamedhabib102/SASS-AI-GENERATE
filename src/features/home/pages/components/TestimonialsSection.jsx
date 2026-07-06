@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import CustomContainer from "../../../../components/shared/CustomContainer";
 import CustomTitle from "../../../../components/shared/CustomTitle";
 import { Swiper, SwiperSlide } from "swiper/react";

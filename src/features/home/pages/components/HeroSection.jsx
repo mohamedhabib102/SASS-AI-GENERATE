@@ -1,7 +1,7 @@
 import React from "react";
 import CustomContainer from "../../../../components/shared/CustomContainer";
 import { Button } from "../../../../components/ui/button";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import StatsSection from "./StatsSection";
 import Animate from "@/animations/Animate";
 import { useHero } from "../../hooks/useHero";

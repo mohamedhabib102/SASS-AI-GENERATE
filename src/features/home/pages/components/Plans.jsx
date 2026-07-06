@@ -1,7 +1,7 @@
 import PlanItem from "@/features/home/pages/components/PlanItem";
 import CustomContainer from "@/components/shared/CustomContainer";
 import CustomTitle from "@/components/shared/CustomTitle";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { ArrowUpRight } from "lucide-react";
 import { useMemo } from "react";
 import Animate from "@/animations/Animate";

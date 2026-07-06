@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { getHeroSection } from "../api/service"
 import { QueryKeys } from "@/lib/react-query-keys"
-import { useLang } from "@/hooks/lang/useLang"
+import { useLang } from "@/hooks/useLang"
 
 
 

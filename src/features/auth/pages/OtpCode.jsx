@@ -10,7 +10,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import useVerifyOtp from "../hooks/useVerifyOtp";
 import useSendOtp from "../hooks/useSendOtp";
 

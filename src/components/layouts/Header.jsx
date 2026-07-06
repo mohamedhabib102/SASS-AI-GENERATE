@@ -12,7 +12,7 @@ import {
   Menu,
 } from "lucide-react";
 import ButtonChangeLang from "../shared/ButtonChangeLang";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import CustomContainer from "../shared/CustomContainer";
 import CustomButton from "../shared/CustomButton";
 import Logo from "../shared/Logo";

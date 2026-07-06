@@ -4,7 +4,7 @@ import CustomSelect from "@/components/shared/CustomSelect";
 import { Button } from "@/components/ui/button";
 import { Building2, Mail, Phone, Briefcase, CreditCard } from "lucide-react";
 import { useFormik } from "formik";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { useCompanySchema } from "../schema/company.schema";
 import { useCreateProfile } from "../hooks/useCreateProfile";
 import { usePlansName } from "../hooks/usePlansName";

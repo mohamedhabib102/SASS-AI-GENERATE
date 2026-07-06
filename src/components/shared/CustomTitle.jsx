@@ -1,4 +1,4 @@
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 
 const CustomTitle = ({ title, description, showLine = true, centered=false, descriptionColor = "text-gray"}) => {
   const { lang } = useLang();

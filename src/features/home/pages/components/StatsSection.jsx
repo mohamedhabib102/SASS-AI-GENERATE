@@ -1,6 +1,6 @@
 import React from "react";
 import CustomContainer from "../../../../components/shared/CustomContainer";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 
 const StatsSection = ({ stats }) => {
   const { t } = useLang();

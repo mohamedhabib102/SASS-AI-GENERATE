@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { QueryKeys } from "@/lib/react-query-keys";
 import { getMarketing } from "@/features/home/api/service";
 

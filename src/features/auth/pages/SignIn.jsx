@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeClosed, Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { useSigninSchema } from "../schemas/signin.schema";
 import { useSignIn } from "../hooks/useSignIn";
 import ServerError from "@/components/shared/ServerError";

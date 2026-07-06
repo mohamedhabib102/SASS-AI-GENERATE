@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import CustomContainer from "../../../../components/shared/CustomContainer";
 import FaqItem from "../../../../components/ui/FaqItem";
 import { useInView } from "react-intersection-observer";
