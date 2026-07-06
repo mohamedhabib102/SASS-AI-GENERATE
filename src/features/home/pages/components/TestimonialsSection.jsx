@@ -57,9 +57,6 @@ const TestimonialsSection = () => {
             dir={isRtl ? "rtl" : "ltr"}
             slidesPerView={1}
             slidesPerGroup={1}
-            // navigation={{
-            //   page
-            // }}
             spaceBetween={13}
             breakpoints={{
               768: {
