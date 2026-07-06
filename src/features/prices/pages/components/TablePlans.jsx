@@ -7,7 +7,7 @@ import {
   TableHead,
   TableCell,
   TableBody,
-} from "../../../../components/ui/table";
+} from "@/components/ui/table";
 import { Check, Minus } from "lucide-react";
 
 const renderValue = (cell) => {
@@ -30,7 +30,7 @@ const TablePlans = ({ data }) => {
   const header = data?.header || comparisonTableData.header;
   const body = data?.body || comparisonTableData.body;
 
-  const mobilePlans = header.plans.filter((p) => p.key !== "empty");
+  const mobilePlans = header.plans.filter((p) => p.key !== "feature");
   const [activeKey, setActiveKey] = useState(mobilePlans[0]?.key);
 
   return (
@@ -39,18 +39,27 @@ const TablePlans = ({ data }) => {
       <Table className={"table-fixed hidden lg:table"}>
         <TableHeader>
           <TableRow className="border-b-border">
-            {header.plans.map((p, idx) => (
+            {header.plans.map((p) => (
               <TableHead
-                key={idx}
-                className={`pt-5 pb-10 px-3 ${p.key === "empty" ? "text-right" : "text-center"} border-l border-border
-                             text-lg ${p.popular ? "bg-table text-primary" : "bg-white text-main"}`}
+                key={p.key}
+                className={`pt-5 pb-8 px-3 border-l border-border text-lg ${p.popular ? "bg-table text-primary" : "bg-white text-main"}`}
               >
-                {p.name}
-                {p.price && (
-                  <span className="text-gray font-normal text-sm">
-                    <p>{p.price}</p>
+                <div className={`flex flex-col items-center gap-2 ${p.key === "feature" ? "items-start" : "items-center"}`}>
+                  {p.badge && (
+                    <span className="inline-flex items-center justify-center rounded-full bg-[#F56E14] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white font-semibold">
+                      {p.badge}
+                    </span>
+                  )}
+                  <span className={`font-semibold ${p.key === "feature" ? "text-right" : "text-center"}`}>
+                    {p.name}
                   </span>
-                )}
+                  {p.price && (
+                    <span className="text-gray font-normal text-sm">
+                      {p.price}
+                    </span>
+                  )}
+                 
+                </div>
               </TableHead>
             ))}
           </TableRow>
@@ -59,16 +68,10 @@ const TablePlans = ({ data }) => {
         <TableBody>
           {body.sections.map((section, sIdx) => (
             <Fragment key={`section-${sIdx}`}>
-              <TableRow key={sIdx} className="border border-border">
-                {header.plans.map((p, pIdx) => (
-                  <TableCell
-                    key={p.key}
-                    className={`${p.key === "pro" ? "bg-table" : "bg-[#F5F5F5]"} text-primary font-semibold text-right 
-                    px-3 py-3`}
-                  >
-                    {pIdx === 0 && section.title}
-                  </TableCell>
-                ))}
+              <TableRow className="bg-[#F5F5F5] border-b border-border">
+                <TableCell colSpan={header.plans.length} className="text-primary font-semibold px-3 py-3">
+                  {section.title}
+                </TableCell>
               </TableRow>
 
               {section.rows.map((row, rIdx) => (
@@ -76,13 +79,11 @@ const TablePlans = ({ data }) => {
                   {header.plans.map((p) => (
                     <TableCell
                       key={p.key}
-                      className={`text-center p-3 border-l border-border ${
-                        p.popular ? "bg-table text-primary" : "bg-white text-main"
-                      } ${p.key === "empty" ? "text-right" : ""} font-medium`}
+                      className={`px-3 py-3 border-l border-border ${p.popular ? "bg-table text-primary" : "bg-white text-main"} ${p.key === "feature" ? "text-right font-semibold" : "text-center"}`}
                     >
-                      {p.key === "empty"
+                      {p.key === "feature"
                         ? row.feature
-                        : renderValue(row.values[p.key])}
+                        : renderValue(row.values?.[p.key])}
                     </TableCell>
                   ))}
                 </TableRow>

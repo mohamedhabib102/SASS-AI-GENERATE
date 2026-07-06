@@ -1,21 +1,22 @@
 import { CircleCheckBig } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Animate from "@/animations/Animate";
+import { useLang } from "@/hooks/useLang";
 
 
 
 
 
 const PlanItem = ({plan}) => {
+    const {t} = useLang();
     return (
         plan.map((p, index) => (
             <Animate key={p.key} direction="up" triggerOn="scroll" delay={index * 0.1}>
                 <div className={`${p.popular ? "bg-primary py-10 px-5" : "bg-white p-5"} border border-border rounded-2xl shadow-md h-full`}>
-                    {p.popularBadge && <span>{}</span>}
                     <h3 className={`${p.popular ? "text-white" : "text-main"} font-bold text-lg`}>{p.name}</h3>
                     <p className={`${p.popular ? "text-white" : "text-desc"} font-normal text-sm mb-4`}>{p.tagline}</p>
 
-                    <div className={`${p.popular ? "text-white" : "text-main"} font-bold text-4xl mb-6`}>{p.price}
+                    <div className={`${p.popular ? "text-white" : "text-main"} font-bold text-4xl mb-6`}>{Number(p.price) === 0 ? t("prices.free") : p.price}
                         {p.type && <span className="text-sm font-normal">{p.type}</span>}
                     </div>
 

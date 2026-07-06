@@ -22,7 +22,6 @@ const Plans = () => {
       return {
         key: apiPlan.id || fallback.key,
         popular: apiPlan.is_popular ?? fallback.popular,
-        popularBadge: apiPlan.badge || apiPlan.highlight || fallback.popularBadge,
         name: apiPlan.name || fallback.name,
         tagline: apiPlan.description || apiPlan.short_description || fallback.tagline,
         price: apiPlan.price ?? fallback.price,

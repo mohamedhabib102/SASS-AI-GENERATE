@@ -230,6 +230,7 @@
     "en": "English"
   },
   "prices": {
+    "free": "Free",
     "badge": "Competitive Pricing",
     "title": "Plan Pricing & Features",
     "description": "Flexible plans that fit businesses and organizations of all sizes.",

@@ -3,7 +3,7 @@ import { useLang } from "@/hooks/useLang";
 import CustomContainer from "@/components/shared/CustomContainer";
 import CustomTitle from "@/components/shared/CustomTitle";
 import Animate from "@/animations/Animate";
-import { useServiceManage } from "../../hooks/useServiceManag";
+import { useServiceManage } from "@/features/home/hooks/useServiceManag";
 import { useInView } from "react-intersection-observer";
 
 const ServiceManagementSection = () => {
