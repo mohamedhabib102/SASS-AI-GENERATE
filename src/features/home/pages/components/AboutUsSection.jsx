@@ -4,7 +4,7 @@ import CustomContainer from "@/components/shared/CustomContainer";
 import CustomTitle from "@/components/shared/CustomTitle";
 import { Button } from "@/components/ui/button";
 import Animate from "@/animations/Animate";
-import { useMarketing } from "@/hooks/useMarketing";
+import { useMarketing } from "@/features/home/hooks/useMarketingSections"
 
 const AboutUsSection = () => {
   const { data, isLoading, error } = useMarketing();
