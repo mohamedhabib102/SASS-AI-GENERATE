@@ -4,8 +4,11 @@ import CustomContainer from "../../../../components/shared/CustomContainer";
 import CustomTitle from "../../../../components/shared/CustomTitle";
 import { Button } from "../../../../components/ui/button";
 import Animate from "@/animations/Animate";
+import { useMarketing } from "@/hooks/useMarketing";
 
 const AboutUsSection = () => {
+  const { data, isLoading, error } = useMarketing();
+
   const { t, lang } = useLang();
   const isRtl = lang === "ar";
 

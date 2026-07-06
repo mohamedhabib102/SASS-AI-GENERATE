@@ -9,9 +9,14 @@ const getNavbar = async() => {
 
 
 const getMarketing = async (lang) => {
-    const res = await instanceAxios.get(`mywork/marketing-sections?lang=${lang}`);
-    return res.data;
-}
+  const res = await instanceAxios.get("/api/mywork/marketing-sections", {
+    params: {
+      lang,
+    },
+  });
+
+  return res.data;
+};
 
 
 const getServices = async() => {
