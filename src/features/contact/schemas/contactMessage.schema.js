@@ -1,7 +1,6 @@
 import { useLang } from "@/hooks/useLang";
 import * as Yup from "yup";
 
-
 export const useContactMessageSchema = () => {
     const { t } = useLang();
     return Yup.object({

@@ -308,12 +308,17 @@
       "submit": "إرسال"
     }
   },
-  "erros": {
+  "errors": {
     "emailErrorSignup": "هذا البريد الألكتروني مسجل لدينا بالفعل",
     "phoneErrorSignup": "رقم الهاتف مسجل لدينا بالفعل",
     "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
     "somethingWentWrong": "حدث خطأ ما" ,
-    "companyNameAlreadyRegistered": "اسم هذه الشركة مسجل "
+    "companyNameAlreadyRegistered": "اسم هذه الشركة مسجل ",
+    "noInternet": "لا يوجد اتصال بالإنترنت",
+    "unauthorized": "غير مصرح لك بالدخول",
+    "forbidden": "ليس لديك صلاحية",
+    "tooManyRequests": "عدد طلبات كبير جدًا، حاول لاحقًا",
+    "serverError": "السيرفر غير متاح حاليًا"
   },
   "createCompany": {
     "title": "إنشاء شركتك",

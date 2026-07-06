@@ -1,7 +1,6 @@
 import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeClosed, Lock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
@@ -10,40 +9,42 @@ import { useSigninSchema } from "@/features/auth/schemas/signin.schema";
 import { useSignIn } from "@/features/auth/hooks/useSignIn";
 import ServerError from "@/components/shared/ServerError";
 import Loading from "@/components/shared/Loading";
+
 const SignIn = () => {
   const { lang, t } = useLang();
   const validationSchema = useSigninSchema();
 
-  const { mutate: signIn, isPending} = useSignIn();
+  const { mutateAsync: signIn, isPending } = useSignIn();
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      // "terms-conditions": false,
     },
+
     validationSchema,
-    onSubmit: (values) => {
+
+    onSubmit: async (values) => {
       formik.setStatus("");
 
-        signIn(
-      {
-        email: values.email,
-        password: values.password,
-      },
-      {
-          onError: (error) => {
-          if (error.response?.status === 401) {
-            formik.setStatus(t("erros.invalidCredentials"));
-            return;
-          }
-
-          formik.setStatus(t("erros.somethingWentWrong"));
+      try {
+        await signIn(values);
+      } catch (error) {
+    const key = error?.messageKey;
+    const status = error?.response?.status;
+   if (status === 401) {
+      formik.setStatus(t("errors.invalidCredentials"));
+      return;
+    }
+        if (key) {
+          formik.setStatus(t(key));
+          return;
         }
+
+        formik.setStatus(t("errors.somethingWentWrong"));
       }
-    );
-      },
-    });
+    },
+  });
 
   return (
     <section className="min-h-screen">
@@ -53,6 +54,7 @@ const SignIn = () => {
       >
         <form onSubmit={formik.handleSubmit} className="w-full py-4">
           <div className="form-field flex flex-col gap-4 my-4">
+
             <CustomInput
               name="email"
               type="email"
@@ -84,80 +86,24 @@ const SignIn = () => {
                 {t("signIn.forgotPassword")}
               </Link>
             </p>
-            {/* terms-conditions */}
-            {/* <div className="terms flex flex-col w-full">
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="terms-conditions"
-                  name="terms-conditions"
-                  checked={formik.values["terms-conditions"]}
-                  onCheckedChange={(checked) =>
-                    formik.setFieldValue("terms-conditions", !!checked)
-                  }
-                  onBlur={formik.handleBlur}
-                  className="cursor-pointer text-white w-4.5 h-4.5 rounded-md border-gray-300 data-checked:bg-primary data-checked:border-primary"
-                />
 
-                <label
-                  htmlFor="terms-conditions"
-                  className="text-gray-600 text-sm ms-2 select-none cursor-pointer"
-                >
-                  {t("signIn.termsText")}
-                  <span className="font-bold text-primary text-sm lg:text-lg">
-                    {t("signIn.termsLink")}
-                  </span>
-                </label>
-              </div>
-
-              {formik.touched["terms-conditions"] &&
-              formik.errors["terms-conditions"] ? (
-                <div className="text-red-500 text-xs mt-1">
-                  {formik.errors["terms-conditions"]}
-                </div>
-              ) : null}
-            </div> */}
           </div>
-          <ServerError message={formik.status} /> 
+
+          <ServerError message={formik.status} />
+
           <Button
             type="submit"
             disabled={isPending}
+            aria-busy={isPending}
             className="w-full mt-4 py-6 text-white font-semibold text-md cursor-pointer"
           >
-            {isPending ? <Loading size={20} />  : t("signIn.submit")}
-            
+            {isPending ? <Loading size={20} /> : t("signIn.submit")}
           </Button>
-
-          <div className="or flex items-center gap-3 my-4">
-            <div className="flex-1 h-px bg-gray-200"></div>
-            <span className="text-sm text-gray-400 font-medium select-none">
-              {t("signIn.or")}
-            </span>
-            <div className="flex-1 h-px bg-gray-200"></div>
-          </div>
-
-          <div className="google-auth flex items-center justify-center mt-3">
-            <button
-              type="button"
-              onClick={()=> window.location.href = `${import.meta.env.VITE_GOOGLE_REDIRECT_URI}`}
-              className="w-full h-12 flex items-center justify-center rounded-xl cursor-pointer gap-2 border border-gray-200 text-gray-700 font-semibold text-sm lg:text-base hover:bg-gray-50 transition-colors"
-            >
-              <span>{t("signIn.googleBtn")}</span>
-
-              <img
-                src="/images/google.png"
-                alt="Google"
-                loading="lazy"
-              />
-            </button>
-          </div>
 
           <div className="text-gray-600 text-sm mt-4 flex items-center justify-center">
             <p>
               {t("signIn.noAccount")}{" "}
-              <Link
-                to="/auth/sign-up"
-                className="text-primary font-bold"
-              >
+              <Link to="/auth/sign-up" className="text-primary font-bold">
                 {t("signIn.signUpLink")}
               </Link>
             </p>
