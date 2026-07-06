@@ -9,6 +9,11 @@ export const useMarketing = () => {
   return useQuery({
     queryKey: [...QueryKeys.marketing, lang],
     queryFn: () => getMarketing(lang),
+     staleTime: 1000 * 60 * 5, 
+     gcTime: 1000 * 60 * 10,
+     retry: 2,
+     refetchOnWindowFocus: false,
+     refetchOnReconnect: true,
   });
 };
 
