@@ -9,5 +9,6 @@ export const useContactMessageSchema = () => {
         .email(t("validations.emailInvalid"))
         .required(t("validations.emailRequired")),
         message: Yup.string().required(t("validations.messageRequired")),
+        subject: Yup.string().required(t("validations.messageRequired")),
     });
 };

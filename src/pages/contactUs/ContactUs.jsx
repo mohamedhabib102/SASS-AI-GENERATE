@@ -11,6 +11,7 @@ import { useContactMessageSchema } from "@/features/contact/schemas/contactMessa
 import useSendContactMessage from "@/features/contact/hooks/useSendContactMessage";
 import useGetContactInfo from "@/features/contact/hooks/useGetContactInfo";
 import Loading from "@/components/shared/Loading";
+import { useMemo } from "react";
 
 export default function ContactUs() {
   const { lang, t } = useLang();
@@ -23,6 +24,7 @@ export default function ContactUs() {
       email: "",
       name: "",
       message: "",
+      subject: ''
     },
     validationSchema: useContactMessageSchema(),
     onSubmit: (values) => {
@@ -30,6 +32,13 @@ export default function ContactUs() {
       sendContactMessage(values);
     },
   });
+
+  const subjects=useMemo(()=> [
+    {label: 'اختر عنوان للرساله',value: ''},
+    {label: 'شكوى',value: 'COMPLAINT'},
+    {label: 'طلب',value: 'REQUEST'},
+    {label: 'اخرى',value: 'OTHER'},
+  ],[])
 
   return (
     <CustomContainer>
@@ -92,6 +101,36 @@ export default function ContactUs() {
                     formik={formik}
                     lang={lang}
                   />
+
+                  <div className="subject flex flex-col gap-2">
+                    <label htmlFor="subject"
+                    className={`${lang === "ar" ? "text-right" : "text-left"} text-gray-800 text-xs lg:text-sm font-semibold select-none`}
+                    >
+                    العنوان
+                    </label>
+                    <select name="subject"
+                    id="subject"
+                    onChange={formik.handleChange}
+                    onBlur={formik.onBlur}
+                    className={`${lang === "ar" ? "text-right" : "text-left"} border outline-none placeholder:text-gray-400 text-xs lg:text-sm
+                      h-10 px-9 w-full rounded-lg transition-colors
+                      ${
+                        formik.touched.subject && formik.errors.subject
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-gray-200 focus:border-primary"
+                      }`}>
+                      {subjects.map((subject) => (
+                        <option key={subject.value} value={subject.value}>
+                          {subject.label}
+                        </option>
+                      ))}
+                    </select>
+                    {
+                    formik.touched.subject && formik.errors.subject && (
+                      <p className="text-red-500 text-[11px] mt-0.5">{formik.errors.subject}</p>
+                    )
+                  }
+                  </div>
 
                   <div className="flex flex-col gap-1">
                     <label className="text-sm font-semibold text-gray-700" htmlFor="message">
