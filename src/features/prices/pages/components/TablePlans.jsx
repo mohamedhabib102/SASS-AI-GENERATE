@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { comparisonTableData } from "@/data/dataTable";
 import {
   Table,
@@ -26,9 +26,9 @@ const renderValue = (cell) => {
   return cell.value;
 };
 
-const TablePlans = () => {
-  const header = comparisonTableData.header;
-  const body = comparisonTableData.body;
+const TablePlans = ({ data }) => {
+  const header = data?.header || comparisonTableData.header;
+  const body = data?.body || comparisonTableData.body;
 
   const mobilePlans = header.plans.filter((p) => p.key !== "empty");
   const [activeKey, setActiveKey] = useState(mobilePlans[0]?.key);
@@ -58,8 +58,8 @@ const TablePlans = () => {
 
         <TableBody>
           {body.sections.map((section, sIdx) => (
-            <>
-              <TableRow key={`section-${sIdx}`} className="border border-border">
+            <Fragment key={`section-${sIdx}`}>
+              <TableRow key={sIdx} className="border border-border">
                 {header.plans.map((p, pIdx) => (
                   <TableCell
                     key={p.key}
@@ -87,7 +87,7 @@ const TablePlans = () => {
                   ))}
                 </TableRow>
               ))}
-            </>
+            </Fragment>
           ))}
         </TableBody>
       </Table>

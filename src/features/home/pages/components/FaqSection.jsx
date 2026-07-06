@@ -1,32 +1,39 @@
 import { useState } from "react";
-import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../../../../components/shared/CustomContainer";
-import FaqItem from "../../../../components/ui/FaqItem";
+import { useLang } from "@/hooks/useLang";
+import CustomContainer from "@/components/shared/CustomContainer";
+import FaqItem from "@/components/ui/FaqItem";
 import { useInView } from "react-intersection-observer";
-import { useQuestion } from "../../hooks/useQuetion";
+import { useQuestion } from "@/features/home/hooks/useQuestion";
 
 export default function FaqSection() {
   const { t, lang } = useLang();
-  const isRtl = lang === "ar";
   const [openIndex, setOpenIndex] = useState(0);
 
   const { ref, inView } = useInView({
-    triggerOnce: true,
     rootMargin: "300px",
-});
+  });
 
-  const { data } = useQuestion({
+
+  const { data} = useQuestion({
     enabled: inView,
   });
 
-  const faqsArray = Array.isArray(data) ? data : data?.data || [];
-  const questions = faqsArray.map((item) => ({
-    title: lang === "ar" ? item.question_ar : item.question_en,
-    description: lang === "ar" ? item.answer_ar : item.answer_en,
-    id: item.id
+  // API questions
+  const apiQuestions = (data?.data ?? []).map((item) => ({
+    title: item.question,
+    description: item.answer,
+    id: item.id,
   }));
 
-  console.log(data)
+  // Static fallback from translation file
+  const staticQuestions = t("faq.questions", { returnObjects: true });
+
+  // Use API data if available, otherwise fall back to static translations
+  const questions = apiQuestions.length > 0
+    ? apiQuestions
+    : Array.isArray(staticQuestions)
+    ? staticQuestions.map((q, i) => ({ ...q, id: i }))
+    : [];
 
   const handleToggle = (index) => {
     setOpenIndex((prev) => (prev === index ? -1 : index));
@@ -42,15 +49,17 @@ export default function FaqSection() {
         </h2>
 
         <div className="flex flex-col gap-3">
-          {questions.map((item, index) => (
-            <FaqItem
-              key={item.title}
-              item={item}
-              index={index}
-              isOpen={openIndex === index}
-              onToggle={() => handleToggle(index)}
-            />
-          ))}
+          {
+            questions.map((item, index) => (
+              <FaqItem
+                key={item.id}
+                item={item}
+                index={index}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
+              />
+            ))
+          }
         </div>
       </CustomContainer>
     </section>

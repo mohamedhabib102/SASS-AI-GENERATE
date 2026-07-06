@@ -1,18 +1,19 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "@/features/home/pages/Home";
-import SignUp from "@/features/auth/pages/SignUp";
-import SignIn from "@/features/auth/pages/SignIn";
-import ForgotPassword from "@/features/auth/pages/ForgatPassword";
-import ResetPassword from "@/features/auth/pages/ResetPassword";
-import OtpCode from "@/features/auth/pages/OtpCode";
-import Prices from "@/pages/prices/Prices";
-import Services from "@/pages/services/Services";
-import About from "@/pages/about/About";
+import Home from "../features/home/pages/Home";
+import SignUp from "../features/auth/pages/SignUp";
+import SignIn from "../features/auth/pages/SignIn";
+import ForgotPassword from "../features/auth/pages/ForgatPassword";
+import ResetPassword from "../features/auth/pages/ResetPassword";
+import OtpCode from "../features/auth/pages/OtpCode";
+import Prices from "@/features/prices/pages/Prices";
+import Services from "@/features/services/pages/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
 import CreateProfileCompany from "@/features/company/pages/CreateProfileCompany";
 import MainLayout from "@/layouts/MainLayout";
 import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
+import DetailsService from "@/features/services/pages/DetailsService";
+import About from "@/pages/about/About";
 
 const AppRoutes = () => {
   
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path="/prices" element={<Prices />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services/:id" element={<DetailsService />} />
         <Route path="/contact" element={<ContactUs />} />
       </Route>
 

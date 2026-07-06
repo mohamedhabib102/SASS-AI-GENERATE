@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 
 export const useCompanySchema = () => {
   const { t } = useLang();

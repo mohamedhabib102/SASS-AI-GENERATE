@@ -60,7 +60,8 @@
       "card2Title": "Organized Execution and Continuous Follow-up",
       "card2Description": "The platform relies on a clear execution mechanism that allows tracking the status of each service, and knowing what is done and what is in progress, without the need for separate communication or disorganized follow-up.",
       "card3Title": "Clear Vision and Transparency in Details",
-      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information."
+      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information.",
+      "noServices": "No services available at the moment"
     },
     "testimonials": {
       "sectionTitle": "User Reviews and Their Experiences with the Platform",
@@ -110,6 +111,7 @@
   },
   "faq": {
     "sectionTitle": "Frequently Asked Questions",
+    "noQuestions": "There are no FAQ questions available yet. Please check back later.",
     "questions": [
       {
         "title": "Is the platform easy to use for beginners?",
@@ -336,6 +338,44 @@
       "basic": "Basic Plan",
       "pro": "Professional Plan",
       "advanced": "Advanced Plan"
+    }
+  },
+  "serviceDetails": {
+    "breadcrumbParent": "Services",
+    "price": "Price:",
+    "bookButton": "Book Service",
+    "stats": [
+      { "value": "+500", "label": "Projects Completed" },
+      { "value": "+50", "label": "Service Success" },
+      { "value": "98%", "label": "Client Satisfaction Rate" }
+    ],
+    "description": "We provide professional social media account management aimed at improving your brand presence and building an interactive relationship with your audience through thoughtful content and organized execution. Our social media management service is designed to enhance your brand's digital presence and build a lasting relationship with your audience.",
+    "price_value": "$3000",
+    "whatYouGet": {
+      "title": "What will you get from the service?",
+      "subtitle": "We offer you an integrated package to manage your social media accounts, custom-designed to support your business goals, enhance your brand presence, and achieve real and continuous engagement with your audience through professional content and organized execution.",
+      "items": [
+        {
+          "title": "Content Creation",
+          "description": "Writing creative content that matches your brand identity and attracts the audience.",
+          "icon": "FileText"
+        },
+        {
+          "title": "Post Scheduling",
+          "description": "Publishing content at peak engagement times to ensure greater reach to your audience.",
+          "icon": "Calendar"
+        },
+        {
+          "title": "Periodic Reports",
+          "description": "Detailed analytical reports showing engagement and growth across all platforms.",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "Engagement Management",
+          "description": "Immediate response to comments and direct messages to build trust with followers.",
+          "icon": "MessageSquare"
+        }
+      ]
     }
   }
 }

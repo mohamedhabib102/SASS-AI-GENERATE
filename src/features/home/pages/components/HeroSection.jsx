@@ -1,7 +1,7 @@
 import React from "react";
-import CustomContainer from "../../../../components/shared/CustomContainer";
-import { Button } from "../../../../components/ui/button";
-import { useLang } from "@/hooks/lang/useLang";
+import CustomContainer from "@/components/shared/CustomContainer";
+import { Button } from "@/components/ui/button";
+import { useLang } from "@/hooks/useLang";
 import StatsSection from "./StatsSection";
 import Animate from "@/animations/Animate";
 import { useHero } from "../../hooks/useHero";
@@ -9,6 +9,8 @@ import { useHero } from "../../hooks/useHero";
 const HeroSection = () => {
   const { t } = useLang();
   const { data } = useHero();
+
+  console.log(data);
   
   const heroData = data?.hero || {};
 
@@ -39,7 +41,8 @@ const HeroSection = () => {
             <div className="lg:col-span-6 flex justify-center items-center">
               <Animate direction="right" triggerOn="mount">
               <img
-                src="/images/hero-animated.svg"
+                // src={heroData.image}
+                src={"/images/hero-animated.svg"}
                 alt="Hero illustration"
                 className="w-full h-auto lg:min-w-142 lg:max-w-full lg:scale-105 xl:scale-110 transition-transform duration-300 object-contain"
                 loading="lazy"

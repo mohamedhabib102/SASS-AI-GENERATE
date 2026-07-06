@@ -1,5 +1,5 @@
 import Animate from "@/animations/Animate";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { ChevronDown } from "lucide-react";
 
 export default function FaqItem({ item, index, isOpen, onToggle }) {
@@ -14,6 +14,7 @@ export default function FaqItem({ item, index, isOpen, onToggle }) {
           : "border-gray-200 bg-white"
       }`}
       delay={index * 0.15}
+      key={item.id}
     >
       <button
         onClick={onToggle}

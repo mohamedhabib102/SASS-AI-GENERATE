@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../../../../components/shared/CustomContainer";
-import CustomTitle from "../../../../components/shared/CustomTitle";
+import { useLang } from "@/hooks/useLang";
+import CustomContainer from "@/components/shared/CustomContainer";
+import CustomTitle from "@/components/shared/CustomTitle";
 import { Link } from "react-router-dom";
 import {
   Megaphone,
@@ -10,59 +10,100 @@ import {
   TrendingUp,
   BarChart2,
   MessageSquare,
+  Share2,
+  Globe,
   ArrowLeft,
   ArrowRight,
 } from "lucide-react";
 import Animate from "@/animations/Animate";
+import { useServices } from "../../hooks/useServices";
+import { useInView } from "react-intersection-observer";
+
+// Pool of 8 icons — assigned cyclically by index % 8
+const ICONS_POOL = [
+  Megaphone,
+  Palette,
+  FileText,
+  TrendingUp,
+  BarChart2,
+  MessageSquare,
+  Share2,
+  Globe,
+];
 
 const ServicesSection = () => {
   const { t, lang } = useLang();
-  const isRtl = lang === "ar";
+  const { ref, inView } = useInView({
+    rootMargin: "300px",
+  });
 
-  const services = useMemo(
+  const isRtl = lang === "ar";
+  const { data } = useServices({ enabled: inView });
+
+  // Static fallback services from translation file
+  const staticServices = useMemo(
     () => [
       {
         id: 1,
         title: t("home.services.card1Title"),
         description: t("home.services.card1Description"),
         Icon: Megaphone,
+        slug: null,
       },
       {
         id: 2,
         title: t("home.services.card2Title"),
         description: t("home.services.card2Description"),
         Icon: Palette,
+        slug: null,
       },
       {
         id: 3,
         title: t("home.services.card3Title"),
         description: t("home.services.card3Description"),
         Icon: FileText,
+        slug: null,
       },
       {
         id: 4,
         title: t("home.services.card4Title"),
         description: t("home.services.card4Description"),
         Icon: TrendingUp,
+        slug: null,
       },
       {
         id: 5,
         title: t("home.services.card5Title"),
         description: t("home.services.card5Description"),
         Icon: BarChart2,
+        slug: null,
       },
       {
         id: 6,
         title: t("home.services.card6Title"),
         description: t("home.services.card6Description"),
         Icon: MessageSquare,
+        slug: null,
       },
     ],
     [t],
   );
 
+  // API data mapped with cycling icon pool
+  const apiServices = (data?.data ?? []).slice(0, 6);
+  const displayServices =
+    apiServices.length > 0
+      ? apiServices.map((item, index) => ({
+          id: item.id,
+          title: item.name,
+          description: item.short_description,
+          Icon: ICONS_POOL[index % ICONS_POOL.length],
+        }))
+      : staticServices;
+
   return (
     <section
+      ref={ref}
       className="lg:py-16 py-8 bg-[#F5F5F5] overflow-hidden"
       id="services"
     >
@@ -70,7 +111,6 @@ const ServicesSection = () => {
         <div className={`flex items-start justify-between gap-4 flex-wrap lg:flex-row flex-col`}>
           <div className="flex-1">
             <Animate direction="up">
-
             <CustomTitle
               title={t("home.services.sectionTitle")}
               description={t("home.services.sectionDescription")}
@@ -94,8 +134,8 @@ const ServicesSection = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mt-4">
-          {services.map(({ id, title, description, Icon, idx}) => (
-            <Animate key={id} direction="up" delay={idx * 0.15}>
+          {displayServices.map(({ id, title, description, Icon, slug }, index) => (
+            <Animate key={id} direction="up" delay={index * 0.1}>
             <div
               className="group bg-transparent border border-primary rounded-2xl p-6 md:p-7 flex flex-col gap-4 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:-translate-y-1"
             >

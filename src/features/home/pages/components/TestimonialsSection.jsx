@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
-import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../../../../components/shared/CustomContainer";
-import CustomTitle from "../../../../components/shared/CustomTitle";
+import { useLang } from "@/hooks/useLang";
+import CustomContainer from "@/components/shared/CustomContainer";
+import CustomTitle from "@/components/shared/CustomTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Grid } from "swiper/modules";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
@@ -19,7 +19,6 @@ const TestimonialsSection = () => {
   const isRtl = lang === "ar";
 
   const { ref, inView } = useInView({
-      triggerOnce: true,
       rootMargin: "300px",
   });
   

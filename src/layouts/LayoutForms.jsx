@@ -1,5 +1,5 @@
 import Logo from "@/components/shared/Logo";
-import AboutAuth from "@/features/home/pages/components/AboutAuth";
+import AboutAuth from "@/features/auth/pages/components/AboutAuth";
 import Animate from "@/animations/Animate";
 
 const LayoutForms = ({ children, title, description, srcImg }) => {

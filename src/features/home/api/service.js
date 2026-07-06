@@ -37,18 +37,12 @@ const getMarketing = async (lang) => {
 // };
 
 
-const getServices = async() => {
-    const res =  await instanceAxios.get(`/api/services-details/3/section-two`);
-    return res.data;
-}
-
-
 const getTestimonial = async (page) => await instanceAxios.get(`/api/feedbacks?page=${page}`).then((res)=> res.data)
 
 
-const getQuestion = async () => {
-    const res = await instanceAxios.get(`/api/faqs`)
-    return res.data;
+const getQuestion = async (lang) => {
+    const res = await instanceAxios.get(`/api/faqs?lang=${lang}`)
+    return res.data.data;
 }
 
 const getHeroSection = async(lang) => {
@@ -57,13 +51,25 @@ const getHeroSection = async(lang) => {
 }
 
 
+const getServiceManage = async (lang) => {
+    const res = await instanceAxios.get(`api/manage-services?lang=${lang}`);
+    return res.data
+}
+
+const getServices = async(lang) => {
+    const res = await instanceAxios.get(`api/home/services?lang=${lang}`);
+    return res.data
+}
+
+
 export {
     getNavbar,
     getMarketing,
     // createMarketing,
     // getMarketingById,
-    getServices,
     getTestimonial,
     getQuestion,
-    getHeroSection
+    getHeroSection,
+    getServiceManage,
+    getServices
 }

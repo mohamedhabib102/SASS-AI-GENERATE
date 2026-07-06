@@ -1,14 +1,20 @@
 import React, { useMemo } from "react";
-import { useLang } from "@/hooks/lang/useLang";
-import CustomContainer from "../../../../components/shared/CustomContainer";
-import CustomTitle from "../../../../components/shared/CustomTitle";
+import { useLang } from "@/hooks/useLang";
+import CustomContainer from "@/components/shared/CustomContainer";
+import CustomTitle from "@/components/shared/CustomTitle";
 import Animate from "@/animations/Animate";
+import { useServiceManage } from "../../hooks/useServiceManag";
+import { useInView } from "react-intersection-observer";
 
 const ServiceManagementSection = () => {
   const { t, lang } = useLang();
   const isRtl = lang === "ar";
+  const { ref, inView } = useInView({
+    rootMargin: "300px",
+  });
+  const { data } = useServiceManage({ enabled: inView });
 
-  const cards = useMemo(
+  const staticCards = useMemo(
     () => [
       {
         id: 1,
@@ -29,44 +35,51 @@ const ServiceManagementSection = () => {
         image: "/images/management-3.png",
       },
     ],
-    [t],
+    [t, lang],
   );
 
-  // Staggering helper: Card 1 & 3 align to the right (start in RTL, end in LTR), Card 2 to the left (end in RTL, start in LTR)
+  const apiCards = data?.data ?? [];
+  const cards = apiCards.length > 0
+    ? apiCards.map((card, index) => ({
+        id: card.id ?? index + 1,
+        title: card.title ?? "",
+        description: card.description ?? "",
+        image: card.image ?? `/images/management-${index + 1}.png`,
+      }))
+    : staticCards;
+
   const getStaggerClass = (id) => {
     const isEven = id % 2 === 0;
     if (isRtl) {
       return isEven ? "lg:self-end" : "lg:self-start";
-    } else {
-      return isEven ? "lg:self-start" : "lg:self-end";
     }
+
+    return isEven ? "lg:self-start" : "lg:self-end";
   };
 
   return (
     <section
+      ref={ref}
       className="lg:py-16 py-8 bg-white overflow-hidden"
       id="service-management"
     >
       <CustomContainer>
-        {/* Header Section */}
         <CustomTitle
           title={t("home.serviceManagement.sectionTitle")}
           description={t("home.serviceManagement.sectionDescription")}
           showLine={true}
         />
 
-        {/* Staggered Cards List */}
         <div className="flex flex-col gap-6 md:gap-8 mt-8 md:mt-12 w-full">
-          {cards.map((card, index) => (
-            <Animate
-              key={card.id}
-              direction={index % 2 === 0 ? "right" : "left"}
-              delay={index * 0.15}
-              distance={150}
-              className={`${getStaggerClass(card.id)} w-full lg:w-[85%] bg-table border border-primary rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
-            >
-          
-                {/* Text Content */}
+          {cards.length > 0 ? (
+            cards.map((card, index) => (
+              <Animate
+                key={card.id}
+                direction={index % 2 === 0 ? "right" : "left"}
+                delay={index * 0.15}
+                distance={150}
+                className={`${getStaggerClass(card.id)} w-full lg:w-[85%] bg-table border border-primary rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
+              >
                 <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-start order-2 md:order-1">
                   <div className="mb-4 inline-block">
                     <h3 className="text-primary font-bold text-lg md:text-xl pb-1.5 border-b-2 border-primary leading-tight inline">
@@ -79,7 +92,6 @@ const ServiceManagementSection = () => {
                   </p>
                 </div>
 
-                {/* Illustration / Image */}
                 <div className="w-full md:w-[32%] lg:w-[28%] flex justify-center items-center shrink-0 order-1 md:order-2">
                   <img
                     src={card.image}
@@ -88,9 +100,13 @@ const ServiceManagementSection = () => {
                     loading="lazy"
                   />
                 </div>
-              
-            </Animate>
-          ))}
+              </Animate>
+            ))
+          ) : (
+            <div className="text-center py-12 text-desc text-base md:text-lg border border-dashed border-primary/30 rounded-2xl bg-[#FAFAFC]">
+              {t("home.serviceManagement.noServices")}
+            </div>
+          )}
         </div>
       </CustomContainer>
     </section>

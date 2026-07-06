@@ -3,9 +3,9 @@ import CustomInput from "@/components/shared/CustomInput";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
-import { useLang } from "@/hooks/lang/useLang";
+import { useLang } from "@/hooks/useLang";
 import { useForgotPasswordValidationSchema } from "@/features/auth/schemas";
-import useSendOtp from "../hooks/useSendOtp";
+import useSendOtp from "@/features/auth/hooks/useSendOtp";
 
 const ForgotPassword = () => {
   const { lang, t } = useLang();

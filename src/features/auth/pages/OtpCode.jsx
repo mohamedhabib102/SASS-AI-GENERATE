@@ -10,9 +10,9 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { useLang } from "@/hooks/lang/useLang";
-import useVerifyOtp from "../hooks/useVerifyOtp";
-import useSendOtp from "../hooks/useSendOtp";
+import { useLang } from "@/hooks/useLang";
+import useVerifyOtp from "@/features/auth/hooks/useVerifyOtp";
+import useSendOtp from "@/features/auth/hooks/useSendOtp";
 
 // ============ JSX ============ //
 const OtpCode = () => {
