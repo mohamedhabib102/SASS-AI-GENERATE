@@ -347,6 +347,7 @@
     }
   },
   "serviceDetails": {
+    "pageTitle": "Social Media Accounts Management",
     "breadcrumbParent": "Services",
     "price": "Price:",
     "bookButton": "Book Service",
@@ -381,6 +382,41 @@
           "description": "Immediate response to comments and direct messages to build trust with followers.",
           "icon": "MessageSquare"
         }
+      ]
+    },
+    "executionSteps": {
+      "title": "Execution Steps",
+      "description": "We work with clear and correct steps that matter to your clients, then reach a consistent and scalable execution plan to deliver the best results across all levels.",
+      "steps": [
+        {
+          "id": "analysis",
+          "number": "1",
+          "title": "Brand Analysis",
+          "description": "Study the market, competitors, and accurately define the target audience."
+        },
+        {
+          "id": "strategy",
+          "number": "2",
+          "title": "Strategy Planning",
+          "description": "Define the content and marketing strategy with a focused digital plan."
+        },
+        {
+          "id": "implementation",
+          "number": "3",
+          "title": "Execution",
+          "description": "Launch campaigns and content to improve results and build a strong brand image."
+        }
+      ]
+    },
+    "audienceSection": {
+      "title": "Beneficiary Audience",
+      "description": "This service is designed for companies and individuals seeking to build a strong digital presence, manage integrated content, and achieve clear results in engagement and sales.",
+      "items": [
+        "Startups and medium-sized companies",
+        "E-commerce brands",
+        "Digital businesses",
+        "Companies seeking to strengthen their digital presence",
+        "Organizations looking for genuine customer engagement"
       ]
     }
   }

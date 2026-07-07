@@ -43,7 +43,7 @@ const Header = () => {
     }`;
 
   return (
-    <header className="py-4">
+    <header className="py-4 border boder-b border-border">
       <CustomContainer>
               <div className="container flex justify-between items-center ">
         <div className="logo w-30">

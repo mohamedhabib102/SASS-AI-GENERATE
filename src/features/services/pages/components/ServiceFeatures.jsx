@@ -1,6 +1,7 @@
 import { useLang } from "@/hooks/useLang";
 import { FileText, Calendar, TrendingUp, MessageSquare } from "lucide-react";
 import CustomContainer from "@/components/shared/CustomContainer";
+import TitleServices from "./TitleServices";
 
 const iconMap = {
   FileText: FileText,
@@ -21,17 +22,12 @@ const ServiceFeatures = () => {
   }
 
   return (
-    <section className="bg-[#F5F5F5] py-16">
+    <section className="bg-[#F5F5F5] py-10">
       <CustomContainer>
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 flex flex-col gap-4">
-          <h2 className="text-2xl lg:text-3xl font-bold text-main">
-            {featuresData.title}
-          </h2>
-          <p className="text-sm text-desc leading-relaxed px-4">
-            {featuresData.subtitle}
-          </p>
-        </div>
+
+        <TitleServices title={featuresData.title} description={featuresData.subtitle} />
+
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
