@@ -16,11 +16,13 @@ import { useLang } from "@/hooks/useLang";
 import CustomContainer from "../shared/CustomContainer";
 import CustomButton from "../shared/CustomButton";
 import Logo from "../shared/Logo";
-import { useNavbar } from "@/features/home/hooks/useNavbar";
+import { useNavbar } from "@/hooks/useNavbar";
 
 const Header = () => {
   const { t } = useLang();
-  // const {data} = useNavbar() 
+  const {data} = useNavbar();
+
+
   const links = useMemo(
     () => [
       { label: "home", route: "/" },
@@ -31,6 +33,7 @@ const Header = () => {
     ],
     [],
   );
+  const link = data?.data ?? links;
 
   const navLinkClass = ({ isActive }) =>
     `text-nav py-2 font-normal relative ${

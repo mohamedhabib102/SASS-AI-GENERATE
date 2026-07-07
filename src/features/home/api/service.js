@@ -2,12 +2,6 @@ import { instanceAxios } from "@/lib/InstanceAxios"
 
 
 
-const getNavbar = async() => {
-    const res = await instanceAxios.get(`api/navbar`);
-    return res.data
-};
-
-
 const getMarketing = async (lang) => {
   const res = await instanceAxios.get("/api/mywork/marketing-sections", {
     params: {
@@ -63,7 +57,6 @@ const getServices = async(lang) => {
 
 
 export {
-    getNavbar,
     getMarketing,
     // createMarketing,
     // getMarketingById,
