@@ -23,17 +23,19 @@ const Header = () => {
   const {data} = useNavbar();
 
 
-  const links = useMemo(
+  const staticLinks = useMemo(
     () => [
-      { label: "home", route: "/" },
-      { label: "services", route: "/services" },
-      { label: "prices", route: "/prices" },
-      { label: "about", route: "/about" },
-      { label: "contact", route: "/contact" },
+      { title: "home", url: "/" },
+      { title: "services", url: "/services" },
+      { title: "prices", url: "/prices" },
+      { title: "about", url: "/about" },
+      { title: "contact", url: "/contact" },
     ],
     [],
   );
-  const link = data?.data ?? links;
+  const links = data?.data?.menu_items || staticLinks;
+
+
 
   const navLinkClass = ({ isActive }) =>
     `text-nav py-2 font-normal relative ${
@@ -47,21 +49,21 @@ const Header = () => {
       <CustomContainer>
               <div className="container flex justify-between items-center ">
         <div className="logo w-30">
-         <Logo srcImg={"/logo-black.svg"} smal={true}/>
+          <Logo srcImg={ data?.data?.logo?.image || "/logo-black.svg"} smal={true} alt={data?.data?.logo?.alt || "logo"} />
         </div>
         {/* all media except mobile */}
         <div className="links gap-4 items-center hidden md:flex">
           {links.map((link, index) => (
             <NavLink
               key={index}
-              to={link.route}
+              to={link.url}
               className={navLinkClass}
             >
-              {t(`home.nav.${link.label}`)}
+              {link.title}
             </NavLink>
           ))}
         </div>
-        {/* media of mobile */}
+        {/* mobile media */}
         <div className="flex gap-4 items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
