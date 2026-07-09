@@ -27,14 +27,13 @@ const Header = () => {
     () => [
       { title: "home", url: "/" },
       { title: "services", url: "/services" },
-      { title: "prices", url: "/prices" },
+      { title: "pricing", url: "/pricing" },
       { title: "about", url: "/about" },
       { title: "contact", url: "/contact" },
     ],
     [],
   );
   const links = data?.data?.menu_items || staticLinks;
-
 
 
   const navLinkClass = ({ isActive }) =>
@@ -52,7 +51,7 @@ const Header = () => {
           <Logo srcImg={ data?.data?.logo?.image || "/logo-black.svg"} smal={true} alt={data?.data?.logo?.alt || "logo"} />
         </div>
         {/* all media except mobile */}
-        <div className="links gap-4 items-center hidden md:flex">
+        <div className="links gap-4 items-center capitalize hidden md:flex">
           {links.map((link, index) => (
             <NavLink
               key={index}
