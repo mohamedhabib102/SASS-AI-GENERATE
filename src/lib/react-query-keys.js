@@ -9,5 +9,6 @@ export const QueryKeys = {
     services: ["services"],
     testimonial: ["testimonial"],
     plans: ["plans"],
-    comparisons: ["comparisons"] 
+    comparisons: ["comparisons"] ,
+    servicesPage: ["servicesPage"]
 }

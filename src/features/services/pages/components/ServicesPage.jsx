@@ -1,203 +1,82 @@
 import { useState } from "react";
-import {
-  Image,
-  Share2,
-  Type,
-  Megaphone,
-  Search,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Share2, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+import Loading from "@/components/shared/Loading";
 import CustomContainer from "@/components/shared/CustomContainer";
 import Animate from "@/animations/Animate";
 import ServiceCard from "./ServiceCard";
-
-const servicesData = [
-  {
-    id: "social-media",
-    icon: Share2,
-    title: "إدارة السوشيال ميديا",
-    description:
-      "خدمات لإدارة وتطوير حساباتك على منصات التواصل الاجتماعي باحترافية.",
-    cards: [
-      {
-        id: "reports",
-        title: "تقارير وتحليل الأداء",
-        description:
-          "تقارير دورية توضح أداء الحسابات وتحليل النتائج وإخراج تحسينات الفترة.",
-        price: 1000,
-      },
-      {
-        id: "content-design",
-        title: "محتوى وتصميم",
-        description:
-          "إنشاء محتوى إبداعي وتصميمات جذابة تناسب هوية علامتك التجارية.",
-        price: 2000,
-      },
-      {
-        id: "monthly-accounts",
-        title: "إدارة حسابات شهرية",
-        description:
-          "إدارة كاملة لحساباتك تشمل النشر، المتابعة، والرد على التعليقات.",
-        price: 3000,
-      },
-    ],
-  },
-  {
-    id: "design-marketing",
-    icon: Image,
-    title: "التصميم والتسويق البصري",
-    description: "حلول تصميم احترافية تعكس هوية علامتك وتزيد من قوة حضورك.",
-    cards: [
-      {
-        id: "motion-graphics",
-        title: "موشن جرافيك",
-        description:
-          "فيديوهات موشن جرافيك توضح أفكارك بصيغة جذابة لجذب الانتباه.",
-        price: 3500,
-      },
-      {
-        id: "brand-identity",
-        title: "هوية بصرية كاملة",
-        description:
-          "تصميم لوجو وهوية متكاملة تعبر عن علامتك التجارية باحترافية.",
-        price: 5000,
-      },
-      {
-        id: "social-posts-design",
-        title: "تصميم بوستات سوشيال",
-        description:
-          "تصميمات جذابة ومتناسقة مع الهوية البصرية للمنشورات اليومية.",
-        price: 1200,
-      },
-    ],
-  },
-  {
-    id: "content-writing",
-    icon: Type,
-    title: "كتابة المحتوى",
-    description: "محتوى احترافي يخاطب جمهورك ويحقق أهدافك التسويقية.",
-    cards: [
-      {
-        id: "website-content",
-        title: "محتوى مواقع إلكترونية",
-        description: "كتابة محتوى احترافي للمواقع يعكس هوية النشاط.",
-        price: 2500,
-      },
-      {
-        id: "ad-content",
-        title: "محتوى إعلاني",
-        description: "نصوص إعلانية قوية تساعد على زيادة المبيعات.",
-        price: 1500,
-      },
-      {
-        id: "social-content",
-        title: "محتوى سوشيال ميديا",
-        description: "كتابة محتوى إبداعي مناسب لمنصات التواصل الاجتماعي.",
-        price: 1000,
-      },
-    ],
-  },
-  {
-    id: "paid-ads",
-    icon: Megaphone,
-    title: "الإعلانات الممولة",
-    description: "حملات إعلانية مدروسة لتحقيق أفضل نتائج بأقل تكلفة.",
-    cards: [
-      {
-        id: "retargeting",
-        title: "إعادة الاستهداف",
-        description:
-          "حملات مخصصة لاستهداف العملاء المهتمين سابقًا بخدماتك.",
-        price: 1500,
-      },
-      {
-        id: "google-ads",
-        title: "إعلانات جوجل",
-        description:
-          "حملات بحث وشبكة إعلانية للوصول لعملاء جاهزين للشراء.",
-        price: 3000,
-      },
-      {
-        id: "fb-ig-ads",
-        title: "إعلانات فيسبوك وإنستجرام",
-        description:
-          "إنشاء وإدارة حملات إعلانية تستهدف جمهورك بدقة.",
-        price: 2500,
-      },
-    ],
-  },
-  {
-    id: "seo-services",
-    icon: Search,
-    title: "تحسين محركات البحث (SEO)",
-    description: "تصدّر نتائج البحث وزوّد ظهور موقعك بشكل طبيعي ومستمر.",
-    cards: [
-      {
-        id: "technical-seo",
-        title: "السيو التقني",
-        description:
-          "فحص وتحسين بنية الموقع التقنية لرفع ترتيبه في محركات البحث.",
-        price: 2000,
-      },
-      {
-        id: "content-seo",
-        title: "سيو المحتوى",
-        description:
-          "تحسين المحتوى والكلمات المفتاحية لزيادة الزيارات العضوية.",
-        price: 1800,
-      },
-      {
-        id: "backlinks",
-        title: "بناء الروابط الخلفية",
-        description:
-          "بناء روابط قوية وموثوقة لرفع مصداقية الموقع لدى جوجل.",
-        price: 2200,
-      },
-    ],
-  },
-];
-
-const SECTIONS_PER_PAGE = 4;
-
-
+import useServicesPage from "@/features/services/pages/useServicesPage";
 
 const ServicesPage = () => {
   const [page, setPage] = useState(1);
+  const { t } = useTranslation();
 
-  const totalPages = Math.ceil(servicesData.length / SECTIONS_PER_PAGE);
-  const startIdx = (page - 1) * SECTIONS_PER_PAGE;
-  const visibleSections = servicesData.slice(
-    startIdx,
-    startIdx + SECTIONS_PER_PAGE,
-  );
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+  } = useServicesPage(page);
+
+  const sections = data?.data ?? [];
+  const pagination = data?.pagination;
+  const totalPages = pagination?.last_page ?? 1;
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-20">
+        <Loading size={35} color="#1F7D53" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="text-center text-red-500 py-20">
+        {t(error?.messageKey)}
+      </div>
+    );
+  }
 
   return (
     <section className="lg:py-16 py-8" id="services">
       <CustomContainer>
-        {visibleSections.map((section) => {
-          const Icon = section.icon;
-          return (
-            <div key={section.id} className="mb-12 text-right">
-              <Animate direction="up" triggerOn="scroll" delay={0}>
-                <h3 className="text-xl font-semibold text-main">
-                  {section.title}
-                </h3>
-                <p className="text-sm text-gray mt-1 mb-6">
-                  {section.description}
-                </p>
-              </Animate>
+        {sections.map((section) => (
+          <div key={section.id} className="mb-12 text-right">
+            <Animate direction="up" triggerOn="scroll">
+              <h3 className="text-xl font-semibold text-main">
+                {section.title}
+              </h3>
 
+              <p className="text-sm text-gray mt-1 mb-6">
+                {section.description}
+              </p>
+            </Animate>
+
+            {section.services?.length ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {section.cards.map((card, idx) => (
-                  <Animate key={card.id} direction="up" triggerOn="scroll" delay={idx * 0.05}>
-                    <ServiceCard Icon={Icon} card={card} />
+                {section.services.map((service, idx) => (
+                  <Animate
+                    key={service.id}
+                    direction="up"
+                    triggerOn="scroll"
+                    delay={idx * 0.05}
+                  >
+                    <ServiceCard
+                      Icon={Share2}
+                      service={service}
+                    />
                   </Animate>
                 ))}
               </div>
-            </div>
-          );
-        })}
+            ) : (
+              <p className="text-gray-500">
+                noServices
+              </p>
+            )}
+          </div>
+        ))}
 
         {totalPages > 1 && (
           <Animate direction="up" triggerOn="scroll" delay={0.1}>
@@ -207,13 +86,13 @@ const ServicesPage = () => {
             >
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
                 disabled={page === 1}
+                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
               >
                 <ChevronLeft size={16} />
               </button>
 
-              {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                 (pageNumber) => (
                   <button
                     key={pageNumber}
@@ -230,9 +109,11 @@ const ServicesPage = () => {
               )}
 
               <button
-                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
+                onClick={() =>
+                  setPage((p) => Math.min(totalPages, p + 1))
+                }
                 disabled={page === totalPages}
+                className="w-9 h-9 flex items-center justify-center rounded-md text-gray hover:bg-gray-100 disabled:opacity-40"
               >
                 <ChevronRight size={16} />
               </button>
