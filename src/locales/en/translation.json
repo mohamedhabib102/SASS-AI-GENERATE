@@ -38,7 +38,8 @@
       "card5Title": "Analytics and Reports",
       "card5Description": "View performance reports and results of marketing services, helping make decisions based on clear data and continuous follow-up.",
       "card6Title": "Order and Communication Management",
-      "card6Description": "Organize all service orders and related communication through a single clear path, facilitating follow-up on notes, inquiries, and updates without relying on external channels."
+      "card6Description": "Organize all service orders and related communication through a single clear path, facilitating follow-up on notes, inquiries, and updates without relying on external channels.",
+      "noServices": "No services available at the moment"
     },
     "aboutUs": {
       "motiveTitle": "The motive behind establishing the Markeva platform",
@@ -60,9 +61,7 @@
       "card2Title": "Organized Execution and Continuous Follow-up",
       "card2Description": "The platform relies on a clear execution mechanism that allows tracking the status of each service, and knowing what is done and what is in progress, without the need for separate communication or disorganized follow-up.",
       "card3Title": "Clear Vision and Transparency in Details",
-      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information.",
-      "noServices": "No services available at the moment"
-    },
+      "card3Description": "Markeefa gives clients a comprehensive view of all service details through a centralized dashboard, including status, deliverables, and reports, ensuring a clear experience built on transparency and easy access to information."    },
     "testimonials": {
       "sectionTitle": "User Reviews and Their Experiences with the Platform",
       "sectionDescription": "Real ratings from users who have used the platform in their daily work, showing the level of efficiency, ease of use, and its actual impact on organizing work and improving productivity.",
@@ -90,7 +89,8 @@
       "contentCreation": "Content Creation",
       "adsCampaigns": "Ad Campaigns",
       "contactUs": "Contact Us",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "noServices": "No services available at the moment"
     },
     "quickLinks": {
       "title": "Quick Links",
