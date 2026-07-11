@@ -10,5 +10,6 @@ export const QueryKeys = {
     testimonial: ["testimonial"],
     plans: ["plans"],
     comparisons: ["comparisons"] ,
-    servicesPage: ["servicesPage"]
+    servicesPage: ["servicesPage"],
+    serviceDetails: ["serviceDetails"]
 }

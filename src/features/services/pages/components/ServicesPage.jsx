@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Share2, ChevronLeft, ChevronRight } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 import Loading from "@/components/shared/Loading";
 import CustomContainer from "@/components/shared/CustomContainer";
 import Animate from "@/animations/Animate";
 import ServiceCard from "./ServiceCard";
-import useServicesPage from "@/features/services/pages/useServicesPage";
+import { useLang } from "@/hooks/useLang";
+import { useServicesPage } from "../../hooks/useServicesPage";
 
 const ServicesPage = () => {
   const [page, setPage] = useState(1);
-  const { t } = useTranslation();
+  const { t } = useLang();
 
   const {
     data,
@@ -18,6 +18,8 @@ const ServicesPage = () => {
     isError,
     error,
   } = useServicesPage(page);
+
+
 
   const sections = data?.data ?? [];
   const pagination = data?.pagination;

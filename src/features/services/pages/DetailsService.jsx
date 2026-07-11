@@ -3,17 +3,22 @@ import { useParams, Link } from "react-router-dom";
 import { useLang } from "@/hooks/useLang";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ServiceFeatures from "./components/ServiceFeatures";
+import { useServiceDetails } from "../hooks/useServicesDetails";
+import Animate from "@/animations/Animate";
 import ExecutionSteps from "./components/ExecutionSteps";
 import AudienceSection from "./components/AudienceSection";
 import ServiceTestimonials from "./components/ServiceTestimonials";
-import Animate from "@/animations/Animate";
 
 const DetailsService = () => {
   const { id } = useParams();
   const { t, lang } = useLang();
   const isRtl = lang === "ar";
 
-  const stats = t("serviceDetails.stats", { returnObjects: true });
+//    const { data } = useServiceDetails(id ? Number(id) : 0);
+
+
+
+    const stats = t("serviceDetails.stats", { returnObjects: true });
 
   return (
     <section className="lg:pt-10 pt-6">
