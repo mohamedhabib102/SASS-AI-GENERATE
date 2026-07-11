@@ -1,18 +1,96 @@
-# React + Vite
+# Project Structure
+## Architecture
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project follows a **Feature-Based Architecture**, where each feature is isolated with its own:
 
-Currently, two official plugins are available:
+- API layer
+- React Query hooks
+- Components
+- Pages
+- Validation schemas
+- Constants
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This structure improves scalability, maintainability, and code organization for medium and large React applications.
 
-## React Compiler
+```text
+src/
+│
+├── app/                                        
+│   ├── App.jsx                                  
+│   ├── router.jsx                              
+│   ├── providers.jsx                           
+│   └── queryClient.js                          
+│
+├── api/                                        
+│   ├── axios.js                                 
+│   └── interceptors.js                         
+│
+├── auth/                                       
+│   ├── api/
+│   │   └── auth.api.js
+│   ├── hooks/
+│   │   ├── useLogin.js
+│   │   ├── useLogout.js
+│   │   ├── useRefresh.js
+│   │   └── useProfile.js
+│   ├── schemas/
+│   │   ├── login.schema.js
+│   │   ├── register.schema.js
+│   │   ├── forgotPassword.schema.js
+│   │   ├── resetPassword.schema.js
+│   │   └── verifyOtp.schema.js
+│   ├── context/
+│   │   └── AuthProvider.jsx
+│   ├── store/
+│   │   └── auth.store.js
+│   ├── guards/
+│   │   ├── ProtectedRoute.jsx
+│   │   ├── GuestRoute.jsx
+│   │   ├── AdminRoute.jsx
+│   │   └── PermissionRoute.jsx
+│   ├── permissions.js
+│   └── index.js
+│
+├── features/
+│   ├── home/
+│   ├── products/
+│   ├── categories/
+│   ├── blogs/
+│   ├── services/
+│   ├── orders/
+│   ├── profile/
+│   ├── wishlist/
+│   ├── search/
+│   └── checkout/
+│
+├── pages/
+├── components/
+├── layouts/
+├── hooks/
+├── lib/
+├── store/
+├── constants/
+├── assets/
+├── styles/
+├── main.jsx
+└── vite.config.js
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Folder Overview
 
-Note: This will impact Vite dev & build performances.
+| Folder | Purpose |
+|---------|----------|
+| `app/` | Application configuration (Router, Providers, React Query). |
+| `api/` | Shared Axios instance and interceptors. |
+| `auth/` | Authentication & Authorization logic. |
+| `features/` | Feature-based modules (Products, Orders, Profile, etc.). |
+| `components/` | Reusable UI and shared components. |
+| `layouts/` | Application layouts. |
+| `pages/` | Global pages (404, Unauthorized, 500...). |
+| `hooks/` | Reusable custom hooks. |
+| `lib/` | Utility/helper functions. |
+| `store/` | Global Zustand stores. |
+| `constants/` | Shared constants and configs. |
+| `assets/` | Images, fonts, icons. |
+| `styles/` | Global styles. |
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
