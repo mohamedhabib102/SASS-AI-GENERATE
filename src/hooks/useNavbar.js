@@ -10,7 +10,7 @@ const useNavbar = () =>
     const {lang} = useLang()
     return useQuery({
         queryFn: () => getNavbar(lang),
-        queryKey: [...QueryKeys.navbar, lang]
+        queryKey: QueryKeys.navbar
     })
 }
 

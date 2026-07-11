@@ -15,13 +15,7 @@
   --color-desc: #7A7A7A;
   --color-nav: #7A7A7A;
   --color-border: #E9E9E9;
-  --color-table: #EDEDFC;
-  --color-sidebar: #ffffff;
-  --color-sidebar-foreground: #4B5563;
-  --color-sidebar-border: #F3F4F6;
-  --color-sidebar-accent: #EEF2FF;
-  --color-sidebar-accent-foreground: #4f46e5;
-  --color-sidebar-ring: #4f46e5;
+  --color-table: #EDEDFC
 }
 
 body{

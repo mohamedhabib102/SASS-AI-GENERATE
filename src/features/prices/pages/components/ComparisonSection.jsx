@@ -9,7 +9,7 @@ import { comparisonTableData } from "@/data/dataTable";
 import { useLang } from "@/hooks/useLang";
 
 const ComparisonSection = () => {
-    const { t, lang } = useLang()
+    const {lang} = useLang()
     const { ref, inView } = useInView({
         rootMargin: "300px",
     });
@@ -33,12 +33,7 @@ const ComparisonSection = () => {
                     <TablePlans data={comparisonData} />
                 </Animate>
                 <Animate direction="up" triggerOn="scroll" delay={0.1}>
-                    <CtaSection
-                      title={t("prices.cta.title")}
-                      description={t("prices.cta.description")}
-                      btn1={t("prices.cta.btn1")}
-                      btn2={t("prices.cta.btn2")}
-                    />
+                    <CtaSection/>
                 </Animate>
             </CustomContainer>
         </section>

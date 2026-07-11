@@ -3,7 +3,7 @@ import { useLang } from "@/hooks/useLang";
 import CustomContainer from "@/components/shared/CustomContainer";
 import Logo from "@/components/shared/Logo";
 import { Link } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
 import { FiFacebook } from "react-icons/fi";
 import { RiTwitterXFill } from "react-icons/ri";
 

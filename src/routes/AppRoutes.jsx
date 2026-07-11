@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "@/features/home/pages/Home";
-import SignUp from "@/features/auth/pages/SignUp";
-import SignIn from "@/features/auth/pages/SignIn";
-import ForgotPassword from "@/features/auth/pages/ForgatPassword";
-import ResetPassword from "@/features/auth/pages/ResetPassword";
-import OtpCode from "@/features/auth/pages/OtpCode";
+import Home from "../features/home/pages/Home";
+import SignUp from "../features/auth/pages/SignUp";
+import SignIn from "../features/auth/pages/SignIn";
+import ForgotPassword from "../features/auth/pages/ForgatPassword";
+import ResetPassword from "../features/auth/pages/ResetPassword";
+import OtpCode from "../features/auth/pages/OtpCode";
 import Prices from "@/features/prices/pages/Prices";
 import Services from "@/features/services/pages/Services";
 import ContactUs from "@/pages/contactUs/ContactUs";
@@ -13,7 +13,7 @@ import MainLayout from "@/layouts/MainLayout";
 import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 import DetailsService from "@/features/services/pages/DetailsService";
-import About from "@/features/about/pages/About";
+import About from "@/pages/about/About";
 
 const AppRoutes = () => {
   
@@ -24,7 +24,7 @@ const AppRoutes = () => {
       {/* Routes that need Header and Footer */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/pricing" element={<Prices />} />
+        <Route path="/prices" element={<Prices />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/services/:id" element={<DetailsService />} />
@@ -39,12 +39,6 @@ const AppRoutes = () => {
       <Route path="/auth/otp-code" element={<OtpCode />} />
       <Route path="/company/create-profile" element={<CreateProfileCompany />} />
       <Route path="/auth/google/callback" element={<GoogleCallback />}/>
-
-
-      {/* Company Routes */}
-      {/* <Route path="/company/:id" element={<DashboardCompanyLayout />} >
-        <Route index element={<Overview />} />
-      </Route> */}
     </Routes>
     </>
   );
