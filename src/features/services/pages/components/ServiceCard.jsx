@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ Icon, service }) => {
+
+  console.log(service)
   return (
     <div className="bg-white border border-[#CACACA] rounded-2xl p-5 flex flex-col gap-3 text-right">
       <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-primary">
@@ -20,8 +22,8 @@ const ServiceCard = ({ Icon, service }) => {
       </p>
 
       <Link
-        to={service.details_url}
-        className="cursor-pointer py-3.5 mt-1 bg-secondary hover:bg-secondary/90 text-white text-center text-sm font-medium rounded-lg"
+      to={`/services/${service.id}`}       
+ className="cursor-pointer py-3.5 mt-1 bg-secondary hover:bg-secondary/90 text-white text-center text-sm font-medium rounded-lg"
       >
         {service.button_text}
       </Link>
