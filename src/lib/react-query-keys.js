@@ -11,5 +11,6 @@ export const QueryKeys = {
     plans: ["plans"],
     comparisons: ["comparisons"] ,
     servicesPage: ["servicesPage"],
-    serviceDetails: ["serviceDetails"]
+    serviceDetails: ["serviceDetails"],
+    heroAbout: ["heroAbout"]
 }

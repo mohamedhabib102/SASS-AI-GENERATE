@@ -11,8 +11,8 @@ const getServicesPage = async ({ lang, page }) => {
   return res.data;
 };
 
-const getServiceDetails = async ({ id }) => {
-  const res = await instanceAxios.get(`/api/services-details/${id}/section-one`);
+const getServiceDetails = async (id, lang) => {
+  const res = await instanceAxios.get(`/api/service-details/${id}?lang=${lang}`);
 
   return res.data;
 };

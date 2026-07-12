@@ -100,9 +100,6 @@
       "testimonials": "Testimonials",
       "pricing": "Pricing"
     },
-    "about": {
-      "description": "We are a dedicated digital marketing team, helping brands grow through well-planned strategies, effective content, and professional campaign management."
-    },
     "bottom": {
       "copyright": "Markeefa. All rights reserved.",
       "terms": "Terms of Service",
@@ -177,6 +174,10 @@
     "passwordPlaceholder": "Enter your password",
     "confPasswordLabel": "Confirm Password",
     "confPasswordPlaceholder": "Confirm your password",
+    "accountTypeLabel": "Account Type",
+    "accountTypePlaceholder": "Select account type",
+    "companyOwnerOption": "Company Owner",
+    "clientOption": "Client",
     "termsText": "I agree to the ",
     "termsLink": "Terms and Conditions and Privacy Policy",
     "submit": "Create Account",
@@ -193,6 +194,7 @@
     "passwordRequired": "Password is required",
     "confPasswordMatch": "Passwords must match",
     "confPasswordRequired": "Confirm password is required",
+    "accountTypeRequired": "Account type is required",
     "termsRequired": "You must agree to the terms and conditions",
     "phoneRequired": "Phone number is required",
     "phoneInvalid": "Invalid phone number, must start with 01 and be 11 digits",
@@ -282,7 +284,13 @@
         ],
         "button": "Request a Quote"
       }
-    ]
+    ],
+    "cta": {
+      "title": "Not sure which plan is right for your services?",
+      "description": "Let Markeefa help you pick the best package for your company size and marketing goals — so you can start with a more professional setup and a better experience.",
+      "btn1": "Talk to a sales advisor",
+      "btn2": "Explore features"
+    }
   },
   "contactUs": {
     "badge": "Your partner every step of the way",
@@ -315,6 +323,7 @@
     "invalidCredentials": "Email or password is incorrect",
     "somethingWentWrong": "Something went wrong",
     "companyNameAlreadyRegistered": "This company name is already registered",
+    "companyAlreadyExists": "This company already exists",
  "noInternet": "No internet connection",
     "unauthorized": "Unauthorized access",
     "forbidden": "You don't have permission",
@@ -419,5 +428,102 @@
         "Organizations looking for genuine customer engagement"
       ]
     }
+  },
+  "dashboard": {
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "orders": "Orders",
+      "services": "Services",
+      "team": "Team",
+      "tasks": "Tasks",
+      "allTasks": "Task Schedule",
+      "addTask": "Add Task",
+      "reports": "Reports",
+      "reportEmployees": "Employee Reports",
+      "reportPerformance": "Performance & Tasks Reports",
+      "reportFinancial": "Financial Reports",
+      "settings": "Settings",
+      "help": "Help Center",
+      "logout": "Log Out"
+    },
+    "header": {
+      "searchPlaceholder": "Search here...",
+      "role": "System Administrator",
+      "profileName": "Fouad Mamdouh",
+      "home": "Home",
+      "overview": "Overview"
+    },
+    "overview": {
+      "welcome": "Markiva for Marketing Services",
+      "status": "Active Now",
+      "description": "Easily follow performance and manage daily operations",
+      "opsStatus": "Operations Status",
+      "opsDesc": "Workflow is running efficiently"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Markeefa... Smart management for everything related to marketing",
+      "description": "We are a passionate team building digital solutions that help companies organize their marketing work easily.\nWe noticed that most teams suffer from scattered tools and unclear follow-up, so we decided to build a platform\nthat gathers all of this in a single simple and practical experience.",
+      "btnText": "Learn More"
+    },
+    "features": {
+      "taskManagement": {
+        "title": "Task & Campaign Management",
+        "description": "Markeefa helps you organize marketing tasks clearly, from the moment they're created until they're fully executed. You can assign tasks to team members, track progress at every stage, and ensure a smooth workflow, helping campaigns get done on time and with greater efficiency. With Markeefa, you can create marketing tasks, assign them to the right team, and follow their execution step by step within an organized workspace that makes collaboration easier and reduces chaos.",
+        "button": "Learn More"
+      },
+      "teamManagement": {
+        "title": "Team Management",
+        "description": "Working within your digital team, you'll find that collaboration between employees becomes easier through a single management hub, with clear roles and responsibilities, performance tracking, and support to help the team complete tasks on time.",
+        "button": "Learn More"
+      },
+      "reportsPerformance": {
+        "title": "Performance Reports & Tasks",
+        "description": "View detailed reports and interactive dashboards displaying key performance indicators clearly and understandably, including employee performance, task completion rates, order status, and campaign progress. These reports help you track workflow in real-time, analyze results, discover strengths and opportunities for improvement, enabling data-driven strategic decisions to enhance team efficiency and achieve best results.",
+        "button": "Learn More"
+      },
+      "orderManagement": {
+        "title": "Order & Subscription Management",
+        "description": "Manage all customer orders and subscriptions through a single integrated platform, tracking each order lifecycle from creation to completion. You can manage recurring packages, view subscription details, monitor order status in real-time, and handle payments, invoicing, and financial transaction history easily. The platform also enables you to monitor workflow and centralize all order and subscription data to deliver the best customer experience.",
+        "button": "Learn More"
+      }
+    },
+    "whyMarkeefa": {
+      "title": "Why Markeefa?",
+      "description": "We believe that the success of any marketing team starts with a platform that helps them work clearly and efficiently. We designed Markeefa to combine ease of use, smart organization, and precise analytics, giving you an integrated experience to manage your business with confidence and achieve better results.",
+      "button": "Learn More",
+      "feature1": {
+        "title": "Smart Task Management",
+        "description": "Create tasks, distribute them to team members, set priorities and deadlines, and track progress in real-time to ensure work is completed efficiently and on time."
+      },
+      "feature2": {
+        "title": "Effective Team Collaboration",
+        "description": "Organize your team, assign responsibilities, define roles and permissions, track employee performance, and enhance collaboration within a unified workspace."
+      },
+      "feature3": {
+        "title": "Accurate Reports & Analytics",
+        "description": "Get interactive reports and dashboards displaying performance indicators and results, helping you make strategic decisions based on precise data."
+      }
+    },
+    "visionMission": {
+      "vision": {
+        "title": "Our Vision",
+        "description": "To become the leading platform in the Arab region for marketing management through smart, user-friendly solutions."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "To empower marketing teams to work with higher efficiency through a unified platform that combines management, collaboration, and working as a single team."
+      }
+    },
+    "aboutCta": {
+      "cta": {
+        "title": "Ready to grow your marketing business?",
+        "description": "Join Markeefa today and start managing your team, tasks, and marketing in one unified platform.",
+        "btn1": "Get Started",
+        "btn2": "Contact Us"
+      }
+    }
   }
 }
+

@@ -8,17 +8,42 @@ import Animate from "@/animations/Animate";
 import ExecutionSteps from "./components/ExecutionSteps";
 import AudienceSection from "./components/AudienceSection";
 import ServiceTestimonials from "./components/ServiceTestimonials";
+import Loading from "@/components/shared/Loading";
 
 const DetailsService = () => {
   const { id } = useParams();
   const { t, lang } = useLang();
   const isRtl = lang === "ar";
 
-//    const { data } = useServiceDetails(id ? Number(id) : 0);
+  const { data, isLoading } = useServiceDetails(id ? Number(id) : 0);
 
+  const service = data?.data || data || "";
+  const sectionOne = service?.section_one || {};
+  const statsItems = [
+    {
+      label: lang === "ar" ? "رضا العملاء" : "Client satisfaction",
+      value: sectionOne?.stats?.client_satisfaction || 20,
+    },
+    {
+      label: lang === "ar" ? "المشاريع المكتملة" : "Completed projects",
+      value: sectionOne?.stats?.completed_projects || 0,
+    },
+    {
+      label: lang === "ar" ? "معدل النجاح" : "Success rate",
+      value: sectionOne?.stats?.success_rate || 0,
+    },
+  ].filter((stat) => stat.value !== undefined && stat.value !== null);
 
-
-    const stats = t("serviceDetails.stats", { returnObjects: true });
+  if (isLoading) {
+    return (
+      <section className="min-h-[70vh] flex items-center justify-center py-20">
+        <div className="flex flex-col items-center gap-3">
+          <Loading size={35} color="#1F7D53" />
+          <p className="text-sm text-desc">{lang === "ar" ? "جارٍ التحميل..." : "Loading..."}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="lg:pt-10 pt-6">
@@ -41,7 +66,8 @@ const DetailsService = () => {
                 <ChevronRight size={15} className="text-desc" />
               )}
               <span className="text-main font-medium">
-                {t("serviceDetails.pageTitle")}
+                {service.name} 
+                {/* t("serviceDetails.pageTitle") */}
               </span>
             </div>
           </Animate>
@@ -59,7 +85,7 @@ const DetailsService = () => {
             >
               <div className="w-full bg-[#E5E3FB] rounded-[42px] aspect-square flex items-center justify-center p-8 lg:p-12">
                 <img
-                  src="/images/details-service.svg"
+                  src={sectionOne.cover_image||"/images/details-service.svg"}
                   alt={id}
                   className="w-full h-full object-contain"
                 />
@@ -80,7 +106,7 @@ const DetailsService = () => {
                 </h1>
 
                 <p className="text-sm text-desc leading-relaxed">
-                  {t("serviceDetails.description")}
+                  {sectionOne.full_description}
                 </p>
 
                 {/* Price */}
@@ -88,7 +114,7 @@ const DetailsService = () => {
                   <span className="text-desc font-normal">
                     {t("serviceDetails.price")}{" "}
                   </span>
-                  {t("serviceDetails.price_value")}
+                  {service.price}
                 </p>
 
                 {/* Book Button */}
@@ -97,15 +123,15 @@ const DetailsService = () => {
                   className={`${isRtl ? "ml-auto" : "mr-auto"}
                   bg-secondary hover:bg-secondary/85 transition-colors text-white font-medium text-sm px-8 py-3 rounded-lg cursor-pointer`}
                 >
-                  {t("serviceDetails.bookButton")}
+                  {lang === "ar" ? sectionOne?.booking_button?.text.ar : sectionOne?.booking_button?.text.en}
                 </button>
 
                 {/* Stats */}
-                <div
-                  className={`flex items-center gap-6 md:gap-12 mt-4 pt-6 border-t border-border w-full justify-between md:justify-start`}
-                >
-                  {Array.isArray(stats) &&
-                    stats.map((stat, index) => (
+                {statsItems.length > 0 && (
+                  <div
+                    className={`flex items-center gap-6 md:gap-12 mt-4 pt-6 border-t border-border w-full justify-between md:justify-start`}
+                  >
+                    {statsItems.map((stat, index) => (
                       <div
                         key={index}
                         className="flex-1 flex flex-col items-center text-center gap-1"
@@ -118,7 +144,8 @@ const DetailsService = () => {
                         </span>
                       </div>
                     ))}
-                </div>
+                  </div>
+                )}
               </div>
             </Animate>
           </div>

@@ -8,7 +8,7 @@ const useServiceDetails = (id) => {
 
   return useQuery({
     queryKey: [...QueryKeys.serviceDetails, id, lang],
-    queryFn: () => getServiceDetails(id),
+    queryFn: () => getServiceDetails(id, lang),
     enabled: !!id,
   });
 };

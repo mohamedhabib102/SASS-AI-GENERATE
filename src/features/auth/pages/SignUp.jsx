@@ -1,20 +1,27 @@
 import LayoutForms from "@/layouts/LayoutForms";
 import CustomInput from "@/components/shared/CustomInput";
+import CustomSelect from "@/components/shared/CustomSelect";
 import { Button } from "@/components/ui/button";
-import { Eye, EyeClosed, Lock, Mail, User, Phone } from "lucide-react";
+import {
+  Eye,
+  EyeClosed,
+  Lock,
+  Mail,
+  User,
+  Phone,
+  Briefcase,
+} from "lucide-react";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useLang } from "@/hooks/useLang";
 import Loading from "@/components/shared/Loading";
 import { useRegister } from "@/features/auth/hooks/useSignUp";
 import { useSignUpSchema } from "@/features/auth/schemas/signup.schema";
+import { useState } from "react";
 
 const SignUp = () => {
   const { lang, t } = useLang();
-  const {
-    mutateAsync,
-    isPending: loadingRegister,
-  } = useRegister();
+  const { mutateAsync, isPending: loadingRegister } = useRegister();
 
   const navigate = useNavigate();
 
@@ -35,15 +42,14 @@ const SignUp = () => {
           phone: values.phone,
           email: values.email,
           password: values.password,
-          password_confirmation: values.password_confirmation
+          password_confirmation: values.password_confirmation,
         };
         const res = await mutateAsync(data);
         navigate("/company/create-profile");
-        console.log(res);
       } catch (error) {
         const st = error?.response?.status;
         const msg = error?.response?.data?.errors;
-        
+
         switch (st) {
           case 422:
             if (msg) {
@@ -73,78 +79,77 @@ const SignUp = () => {
     },
   });
 
-
-
   return (
-    <section className="min-h-screen">
-      <LayoutForms
-        title={t("signUp.title")}
-        description={t("signUp.description")}
-      >
-        <form onSubmit={formik.handleSubmit} className="w-full">
-          <div className="form-fields flex flex-col gap-3 my-2">
-            <CustomInput
-              name="name"
-              type="text"
-              id="name"
-              disabled={loadingRegister}
-              labelContent={t("signUp.fullNameLabel")}
-              palceholder={t("signUp.fullNamePlaceholder")}
-              icon={User}
-              formik={formik}
-              lang={lang}
-            />
-            <CustomInput
-              name="phone"
-              type="text"
-              id="phone"
-              labelContent={lang === "en" ? "Phone Number" : "رقم الهاتف"}
-              palceholder="201068984478+"
-              icon={Phone}
-              disabled={loadingRegister}
-              formik={formik}
-              lang={lang}
-            />
-            <CustomInput
-              name="email"
-              type="email"
-              id="email"
-              labelContent={t("signUp.emailLabel")}
-              palceholder="mowafy.dev@gmail.com"
-              icon={Mail}
-              disabled={loadingRegister}
-              formik={formik}
-              lang={lang}
-            />
-            <CustomInput
-              name="password"
-              type="password"
-              id="password"
-              labelContent={t("signUp.passwordLabel")}
-              palceholder={t("signUp.passwordPlaceholder")}
-              icon={Lock}
-              disabled={loadingRegister}
-              iconEyeClosed={EyeClosed}
-              iconsEyeDashed={Eye}
-              formik={formik}
-              lang={lang}
-            />
-            <CustomInput
-              name="password_confirmation"
-              type="password"
-              id="password_confirmation"
-              labelContent={t("signUp.confPasswordLabel")}
-              palceholder={t("signUp.confPasswordPlaceholder")}
-              icon={Lock}
-              disabled={loadingRegister}
-              iconEyeClosed={EyeClosed}
-              iconsEyeDashed={Eye}
-              formik={formik}
-              lang={lang}
-            />
+    <>
+      <section className="min-h-screen">
+        <LayoutForms
+          title={t("signUp.title")}
+          description={t("signUp.description")}
+        >
+          <form onSubmit={formik.handleSubmit} className="w-full">
+            <div className="form-fields flex flex-col gap-3 my-2">
+              <CustomInput
+                name="name"
+                type="text"
+                id="name"
+                disabled={loadingRegister}
+                labelContent={t("signUp.fullNameLabel")}
+                palceholder={t("signUp.fullNamePlaceholder")}
+                icon={User}
+                formik={formik}
+                lang={lang}
+              />
+              <CustomInput
+                name="phone"
+                type="text"
+                id="phone"
+                labelContent={lang === "en" ? "Phone Number" : "رقم الهاتف"}
+                palceholder="201068984478+"
+                icon={Phone}
+                disabled={loadingRegister}
+                formik={formik}
+                lang={lang}
+              />
+              <CustomInput
+                name="email"
+                type="email"
+                id="email"
+                labelContent={t("signUp.emailLabel")}
+                palceholder="mowafy.dev@gmail.com"
+                icon={Mail}
+                disabled={loadingRegister}
+                formik={formik}
+                lang={lang}
+              />
+              <CustomInput
+                name="password"
+                type="password"
+                id="password"
+                labelContent={t("signUp.passwordLabel")}
+                palceholder={t("signUp.passwordPlaceholder")}
+                icon={Lock}
+                disabled={loadingRegister}
+                iconEyeClosed={EyeClosed}
+                iconsEyeDashed={Eye}
+                formik={formik}
+                lang={lang}
+              />
+              <CustomInput
+                name="password_confirmation"
+                type="password"
+                id="password_confirmation"
+                labelContent={t("signUp.confPasswordLabel")}
+                palceholder={t("signUp.confPasswordPlaceholder")}
+                icon={Lock}
+                disabled={loadingRegister}
+                iconEyeClosed={EyeClosed}
+                iconsEyeDashed={Eye}
+                formik={formik}
+                lang={lang}
+              />
 
-            {/* terms and conditions */}
-            {/* <div className="terms flex flex-col w-full">
+              {/* terms and conditions */}
+              {/* <div className="terms flex flex-col w-full">
               <div className="flex items-center gap-2">
                 <Checkbox
                   id="terms-conditions"
@@ -185,40 +190,39 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div> */}
-          </div>
+            </div>
 
-          {/* submit btn */}
-          <Button
-            disabled={loadingRegister}
-            type="submit"
-            className="w-full mt-4 py-6 text-white font-semibold text-md"
-          >
-            {loadingRegister ? <Loading size={20} /> : t("signUp.submit")}
-          </Button>
+            {/* submit btn */}
+            <Button
+              disabled={loadingRegister}
+              type="submit"
+              className="w-full mt-4 py-6 text-white font-semibold text-md"
+            >
+              {loadingRegister ? <Loading size={20} /> : t("signUp.submit")}
+            </Button>
 
-          {/* divider */}
-          <div className="or flex items-center gap-3 my-2.5">
-            <div className="flex-1 h-px bg-gray-200"></div>
-            <span className="text-sm text-gray-400 font-medium select-none">
-              {t("signUp.or")}
-            </span>
-            <div className="flex-1 h-px bg-gray-200"></div>
-          </div>
+            {/* divider */}
+            <div className="or flex items-center gap-3 my-2.5">
+              <div className="flex-1 h-px bg-gray-200"></div>
+              <span className="text-sm text-gray-400 font-medium select-none">
+                {t("signUp.or")}
+              </span>
+              <div className="flex-1 h-px bg-gray-200"></div>
+            </div>
 
-
-
-          {/* has account redirect */}
-          <div className="text-gray-500 text-xs mt-3 flex items-center justify-center">
-            <p>
-              {t("signUp.hasAccount")}{" "}
-              <Link to="/auth/sign-in" className="text-primary font-bold">
-                {t("signUp.signInLink")}
-              </Link>
-            </p>
-          </div>
-        </form>
-      </LayoutForms>
-    </section>
+            {/* has account redirect */}
+            <div className="text-gray-500 text-xs mt-3 flex items-center justify-center">
+              <p>
+                {t("signUp.hasAccount")}{" "}
+                <Link to="/auth/sign-in" className="text-primary font-bold">
+                  {t("signUp.signInLink")}
+                </Link>
+              </p>
+            </div>
+          </form>
+        </LayoutForms>
+      </section>
+    </>
   );
 };
 

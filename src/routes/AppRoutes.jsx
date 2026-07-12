@@ -13,7 +13,7 @@ import MainLayout from "@/layouts/MainLayout";
 import GoogleCallback from "@/features/auth/pages/GoogleCallback";
 import { Toaster } from "react-hot-toast";
 import DetailsService from "@/features/services/pages/DetailsService";
-import About from "@/pages/about/About";
+import About from "@/features/about/pages/About";
 
 const AppRoutes = () => {
   
