@@ -467,6 +467,10 @@
       "description": "We are a passionate team building digital solutions that help companies organize their marketing work easily.\nWe noticed that most teams suffer from scattered tools and unclear follow-up, so we decided to build a platform\nthat gathers all of this in a single simple and practical experience.",
       "btnText": "Learn More"
     },
+    "service": {
+  "title": "What Do We Offer?",
+  "description": "We provide a complete set of tools that help companies manage their marketing operations efficiently, from organizing tasks and managing teams to monitoring performance and analyzing results, all within one easy-to-use platform."
+},
     "features": {
       "taskManagement": {
         "title": "Task & Campaign Management",

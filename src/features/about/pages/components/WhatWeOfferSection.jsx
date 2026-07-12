@@ -1,12 +1,17 @@
 import React from "react";
 import { useLang } from "@/hooks/useLang";
 import AboutFeatureSection from "./AboutFeatureSection";
+import TitleAbout from "./TitleAbout";
 
 const WhatWeOfferSection = () => {
   const { t } = useLang();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 pt-18">
+      <TitleAbout
+       title={t("aboutPage.service.title")}
+       description={t("aboutPage.service.description")}
+      />
       {/* 1. Task & Campaign Management (Image Left) */}
       <AboutFeatureSection
         title={t("aboutPage.features.taskManagement.title")}
