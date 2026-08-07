@@ -1,0 +1,46 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main  # غير لـ master لو الـ branch بتاعك اسمه master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. سحب الكود
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. إعداد Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # 3. تثبيت الحزم
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. بناء المشروع
+      - name: Build Project
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      # 5. رفع مجلد dist على cPanel عبر FTP
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}          # مثال: ftp.yourdomain.com
+          username: ${{ secrets.FTP_USERNAME }}      # اسم مستخدم FTP
+          password: ${{ secrets.FTP_PASSWORD }}      # كلمة المرور
+          local-dir: ./dist/                         # المجلد المراد رفعه
+          server-dir: /public_html/markeva.iptvdemo.serv5group.com/                # المسار على السيرفر (غيره لو محتاج)
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

@@ -1,0 +1,6 @@
+
+
+a.active {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
