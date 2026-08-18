@@ -1,10 +1,10 @@
-# Markeefa - Marketing Services Management Platform 🚀
+# Markeefa - Marketing Services Management Platform 
 
 **Markeefa (ماركيفا)** is a modern, integrated SaaS web application designed for companies and individuals to seamlessly request, track, and manage marketing services and campaigns from a unified, intuitive dashboard.
 
 ---
 
-## 🌟 Project Overview
+##  Project Overview
 
 Markeefa eliminates the complexity of managing digital marketing operations across multiple agencies and channels. Features include:
 - Multi-language support (**Arabic (RTL)** & **English (LTR)**).
@@ -77,7 +77,7 @@ src/
 
 ---
 
-## 🚀 Getting Started & Local Setup
+##  Getting Started & Local Setup
 
 ### **Prerequisites**
 - Node.js (v18+ recommended)
