@@ -19,8 +19,10 @@ export default function ResetPassword() {
         },
         validationSchema: useResetPasswordValidationSchema(),
         onSubmit: (values) => {
-            console.log(values);
-            sendNewPassword(values);
+            sendNewPassword({
+                password: values.password,
+                password_confirmation: values.confPassword,
+            });
         }
     });
 

@@ -9,9 +9,9 @@ const useVerifyOtp = () => {
         mutationKey: ['verify-otp'],
         mutationFn: VerifyOtp,
         onSuccess: (data) => {
-            // console.log(data);
-            navigate('/auth/reset-password');
+            const lang = localStorage.getItem('lang') || 'ar';
             sessionStorage.setItem('token', data?.token);
+            navigate(`/${lang}/auth/reset-password`);
         },
         
     })

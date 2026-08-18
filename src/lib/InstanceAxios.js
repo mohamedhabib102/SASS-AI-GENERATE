@@ -1,15 +1,16 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export const instanceAxios = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: false,
+  withCredentials: true,
   timeout: 10000,
 });
 
 // Request interceptor to automatically attach authorization token
 instanceAxios.interceptors.request.use(
   (config) => {
-    const token = sessionStorage.getItem("token");
+    const token = Cookies.get("token") || sessionStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

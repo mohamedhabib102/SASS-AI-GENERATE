@@ -10,9 +10,9 @@ const useSendNewPassword = () => {
     const {mutate : sendNewPassword,isPending,error}=useMutation({
         mutationKey: ['send-new-password'],
         mutationFn: SendNewPassword,
-        onSuccess : (data)=> {
-            // console.log(data);
-            navigate("/auth/sign-in");
+        onSuccess: (data) => {
+            const lang = localStorage.getItem('lang') || 'ar';
+            navigate(`/${lang}/auth/sign-in`);
         },
         
     })

@@ -55,7 +55,12 @@ const SignIn = () => {
       try {
         const response = await signIn(values);
         const user = response?.data?.user;
+        const token = response?.data?.token || response?.token;
         const url = response?.data?.company_url;
+
+        if (token) {
+          sessionStorage.setItem("token", token);
+        }
 
         if (url) {
           // If company_url is present, don't store user and don't navigate
@@ -64,7 +69,9 @@ const SignIn = () => {
           setDialogOpen(true);
         } else {
           // Normal client login
-          login(user);
+          if (user) {
+            login(user, token);
+          }
           navigate(`/${lang}/profile`);
         }
       } catch (error) {
