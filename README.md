@@ -1,6 +1,6 @@
-# Markeefa - Marketing Services Management Platform 
+# Markeva  - Marketing Services Management Platform 
 
-**Markeefa (ماركيفا)** is a modern, integrated SaaS web application designed for companies and individuals to seamlessly request, track, and manage marketing services and campaigns from a unified, intuitive dashboard.
+**Markeva  (ماركيفا)** is a modern, integrated SaaS web application designed for companies and individuals to seamlessly request, track, and manage marketing services and campaigns from a unified, intuitive dashboard.
 
 ---
 
