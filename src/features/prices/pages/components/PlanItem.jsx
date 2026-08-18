@@ -13,11 +13,11 @@ const PlanItem = ({plan}) => {
         plan.map((p, index) => (
             <Animate key={p.key} direction="up" triggerOn="scroll" delay={index * 0.1}>
                 <div className={`${p.popular ? "bg-primary py-10 px-5" : "bg-white p-5"} border border-border rounded-2xl shadow-md h-full relative`}>
-                {p.popular && <h3 className="text-white bg-secondary text-sm absolute -top-2.5 p-1 px-3 rounded-2xl left-1/2 -translate-x-1/2">{lang === "ar" ? "الأكثر شيوعاً" : "Most Popular"}</h3>}
+                {p.popular && <h3 className="text-white bg-secondary text-sm absolute -top-2.5 p-1 px-3 rounded-2xl left-1/2 -translate-x-1/2">{t("pricing.popularBadge")}</h3>}
                     <h3 className={`${p.popular ? "text-white" : "text-main"} font-bold text-lg`}>{p.name}</h3>
                     <p className={`${p.popular ? "text-white" : "text-desc"} font-normal text-sm mb-4`}>{p.tagline}</p>
 
-                    <div className={`${p.popular ? "text-white" : "text-main"} font-bold text-4xl mb-6`}>{Number(p.price) === 0 ? t("prices.free") : p.price}
+                    <div className={`${p.popular ? "text-white" : "text-main"} font-bold text-4xl mb-6`}>{Number(p.price) === 0 ? t("pricing.free") : p.price}
                         {p.type && <span className="text-sm font-normal">{p.type}</span>}
                     </div>
 

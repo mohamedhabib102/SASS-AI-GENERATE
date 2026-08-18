@@ -1,25 +1,7 @@
 import axios from "axios";
 
-const getBaseURL = () => {
-  const envUrl = import.meta.env.VITE_API_URL;
-  if (!envUrl) return "http://localhost:8002";
-
-  try {
-    const parsedEnv = new URL(envUrl);
-    const currentHost = window.location.hostname; // e.g. "servv.localhost" or "localhost"
-
-    // If browsing under a subdomain, rewrite the API base URL to use the same subdomain
-    if (currentHost !== "localhost" && currentHost !== "127.0.0.1") {
-      parsedEnv.hostname = currentHost;
-    }
-    return parsedEnv.toString().replace(/\/$/, ""); // Remove trailing slash
-  } catch (e) {
-    return envUrl;
-  }
-};
-
 export const instanceAxios = axios.create({
-  baseURL: getBaseURL(),
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: false,
   timeout: 10000,
 });

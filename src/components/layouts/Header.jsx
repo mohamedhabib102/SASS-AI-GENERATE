@@ -39,16 +39,16 @@ const Header = () => {
   const getInitial = (name) => name ? name.charAt(0).toUpperCase() : <UserRound/>;
 
 
-  const staticLinks = useMemo(
-    () => [
-      { title: "home", url: `/${lang}`},
-      { title: "services", url: `/${lang}/services` },
-      { title: "prices", url: `/${lang}/prices` },
-      { title: "about", url: `/${lang}/about` },
-      { title: "contact", url: `/${lang}/contact` },
-    ],
-    [lang],
-  );
+const staticLinks = useMemo(
+  () => [
+    { title: "home", url: `/${lang}` },
+    { title: "services", url: `/${lang}/services` },
+    { title: "pricing", url: `/${lang}/pricing` },
+    { title: "about", url: `/${lang}/about` },
+    { title: "contact", url: `/${lang}/contact` },
+  ],
+  [lang],
+);
   let links = staticLinks;
 
   if (data?.data?.menu_items && !isError) {
@@ -134,7 +134,7 @@ const Header = () => {
                   {!isAuthenticated && (
                     <div onClick={() => setIsMobileMenuOpen(false)}>
                       <CustomButton
-                        translationKey={"home.nav.buttoSign"}
+                        translationKey={"home.nav.buttonSign"}
                         link={`/${lang}/auth/sign-in`}
                         location={"header"}
                       />
@@ -159,7 +159,7 @@ const Header = () => {
                     </div>
                     {isAuthenticated && (
                       <span className="text-main text-sm">
-                        {user?.name || (lang === "ar" ? "حسابي" : "My Account")}
+                        {user?.name || t("home.nav.myAccount")}
                       </span>
                     )}
                   </Link>
@@ -177,7 +177,7 @@ const Header = () => {
           <div className="flex items-center gap-2">
             {!isAuthenticated && (
               <CustomButton
-                translationKey={"home.nav.buttoSign"}
+                translationKey={"home.nav.buttonSign"}
                 link={`/${lang}/auth/sign-in`}
                 location={"header"}
               />

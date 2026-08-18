@@ -6,11 +6,13 @@ import Plans from "@/features/prices/pages/components/Plans";
 
 
 
-const Prices = () => {  
-    return (
-        <section>
-            <Plans/>
-            <ComparisonSection/>
-        </section>
-    )
-}; export default Prices;
+const Prices = () => {
+  return (
+    <section>
+      <Plans />
+      <ComparisonSection />
+    </section>
+  );
+};
+
+export default Prices;

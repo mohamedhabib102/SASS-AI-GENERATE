@@ -11,6 +11,7 @@ const GoogleCallback = () => {
   useEffect(() => {
     const token = searchParams.get('token');
     const userParam = searchParams.get('user');
+    const lang = localStorage.getItem('lang') || 'ar';
 
     if (token) {
       sessionStorage.setItem("token", token);
@@ -26,10 +27,10 @@ const GoogleCallback = () => {
       
       loginStore(userData);
       toast.success("تم تسجيل الدخول بحساب جوجل بنجاح");
-      navigate("/");
+      navigate(`/${lang}`);
     } else {
       toast.error("فشل تسجيل الدخول بحساب جوجل");
-      navigate("/auth/sign-in");
+      navigate(`/${lang}/auth/sign-in`);
     }
   }, [navigate, searchParams, loginStore]);
 

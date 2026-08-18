@@ -4,12 +4,13 @@
     "nav": {
       "home": "Home",
       "services": "Services",
-      "prices": "Prices",
-      "pricesMonthly": "Monthly Plans",
-      "pricesYearly": "Annual Plans",
+      "pricing": "Pricing",
+      "pricingMonthly": "Monthly Plans",
+      "pricingYearly": "Annual Plans",
       "about": "About Us",
       "contact": "Social Media",
-      "buttoSign": "sign in"
+      "buttonSign": "sign in",
+      "myAccount": "My Account"
     },
     "hero": {
       "title": "An integrated solution to manage and execute marketing services from one place.",
@@ -237,7 +238,7 @@
     "ar": "Arabic",
     "en": "English"
   },
-  "prices": {
+  "pricing": {
     "free": "Free",
     "badge": "Competitive Pricing",
     "title": "Plan Pricing & Features",
@@ -342,6 +343,13 @@
     "tooManyRequests": "Too many requests, try again later",
     "serverError": "Server is unavailable",
     "nofoundData": "No data available or an unexpected server error occurred"
+  },
+  "profile": {
+    "user": "User",
+    "email": "Email",
+    "phone": "Phone",
+    "editData": "Edit Data",
+    "logout": "Log Out"
   },
   "createCompany": {
     "title": "Create Your Company",
@@ -541,6 +549,17 @@
         "btn2": "Contact Us"
       }
     }
+  },
+  "notFound": {
+    "oops": "Oops!",
+    "title": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "backHome": "Back to Home"
+  },
+  "signInDialog": {
+    "title": "Company Login",
+    "description": "Preparing your dashboard. Please wait a moment...",
+    "goToDashboard": "Go to Dashboard"
   }
 }
 

@@ -10,7 +10,7 @@ const Plans = () => {
   const { t, lang } = useLang();
 
   const plans = useMemo(
-    () => t("prices.plans", { returnObjects: true }),
+    () => t("pricing.plans", { returnObjects: true }),
     [t, lang],
   );
   return (
@@ -22,12 +22,12 @@ const Plans = () => {
               size={15}
               className="absolute left-4 top-1/2 -translate-y-1/2"
             />
-            {t("prices.badge")}
+            {t("pricing.badge")}
             <span className="absolute right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></span>
           </div>
           <CustomTitle
-            title={t("prices.title")}
-            description={t("prices.description")}
+            title={t("pricing.title")}
+            description={t("pricing.description")}
             showLine={false}
             centered={true}
             descriptionColor={"text-desc"}

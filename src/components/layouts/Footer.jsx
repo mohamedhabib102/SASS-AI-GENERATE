@@ -17,7 +17,7 @@ const Footer = () => {
     { id: 1, label: t("footer.quickLinks.home"), to: `/${lang}` },
     { id: 2, label: t("footer.quickLinks.about"), to: `/${lang}/about` },
     { id: 3, label: t("footer.quickLinks.services"), to: `/${lang}/services` },
-    { id: 4, label: t("footer.quickLinks.testimonials"), to: `/${lang}/testimonials` },
+    { id: 4, label: t("footer.quickLinks.testimonials"), to: `/${lang}/#testimonials` },
     { id: 5, label: t("footer.quickLinks.pricing"), to: `/${lang}/pricing` },
   ];
 

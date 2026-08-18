@@ -4,7 +4,8 @@ import { FcGoogle } from 'react-icons/fc';
 
 const GoogleAuthButton = () => {
   const handleGoogleLogin = () => {
-    window.location.href = import.meta.env.VITE_GOOGLE_REDIRECT_URI;
+    const redirectUri = import.meta.env.VITE_GOOGLE_REDIRECT_URI || `${import.meta.env.VITE_API_URL}/api/auth/google/redirect`;
+    window.location.href = redirectUri;
   };
 
   const {t} = useLang();

@@ -5,7 +5,6 @@ import Loading from "@/components/shared/Loading";
 import CustomContainer from "@/components/shared/CustomContainer";
 import Animate from "@/animations/Animate";
 import ServiceCard from "./ServiceCard";
-import ServerError from "@/components/shared/ServerError";
 import { useLang } from "@/hooks/useLang";
 import { useServicesPage } from "../../hooks/useServicesPage";
 
@@ -63,16 +62,6 @@ const ServicesPage = () => {
       <section>
         <CustomContainer>
           <Loading />
-        </CustomContainer>
-      </section>
-    );
-  }
-
-  if (isError) {
-    return (
-      <section>
-        <CustomContainer>
-          <ServerError message={t("home.serverError")} />
         </CustomContainer>
       </section>
     );

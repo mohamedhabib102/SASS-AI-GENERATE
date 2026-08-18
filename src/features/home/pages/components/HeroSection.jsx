@@ -28,7 +28,7 @@ const HeroSection = () => {
               <p className="text-white/85 text-sm md:text-base lg:text-lg leading-relaxed mt-4 md:mt-6 whitespace-pre-line max-w-xl">
                 {heroData.description || t("home.hero.description")}
               </p>
-              <Link to={`/${lang}/prices`} 
+              <Link to={`/${lang}/pricing`} 
                 variant="secondary" 
                 className="bg-secondary block w-fit hover:bg-orange-600 text-white font-semibold text-base h-auto py-3 px-8 rounded-xl cursor-pointer transition-colors duration-200 mt-6 md:mt-8 border-none shadow-md"
               >

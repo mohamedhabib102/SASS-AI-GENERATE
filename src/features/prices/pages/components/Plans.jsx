@@ -5,16 +5,17 @@ import { useLang } from "@/hooks/useLang";
 import { ArrowUpRight } from "lucide-react";
 import Animate from "@/animations/Animate";
 import { usePlans } from "@/features/prices/hooks/usePlans";
-import { Loader2 } from "lucide-react";
 import Loading from "@/components/shared/Loading";
-import ServerError from "@/components/shared/ServerError";
 
 const Plans = () => {
   const { t, lang } = useLang();
   const { data: apiPlansResponse, isLoading, isError } = usePlans();
   const apiPlans = apiPlansResponse?.data || apiPlansResponse || [];
 
-  let displayPlans = null;
+  const staticPlans = t("pricing.plans", { returnObjects: true });
+  const fallbackPlans = Array.isArray(staticPlans) ? staticPlans : [];
+
+  let displayPlans = [];
 
   if (apiPlans && apiPlans.length > 0) {
     displayPlans = apiPlans.map((apiPlan) => {
@@ -31,6 +32,8 @@ const Plans = () => {
         button: apiPlan.button?.text,
       };
     });
+  } else {
+    displayPlans = fallbackPlans;
   }
 
   return (
@@ -42,12 +45,12 @@ const Plans = () => {
               size={15}
               className="absolute left-4 top-1/2 -translate-y-1/2"
             />
-            {t("prices.badge")}
+            {t("pricing.badge")}
             <span className="absolute right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></span>
           </div>
           <CustomTitle
-            title={t("prices.title")}
-            description={t("prices.description")}
+            title={t("pricing.title")}
+            description={t("pricing.description")}
             showLine={false}
             centered={true}
             descriptionColor={"text-desc"}
@@ -58,8 +61,6 @@ const Plans = () => {
             <div className="flex justify-center items-center py-16">
               <Loading color="#4f46e5" size={35} />
             </div>
-          ) : isError || !displayPlans ? (
-            <ServerError message={t("errors.nofoundData")}/>
           ) : (
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 items-center">
               <PlanItem plan={displayPlans} />

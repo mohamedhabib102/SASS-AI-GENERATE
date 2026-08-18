@@ -47,7 +47,7 @@ const Profile = () => {
               {/* User Info */}
               <div className="text-center px-6 pt-4 pb-2">
                 <h1 className="text-2xl font-bold text-main">
-                  {user?.name || (lang === "ar" ? "مستخدم" : "User")}
+                  {user?.name || t("profile.user")}
                 </h1>
                 {user?.role && (
                   <span className="inline-block mt-2 text-xs font-medium text-primary bg-table px-3 py-1 rounded-full">
@@ -65,7 +65,7 @@ const Profile = () => {
                     </div>
                     <div>
                       <p className="text-xs text-desc">
-                        {lang === "ar" ? "البريد الإلكتروني" : "Email"}
+                        {t("profile.email")}
                       </p>
                       <p className="text-sm font-medium text-main" dir="ltr">
                         {user.email}
@@ -81,7 +81,7 @@ const Profile = () => {
                     </div>
                     <div>
                       <p className="text-xs text-desc">
-                        {lang === "ar" ? "رقم الهاتف" : "Phone"}
+                        {t("profile.phone")}
                       </p>
                       <p className="text-sm font-medium text-main" dir="ltr">
                         {user.phone}
@@ -97,7 +97,7 @@ const Profile = () => {
                   className="w-full py-5 bg-primary hover:bg-primary/90 text-white font-semibold shadow-md transition-all duration-200 cursor-pointer"
                 >
                   <Pencil size={18} className="ltr:mr-2 rtl:ml-2" />
-                  {lang === "ar" ? "تعديل البيانات" : "Edit Data"}
+                  {t("profile.editData")}
                 </Button>
 
                 <Button
@@ -106,7 +106,7 @@ const Profile = () => {
                   className="w-full py-5 border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700 cursor-pointer font-semibold transition-all duration-200"
                 >
                   <LogOut size={18} className="ltr:mr-2 rtl:ml-2" />
-                  {lang === "ar" ? "تسجيل الخروج" : "Log Out"}
+                  {t("profile.logout")}
                 </Button>
               </div>
             </div>

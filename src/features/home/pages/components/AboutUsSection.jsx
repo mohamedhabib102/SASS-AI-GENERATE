@@ -2,7 +2,6 @@ import React from "react";
 import { useLang } from "@/hooks/useLang";
 import CustomContainer from "@/components/shared/CustomContainer";
 import CustomTitle from "@/components/shared/CustomTitle";
-import ServerError from "@/components/shared/ServerError";
 import { Button } from "@/components/ui/button";
 import Animate from "@/animations/Animate";
 import { useMarketing } from "@/features/home/hooks/useMarketingSections";
@@ -42,18 +41,6 @@ const AboutUsSection = () => {
       <section className="lg:py-16 py-8">
         <CustomContainer>
           <p className="text-center">Loading...</p>
-        </CustomContainer>
-      </section>
-    );
-  }
-
-  if (isError) {
-    return (
-      <section className="lg:py-16 py-8">
-        <CustomContainer>
-          <ServerError
-            message={t("home.serverError")}
-          />
         </CustomContainer>
       </section>
     );

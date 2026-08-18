@@ -38,8 +38,6 @@ const ComparisonSection = () => {
                         <div className="flex justify-center items-center py-16">
                             <Loading color="#4f46e5" size={35} />
                         </div>
-                    ) : isError || !apiData ? (
-                      <ServerError message={t("errors.nofoundData")}/>
                     ) : (
                         <TablePlans data={apiData} />
                     )}

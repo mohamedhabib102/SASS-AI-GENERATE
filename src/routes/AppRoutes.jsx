@@ -1,53 +1,57 @@
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "../features/home/pages/Home";
-import SignIn from "../features/auth/pages/SignIn";
-import ForgotPassword from "../features/auth/pages/ForgatPassword";
-import ResetPassword from "../features/auth/pages/ResetPassword";
-import OtpCode from "../features/auth/pages/OtpCode";
-import Prices from "@/features/prices/pages/Prices";
-import Services from "@/features/services/pages/Services";
-import ContactUs from "@/pages/contactUs/ContactUs";
 import MainLayout from "@/layouts/MainLayout";
-import GoogleCallback from "@/features/auth/pages/GoogleCallback";
-import { Toaster } from "react-hot-toast";
-import DetailsService from "@/features/services/pages/DetailsService";
-import About from "@/features/about/pages/About";
-import Profile from "@/features/auth/pages/Profile";
 import ProtectedRoute from "./ProtectedRoute";
 import GuestRoute from "./GuestRoute";
-import NotFound from "@/pages/notFound/NotFound";
-import TrainingEvaluation from "@/pages/training-evaluation/TrainingEvaluation";
+import { Toaster } from "react-hot-toast";
+import Loading from "@/components/shared/Loading";
+
+const Home = lazy(() => import("../features/home/pages/Home"));
+const SignIn = lazy(() => import("../features/auth/pages/SignIn"));
+const ForgotPassword = lazy(() => import("../features/auth/pages/ForgatPassword"));
+const ResetPassword = lazy(() => import("../features/auth/pages/ResetPassword"));
+const OtpCode = lazy(() => import("../features/auth/pages/OtpCode"));
+const Prices = lazy(() => import("@/features/prices/pages/Prices"));
+const Services = lazy(() => import("@/features/services/pages/Services"));
+const ContactUs = lazy(() => import("@/pages/contactUs/ContactUs"));
+const GoogleCallback = lazy(() => import("@/features/auth/pages/GoogleCallback"));
+const DetailsService = lazy(() => import("@/features/services/pages/DetailsService"));
+const About = lazy(() => import("@/features/about/pages/About"));
+const Profile = lazy(() => import("@/features/auth/pages/Profile"));
+const NotFound = lazy(() => import("@/pages/notFound/NotFound"));
+const TrainingEvaluation = lazy(() => import("@/pages/training-evaluation/TrainingEvaluation"));
 
 const AppRoutes = () => {
   return (
     <>
       <Toaster />
 
-      <Routes>
-        <Route path="/" element={<Navigate to="/ar" replace />} />
-        {/* Routes with Header/Footer */}
-        <Route path="/:lang" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="pricing" element={<Prices />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="services/:id" element={<DetailsService />} />
-          <Route path="contact" element={<ContactUs />} />
-          <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-          <Route path="training-evaluation" element={<TrainingEvaluation />} />
-        </Route>
+      <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center"><Loading /></div>}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/ar" replace />} />
+          {/* Routes with Header/Footer */}
+          <Route path="/:lang" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="pricing" element={<Prices />} />
+            <Route path="services" element={<Services />} />
+            <Route path="about" element={<About />} />
+            <Route path="services/:id" element={<DetailsService />} />
+            <Route path="contact" element={<ContactUs />} />
+            <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="training-evaluation" element={<TrainingEvaluation />} />
+          </Route>
 
-        {/* Auth Routes (Guest only) */}
-        <Route path="/:lang/auth/sign-in" element={<GuestRoute><SignIn /></GuestRoute>} />
-        <Route path="/:lang/auth/forgot-password" element={<GuestRoute><ForgotPassword /></GuestRoute>} />
-        <Route path="/:lang/auth/reset-password" element={<GuestRoute><ResetPassword /></GuestRoute>} />
-        <Route path="/:lang/auth/otp-code" element={<GuestRoute><OtpCode /></GuestRoute>} />
-        <Route path="/:lang/auth/google/callback" element={<GoogleCallback />} />
+          {/* Auth Routes (Guest only) */}
+          <Route path="/:lang/auth/sign-in" element={<GuestRoute><SignIn /></GuestRoute>} />
+          <Route path="/:lang/auth/forgot-password" element={<GuestRoute><ForgotPassword /></GuestRoute>} />
+          <Route path="/:lang/auth/reset-password" element={<GuestRoute><ResetPassword /></GuestRoute>} />
+          <Route path="/:lang/auth/otp-code" element={<GuestRoute><OtpCode /></GuestRoute>} />
+          <Route path="/:lang/auth/google/callback" element={<GoogleCallback />} />
 
-        {/* Catch-all for URLs outside /:lang */}
-        <Route path="*" element={<NotFound />} />
-
-      </Routes>
+          {/* Catch-all for URLs outside /:lang */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };

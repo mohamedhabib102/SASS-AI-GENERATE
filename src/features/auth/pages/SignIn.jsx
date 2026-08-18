@@ -144,12 +144,10 @@ const SignIn = () => {
         <DialogContent className="sm:max-w-md text-center flex flex-col items-center">
           <DialogHeader className="w-full">
             <DialogTitle className="text-center text-xl text-primary font-bold">
-              {lang === "ar" ? "تسجيل دخول كشركة" : "Company Login"}
+              {t("signInDialog.title")}
             </DialogTitle>
             <DialogDescription className="text-center text-md text-gray-600 mt-2">
-              {lang === "ar"
-                ? "جاري تجهيز لوحة التحكم الخاصة بك. يرجى الانتظار قليلاً..."
-                : "Preparing your dashboard. Please wait a moment..."}
+              {t("signInDialog.description")}
             </DialogDescription>
           </DialogHeader>
 
@@ -167,7 +165,7 @@ const SignIn = () => {
                 }}
                 className="w-full py-6 text-white font-bold bg-primary hover:bg-primary-dark transition-all flex items-center gap-2"
               >
-                {lang === "ar" ? "الذهاب إلى لوحة التحكم" : "Go to Dashboard"}
+                {t("signInDialog.goToDashboard")}
                 <ExternalLink size={20} />
               </Button>
             )}

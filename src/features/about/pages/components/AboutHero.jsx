@@ -3,7 +3,6 @@ import { useLang } from "@/hooks/useLang";
 import Animate from "@/animations/Animate";
 import useHeroAbout from "@/features/about/hooks/useHeroAbout";
 import Loading from "@/components/shared/Loading";
-import ServerError from "@/components/shared/ServerError";
 
 const AboutHero = () => {
   const { t } = useLang();
@@ -11,8 +10,8 @@ const AboutHero = () => {
 
   const heroData = res?.data;
   const bgImage = heroData?.background_image ?? "/images/about-hero.jpg";
-  const title = heroData?.title || null;
-  const description = heroData?.description || null;
+  const title = heroData?.title || t("aboutPage.hero.title");
+  const description = heroData?.description || t("aboutPage.hero.description");
 
   return (
     <section className="relative flex items-center justify-center min-h-120 md:min-h-137.5 lg:min-h-[600px] w-full text-white py-16 overflow-hidden">
@@ -33,9 +32,7 @@ const AboutHero = () => {
           <div className="flex justify-center items-center py-16">
             <Loading color="#ffffff" size={35} />
           </div>
-        ) : isError || !title ? (
-          <ServerError message={t("errors.nofoundData")}/>
-        ) : (
+        ) :  (
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
             <Animate direction="up" triggerOn="mount" duration={0.6}>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight lg:leading-[1.2] mb-6 drop-shadow-md">
