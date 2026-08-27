@@ -1,6 +1,6 @@
 # Markeva  - Marketing Services Management Platform 
 
-**Markeva  (ماركيفا)** is a modern, integrated SaaS web application designed for companies and individuals to seamlessly request, track, and manage marketing services and campaigns from a unified, intuitive dashboard.
+**Markeva** is a modern, integrated SaaS web application designed for companies and individuals to seamlessly request, track, and manage marketing services and campaigns from a unified, intuitive dashboard.
 
 ---
 
@@ -88,15 +88,6 @@ src/
 git clone https://github.com/mohamedhabib102/SASS-AI-GENERATE.git
 cd SASS-AI-GENERATE-main
 npm install
-```
-
-### **2. Environment Variables Setup**
-Create a `.env` file in the project root:
-
-```env
-VITE_API_URL=https://cust.iptvdemo.serv5group.com
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
-VITE_GOOGLE_REDIRECT_URI=https://cust.iptvdemo.serv5group.com/api/auth/google/redirect
 ```
 
 ### **3. Run Development Server**
